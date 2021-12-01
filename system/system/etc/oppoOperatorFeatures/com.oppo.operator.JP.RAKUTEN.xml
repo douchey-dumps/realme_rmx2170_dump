@@ -1,0 +1,10 @@
+<!-- This file is used by Exp Region: IR.  DO NOT MODIFY. -->
+<permissions>
+  <feature name="oppo.cellbroadcast.rakuten.special.channel.config" />
+  <feature name="oppo.phone.rakuten.prefix" />
+  <feature name="oppo.apn.rakuten.show_apn" />
+  <feature name="oppo.apn.rakuten.is_rakuten_version" />
+  <feature name="oppo.phone.display.caller.id.name" />
+  <feature name="coloros.customize.phone.add_harass_intercept_type"/>
+  <feature name="coloros.customize.contacts.harass_intercept_anonymous_etc" />
+</permissions>

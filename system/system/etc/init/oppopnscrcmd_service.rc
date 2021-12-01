@@ -1,0 +1,13 @@
+service oppopnscrcmd /system/bin/oppopnscrcmd
+    user root
+    group root system nfc
+    oneshot
+    seclabel u:r:rutilsdaemon:s0
+    disabled
+
+on property:persist.sys.nfc_pnscr_start=1
+    start oppopnscrcmd
+
+on property:persist.sys.nfc_pnscr_start=0
+    stop oppopnscrcmd
+

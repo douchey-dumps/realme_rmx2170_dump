@@ -1,0 +1,5 @@
+<!-- This file is used by Exp Region: IR.  DO NOT MODIFY. -->
+<permissions>
+  <feature name="oppo.phone.play.busy.tone" />
+  <feature name="coloros.customize.simsettings.disable_vowifi_in_airplane" />
+</permissions>

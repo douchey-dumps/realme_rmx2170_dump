@@ -1,0 +1,2 @@
+vendor.qti.hardware.systemhelper::ISystemResource         u:object_r:hal_systemhelper_hwservice:s0
+vendor.qti.hardware.systemhelper::ISystemEvent            u:object_r:hal_systemhelper_hwservice:s0

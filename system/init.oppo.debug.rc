@@ -1,0 +1,1689 @@
+##################################################################################
+### VENDOR_EDIT, OPPO All rights reserved.
+###
+### File: - init.oppo.debug.nosd.rc
+### Author: Jason.Lee@OnlineRd.Framework
+###
+### ------------------------------- Revision History: ----------------------------
+### <author>                        <data>       <version>   <desc>
+### ------------------------------------------------------------------------------
+### Jason.Lee@OnlineRd.Framework   2014-03-18               Create this file
+##################################################################################
+
+#ifdef VENDOR_EDIT
+#yanbin@OnlineRd.framework.oppo_debug, 2015/03/07, add
+
+# There are some duplicate codes
+
+on property:persist.sys.dump=1
+    start dumpon
+
+on property:persist.sys.engineering.pre.fulldumpon=true
+    start dumpon
+    setprop persist.sys.dump 1
+    setprop persist.sys.engineering.pre.fulldumpon false
+
+on property:persist.sys.engineering.pre.fulldumpoff=true
+    start dumpon
+    setprop persist.sys.dump 0
+    setprop persist.sys.engineering.pre.fulldumpoff false
+
+#Chunbo.Gao@ANDROID.DEBUG, 2020/04/30, reset log config to 0 only for pre version
+on property:persist.sys.engineering.pre.logconfig=0
+    setprop persist.sys.oppo.log.config 0
+    setprop persist.sys.engineering.pre.logconfig 99
+on property:persist.sys.engineering.pre.logconfig=1
+    setprop persist.sys.oppo.log.config 1
+    setprop persist.sys.engineering.pre.logconfig 99
+
+on property:persist.sys.dump=0
+    start dumpoff
+
+#JianRong.Zheng@Swdp.Android.Log, 2016/10/07, remove 0x840 0x841, default value set by kernel or driver, no need to modify here
+on property:persist.sys.powerkeydump=0
+    start pwkdumpoff
+
+#JianRong.Zheng@Swdp.Android.Log, 2016/10/07, modify 0x840 from 0x0c to 0x0F, 0x841 from 0x07 to 0x05 avoid cause into dump by mistake(5.5s change to 10.7s)
+on property:persist.sys.powerkeydump=1
+    start pwkdumpon
+
+#linzhangru@PSW.TECH 20191126, trigger saupwklog dump after sau finished or force rebooted
+on property:sys.saupwk.logdump=true
+    start saupwklogdump
+
+#Canjie.Zheng@Swdp.Android.OppoDebug.LogKit,2016/11/25,disable console log default
+on property:ro.build.release_type=false
+    start chprintk
+
+#Junhao.Liang@PSW.AD.OppoDebug.LogKit.1491016, 2018/09/27, Add for removing pstore
+on property:sys.oppo.rmpstore=1
+    start rmpstore
+
+#Yugang.Bao@PSW.AD.OppoDebug.LogKit.1491016, 2018/09/27, Add for removing pstore
+on property:persist.sys.cpoppousage=1
+    start cpoppousage
+
+service chprintk /system/bin/autochmod.sh "chprintk"
+    class core
+    user root
+    seclabel u:r:rutilsdaemon:s0
+    disabled
+    oneshot
+
+service pwkdumpon /system/bin/autochmod.sh "pwkdumpon"
+    class core
+    user root
+    seclabel u:r:rutilsdaemon:s0
+    disabled
+    oneshot
+
+service pwkdumpoff /system/bin/autochmod.sh "pwkdumpoff"
+    class core
+    user root
+    seclabel u:r:rutilsdaemon:s0
+    disabled
+    oneshot
+
+service dumpon /system/bin/autochmod.sh "dumpon"
+    class core
+    user root
+    seclabel u:r:rutilsdaemon:s0
+    disabled
+    oneshot
+
+service dumpoff /system/bin/autochmod.sh "dumpoff"
+    class core
+    user root
+    seclabel u:r:rutilsdaemon:s0
+    disabled
+    oneshot
+
+service packupminidump /system/bin/autochmod.sh "packupminidump"
+    class core
+    user root
+    seclabel u:r:rutilsdaemon:s0
+    disabled
+    oneshot
+
+#ifdef VENDOR_EDIT
+#Bin.Yan@Swdp.Android.OppoDebug.AssertTip, 2015/12/30, add for AssertTip.
+service oppoasserttip /system/bin/asserttip
+    class core
+    user system
+    disabled
+
+#Canjie.Zheng@PSW.AD.OppoDebug.CriticalLog.1067207, 2016/01/07, Add for critical log.
+service criticallog /system/bin/criticallog
+    class main
+    user system
+    seclabel u:r:rutilsdaemon:s0
+    group system
+
+service ps /system/bin/autochmod.sh "ps"
+    class core
+    user root
+    group root system everybody sdcard_rw
+    disabled
+    oneshot
+service top /system/bin/autochmod.sh "top"
+    class core
+    user root
+    group root system everybody sdcard_rw
+    disabled
+    oneshot
+service server_list /system/bin/autochmod.sh "server"
+    class core
+    user root
+    group root system everybody sdcard_rw
+    seclabel u:r:dumpstate:s0
+    disabled
+    oneshot
+
+service dump_sys /system/bin/autochmod.sh "dump"
+    class core
+    user root
+    group root system everybody
+    seclabel u:r:rutilsdaemon:s0
+    disabled
+    oneshot
+
+service dump_sysinfo /system/bin/autochmod.sh "dump_sysinfo"
+    class core
+    user root
+    seclabel u:r:rutilsdaemon:s0
+    disabled
+    oneshot
+
+service dump_storage /system/bin/autochmod.sh "dump_storage"
+    class core
+    user root
+    group root system everybody sdcard_rw
+    seclabel u:r:rutilsdaemon:s0
+    disabled
+    oneshot
+service dump_wechat_info /system/bin/autochmod.sh "dump_wechat_info"
+    class core
+    user root
+    seclabel u:r:rutilsdaemon:s0
+    disabled
+    oneshot
+service dump_state /system/bin/autochmod.sh "dumpstate"
+    class core
+    user root
+    group root system everybody sdcard_rw
+    seclabel u:r:dumpstate:s0
+    disabled
+    oneshot
+
+service tranfer /system/bin/autochmod.sh "tranfer"
+    class core
+    user root
+    disabled
+    oneshot
+service tranfer_tomb /system/bin/autochmod.sh "tranfer_tombstone"
+    class core
+    user root
+    seclabel u:r:rutilsdaemon:s0
+    disabled
+    oneshot
+service tranfer_anr /system/bin/autochmod.sh "tranfer_anr"
+    class core
+    user root
+    seclabel u:r:rutilsdaemon:s0
+    disabled
+    oneshot
+#Chunbo.Gao@PSW.AD.OppoLog.2514795, 2019/11/12, Add for copy binder_info
+service copybinderinfo /system/bin/autochmod.sh "copybinderinfo"
+    class core
+    user root
+    seclabel u:r:dumpstate:s0
+    disabled
+    oneshot
+#Wuchao.Huang@ROM.Framework.EAP, 2019/11/19, Add for copy binder_info
+service copyEapBinderInfo /system/bin/autochmod.sh "copyEapBinderInfo"
+    class core
+    user root
+    seclabel u:r:dumpstate:s0
+    disabled
+    oneshot
+service logcatsdcard /system/bin/autochmod.sh "main"
+    class core
+    user root
+    seclabel u:r:rutilsdaemon:s0
+    disabled
+
+service logcatradio /system/bin/autochmod.sh "radio"
+    class core
+    user root
+    seclabel u:r:rutilsdaemon:s0
+    disabled
+
+service logcatevent /system/bin/autochmod.sh "event"
+    class core
+    user root
+    seclabel u:r:rutilsdaemon:s0
+    disabled
+
+service cameraloginit /system/bin/autochmod.sh "cameraloginit"
+    class core
+    user root
+    seclabel u:r:rutilsdaemon:s0
+    disabled
+
+#Jianping.Zheng@Swdp.Android.Stability.Crash,2017/04/04,add for record performance
+service perf_record /system/bin/autochmod.sh "perf_record"
+    class core
+    user root
+    disabled
+    seclabel u:r:perf_record:s0
+
+#Jianping.Zheng@PSW.Android.Stability.Crash,2017/05/08,add for systemserver futex_wait block check
+service checkfutexwait_wrap /system/bin/autochmod.sh "checkfutexwait_wrap"
+    class core
+    user system
+    group system
+    seclabel u:r:rutilsdaemon:s0
+    disabled
+    oneshot
+
+service checkfutexwait_bin /system/bin/checkfutexwait
+    class core
+    user system
+    group system
+    seclabel u:r:rutilsdaemon:s0
+    disabled
+    oneshot
+
+service checkfutexwait /system/bin/autochmod.sh "checkfutexwait"
+    class core
+    user root
+    seclabel u:r:rutilsdaemon:s0
+    oneshot
+    disabled
+#end, add for systemserver futex_wait block check
+
+#Fei.Mo@PSW.BSP.Sensor, 2017/09/01 ,Add for power monitor top info
+service thermal_top /system/bin/autochmod.sh "thermal_top"
+    class core
+    user root
+    disabled
+    oneshot
+
+service dumpenvironment /system/bin/autochmod.sh "dumpenvironment"
+    class core
+    user root
+    disabled
+    oneshot
+#ifdef VENDOR_EDIT
+#Li.Liu@PSW.AD.OppoDebug.Feedback.1050853,2017/12/20, Add for Feedback can not get some files
+    seclabel u:r:rutilsdaemon:s0
+#endif
+
+service logcatkernel /system/bin/autochmod.sh "kernel"
+    class core
+    user root
+    seclabel u:r:rutilsdaemon:s0
+    disabled
+    oneshot
+
+service cleanlog /system/bin/autochmod.sh "clean"
+    class core
+    user root
+    disabled
+    oneshot
+service  tcpdumplog /system/bin/autochmod.sh "tcpdump"
+    class core
+    user root
+    seclabel u:r:rutilsdaemon:s0
+    disabled
+    oneshot
+service fingerprintlog /system/bin/autochmod.sh "fingerprint"
+    class core
+    user root
+    seclabel u:r:rutilsdaemon:s0
+    disabled
+    oneshot
+
+#Qilong.Ao@PSW.AD.OppoDebug.LogKit.1067207, 2019/04/01, Add for 5G log.
+service logfor5G /system/bin/autochmod.sh "logfor5G"
+    class core
+    user root
+    seclabel u:r:rutilsdaemon:s0
+    disabled
+    oneshot
+
+#Qi.Zhang@TECH.BSP.Stability 2019/09/20, Add for uefi log
+service logcatuefi /system/bin/autochmod.sh "logcatuefi"
+    class core
+    user root
+    seclabel u:r:rutilsdaemon:s0
+    disabled
+    oneshot
+
+service fplogqess /system/bin/autochmod.sh "fpqess"
+    class core
+    user root
+    seclabel u:r:rutilsdaemon:s0
+    disabled
+    oneshot
+
+#ifdef VENDOR_EDIT
+#Horn@Swdp.Android.Boot, 2015/03/27, Modify for remove suid of tcpdump . suid bit will be set only when  sys.debug = 1
+service enabletcpdump /system/bin/autochmod.sh "enabletcpdump"
+    class core
+    user root
+    seclabel u:r:rutilsdaemon:s0
+    disabled
+    oneshot
+#endif
+
+#ifdef VENDOR_EDIT
+#Qianyou.Chen@PSW.Android.OppoDebug.LogKit, 2017/04/12, add for wifi packet log
+#ifdef VENDOR_EDIT
+#Xiao.Liang@PSW.CN.WiFi.Basic.Log.1072015, 2018/10/21, Modify for collecting wifi driver log
+#service prepacketlog /system/bin/autochmod.sh "prepacketlog"
+#    class core
+#    user root
+#    disabled
+#    oneshot
+#
+#service wifipktlogtransf /system/bin/autochmod.sh "wifipktlogtransf"
+#    class core
+#    user root
+#   disabled
+#    oneshot
+#else /* VENDOR_EDIT */
+
+service prepacketlog /vendor/bin/vendor.autochmod.sh "prepacketlog"
+    class core
+    user root
+    disabled
+    oneshot
+
+service wifipktlogtransf /vendor/bin/vendor.autochmod.sh "wifipktlogtransf"
+    class core
+    user root
+    seclabel u:r:rutilsdaemon:s0
+    disabled
+    oneshot
+
+service wifidriverlog_on /vendor/bin/cnss_diag -q -f -t HELIUM
+    class main
+    user system
+    group system wifi inet sdcard_rw media_rw diag
+    disabled
+    oneshot
+
+service wifidriverlog_off /vendor/bin/cnss_diag -q -u -w -b 4096
+    class main
+    user system
+    group system wifi inet net_admin sdcard_rw media_rw diag
+    disabled
+    oneshot
+
+service setiwprivpkt0 /system/bin/autochmod.sh "setiwprivpkt0"
+    class core
+    user root
+    disabled
+    oneshot
+
+service setiwprivpkt1 /system/bin/autochmod.sh "setiwprivpkt1"
+    class core
+    user root
+    disabled
+    oneshot
+
+service setiwprivpkt4 /system/bin/autochmod.sh "setiwprivpkt4"
+    class core
+    user root
+    disabled
+    oneshot
+
+on property:oppo.wifi.ftm=1
+    stop wifidriverlog_on
+    #stop wifidriverlog_off
+
+#endif /*VENDOR_EDIT*/
+
+#ifdef VENDOR_EDIT
+#Zaogen.Hong@PSW.CN.WiFi.Connect,2020/03/03, Add for trigger wifi dump by engineerMode
+service wifi_minidump /system/bin/autochmod.sh "wifi_minidump"
+    class core
+    user root
+    seclabel u:r:rutilsdaemon:s0
+    disabled
+    oneshot
+
+#Laixin@PSW.CN.WiFi.Basic.Custom, add for disable scan for wifi roam test
+service scan_switch_for_wifiroam /system/bin/autochmod.sh "scan_switch_for_wifiroam"
+    class core
+    user root
+    disabled
+    oneshot
+
+on property:oppo.wifi.scan.enabled=*
+    start scan_switch_for_wifiroam
+#endif /*VENDOR_EDIT*/
+
+#Chunbo.Gao@ANDROID.DEBUG 2020/6/22, Add for log observer
+service log_observer /system/bin/autochmod.sh "log_observer"
+    class core
+    user root
+    seclabel u:r:rutilsdaemon:s0
+    disabled
+    oneshot
+#endif /*VENDOR_EDIT*/
+
+service pktcheck /system/bin/autochmod.sh "pktcheck"
+    class core
+    user root
+    oneshot
+#endif /*VENDOR_EDIT*/
+
+##ifdef VENDOR_EDIT
+#Boning.Li@Swdp.Android.OppoDebug.LogKit, 2016/08/06, add screen record for oppo log.
+service screen_record /system/bin/autochmod.sh "screen_record"
+    class core
+    user root
+    disabled
+    oneshot
+#endif /*VENDOR_EDIT*/
+
+#ifdef VENDOR_EDIT
+#RunSheng.Pei@Swdp.Android.OppoDebug.LogKit, 2016/11/20, add screen record for oppo log.
+service backupscr /system/bin/autochmod.sh "screen_record_backup"
+    class core
+    user root
+    disabled
+    oneshot
+#endif /*VENDOR_EDIT*/
+
+#ifdef VENDOR_EDIT
+#Yanzhen.Feng@Swdp.Android.OppoDebug.LayerDump, 2015/12/09, Add for SurfaceFlinger Layer dump
+service layerdump /system/bin/autochmod.sh "layerdump"
+    class core
+    user root
+    disabled
+    oneshot
+#endif /* VENDOR_EDIT */
+
+#ifdef VENDOR_EDIT
+#Deliang.Peng@MultiMedia.Display.Service.Log, 2017/3/31,add for dump sf back trace
+service sfdump /system/bin/autochmod.sh "sfdump"
+    class core
+    user root
+    disabled
+    oneshot
+
+service sfsystrace /system/bin/autochmod.sh "sfsystrace"
+    class core
+    user root
+    disabled
+    oneshot
+
+#endif
+
+#ifdef VENDOR_EDIT
+#Yanzhen.Feng@Swdp.Android.OppoDebug, 2017/03/20, Add for systrace on phone
+service cont_systrace /system/bin/autochmod.sh "cont_systrace"
+    class core
+    user root
+    seclabel u:r:rutilsdaemon:s0
+    disabled
+    oneshot
+#endif /* VENDOR_EDIT */
+
+#ifdef VENDOR_EDIT
+#fangpan@Swdp.shanghai, 2017/06/05, Add for systrace snapshot mode
+service snaptrace_on /system/bin/autochmod.sh "systrace_trigger_start"
+    class core
+    user root
+    seclabel u:r:rutilsdaemon:s0
+    disabled
+    oneshot
+
+service snaptrace_off /system/bin/autochmod.sh "systrace_trigger_stop"
+    class core
+    user root
+    seclabel u:r:rutilsdaemon:s0
+    disabled
+    oneshot
+
+service snaptrace /system/bin/autochmod.sh "systrace_snapshot"
+    class core
+    user root
+    seclabel u:r:rutilsdaemon:s0
+    disabled
+    oneshot
+#endif /* VENDOR_EDIT */
+
+#ifdef VENDOR_EDIT
+#Jianping.Zheng@Swdp.Android.Stability.Crash, 2016/08/09, Add for logd memory leak workaround
+service checklogdmemleak /system/bin/autochmod.sh "check_logd_memleak"
+    class core
+    user root
+    disabled
+    oneshot
+#endif /* VENDOR_EDIT */
+
+#ifdef VENDOR_EDIT
+#Zhihao.Li@MultiMedia.AudioServer.FrameWork, 2016/10/19, Add for clean pcm dump file.
+service cleanpcmdump /system/bin/autochmod.sh "cleanpcmdump"
+    class core
+    user root
+    disabled
+    oneshot
+#endif /* VENDOR_EDIT */
+
+service clearcurrentlog /system/bin/autochmod.sh "clearcurrentlog"
+    class core
+    user root
+    disabled
+    oneshot
+
+service calcutelogsize /system/bin/autochmod.sh "calcutelogsize"
+    class core
+    user root
+    disabled
+    oneshot
+
+service movescreenrecord /system/bin/autochmod.sh "movescreenrecord"
+    class core
+    user root
+    disabled
+    oneshot
+
+service cleardataoppolog /system/bin/autochmod.sh "cleardataoppolog"
+    class core
+    user root
+    disabled
+    oneshot
+
+service initcache /system/bin/autochmod.sh "initcache"
+    class core
+    user root
+    seclabel u:r:rutilsdaemon:s0
+    disabled
+    oneshot
+
+service logcatcache /system/bin/autochmod.sh "logcatcache"
+    class core
+    user root
+    seclabel u:r:rutilsdaemon:s0
+    disabled
+    oneshot
+
+service radiocache /system/bin/autochmod.sh "radiocache"
+    class core
+    user root
+    seclabel u:r:rutilsdaemon:s0
+    disabled
+    oneshot
+
+service eventcache /system/bin/autochmod.sh "eventcache"
+    class core
+    user root
+    seclabel u:r:rutilsdaemon:s0
+    disabled
+    oneshot
+
+service kernelcache /system/bin/autochmod.sh "kernelcache"
+    class core
+    user root
+    seclabel u:r:rutilsdaemon:s0
+    disabled
+    oneshot
+
+service tcpdumpcache /system/bin/autochmod.sh "tcpdumpcache"
+    class core
+    user root
+    seclabel u:r:rutilsdaemon:s0
+    disabled
+    oneshot
+
+service fingerprintcache /system/bin/autochmod.sh "fingerprintcache"
+    class core
+    user root
+    seclabel u:r:rutilsdaemon:s0
+    disabled
+    oneshot
+
+#Qilong.Ao@PSW.AD.OppoDebug.LogKit.1067207, 2019/04/01, Add for 5G log.
+service logfor5Gcache /system/bin/autochmod.sh "logfor5Gcache"
+    class core
+    user root
+    seclabel u:r:rutilsdaemon:s0
+    disabled
+    oneshot
+
+service fplogcache /system/bin/autochmod.sh "fplogcache"
+    class core
+    user root
+    seclabel u:r:rutilsdaemon:s0
+    disabled
+    oneshot
+
+service junklogcat /system/bin/autochmod.sh "junklogcat"
+    class main
+    user root
+    disabled
+    oneshot
+
+service junkdmesg /system/bin/autochmod.sh "junkdmesg"
+    class main
+    user root
+    disabled
+    oneshot
+
+service junkststart /system/bin/autochmod.sh "junkststart"
+    class main
+    user root
+    disabled
+    oneshot
+
+service junkststop /system/bin/autochmod.sh "junkststop"
+    class main
+    user root
+    disabled
+    oneshot
+
+#ifdef VENDOR_EDIT
+#Canjie.Zheng@Swdp.Android.OppoDebug.LogKit, 2016/09/13, add for copy pstore
+service cppstore /system/bin/autochmod.sh "cppstore"
+    class main
+    user root
+    disabled
+    oneshot
+#endif  VENDOR_EDIT
+
+#ifdef VENDOR_EDIT
+#Junhao.Liang@PSW.AD.OppoDebug.Feedback.1500936, 2018/07/31, Add for panic delete pstore/dmesg-ramoops-0 file
+service rmpstore /system/bin/autochmod.sh "rmpstore"
+    class main
+    user root
+    disabled
+    oneshot
+#endif /* VENDOR_EDIT */
+
+#ifdef VENDOR_EDIT
+#Yugang.Bao@PSW.AD.OppoDebug.Feedback.1500936, 2018/07/31, Add for panic delete pstore/dmesg-ramoops-0 file
+service cpoppousage /system/bin/autochmod.sh "cpoppousage"
+    class main
+    user root
+    seclabel u:r:rutilsdaemon:s0
+    disabled
+    oneshot
+#endif /* VENDOR_EDIT */
+
+#ifdef VENDOR_EDIT
+#Canjie.Zheng@Swdp.Android.OppoDebug.JunkLog, 2016/08/04, add for junk log.
+service junklog /system/bin/junklogcollector
+    class main
+    user system
+    group system sdcard_rw sdcard_r
+
+#endif /* VENDOR_EDIT */
+
+#Linjie.Xu@PSW.AD.Power.PowerMonitor.1104067, 2018/01/17, Add for OppoPowerMonitor get dmesg at O
+service opmgetdmesg /system/bin/autochmod.sh "kernelcacheforopm"
+    class main
+    user root
+    seclabel u:r:rutilsdaemon:s0
+    disabled
+    oneshot
+#Linjie.Xu@PSW.AD.Power.PowerMonitor.1104067, 2018/01/17, Add for OppoPowerMonitor get Sysinfo at O
+service opmgetps /system/bin/autochmod.sh "psforopm"
+    class main
+    user root
+    seclabel u:r:rutilsdaemon:s0
+    disabled
+    oneshot
+#Linjie.Xu@PSW.AD.Power.PowerMonitor.1104067, 2019/08/21, Add for OppoPowerMonitor get qrtr at Qcom
+service qrtrlookupforopm /system/bin/autochmod.sh "qrtrlookupforopm"
+    class main
+    user root
+    seclabel u:r:rutilsdaemon:s0
+    disabled
+    oneshot
+service opmgetcpufreq /system/bin/autochmod.sh "cpufreqforopm"
+    class main
+    user root
+    disabled
+    oneshot
+service smapsforhealth /system/bin/autochmod.sh "smapsforhealth"
+    class main
+    user root
+    seclabel u:r:rutilsdaemon:s0
+    disabled
+    oneshot
+service dmaprocsforhealth /system/bin/autochmod.sh "dmaprocsforhealth"
+    class main
+    user root
+    seclabel u:r:dumpstate:s0
+    disabled
+    oneshot
+service meminfoforhealth /system/bin/autochmod.sh "meminfoforhealth"
+    class main
+    user root
+    seclabel u:r:dumpstate:s0
+    disabled
+    oneshot
+service slabinfoforhealth /system/bin/autochmod.sh "slabinfoforhealth"
+    class main
+    user root
+    seclabel u:r:dumpstate:s0
+    disabled
+    oneshot
+service svelteforhealth /system/bin/autochmod.sh "svelteforhealth"
+    class main
+    user root
+    seclabel u:r:dumpstate:s0
+    disabled
+    oneshot
+service opmgetsystrace /system/bin/autochmod.sh "systraceforopm"
+    class main
+    user root
+    seclabel u:r:rutilsdaemon:s0
+    disabled
+    oneshot
+
+#ifdef VENDOR_EDIT
+#Yufeng.Liu@Plf.TECH.Performance, 2019/9/3, Add for malloc_debug
+service memdebugregister /system/bin/autochmod.sh "memdebugregister"
+    class main
+    user root
+    disabled
+    oneshot
+
+service memdebugstart /system/bin/autochmod.sh "memdebugstart"
+    class main
+    user root
+    disabled
+    oneshot
+
+service memdebugdump /system/bin/autochmod.sh "memdebugdump"
+    class main
+    user root
+    disabled
+    oneshot
+
+service memdebugremove /system/bin/autochmod.sh "memdebugremove"
+    class main
+    user root
+    disabled
+    oneshot
+#endif /* VENDOR_EDIT */
+
+on post-fs-data
+   mkdir /data/oppo_log 777
+   mkdir /data/ramdump 770 system system
+
+
+service logpreprocess /system/bin/autochmod.sh "logpreprocess"
+    class core
+    user root
+    seclabel u:r:rutilsdaemon:s0
+    disabled
+    oneshot
+
+on property:persist.sys.assert.panic=true
+   start initcache
+   start logpreprocess
+   start log_observer
+   start inittpdebug
+
+on property:persist.sys.assert.panic.camera=true
+   start initcache
+   start logpreprocess
+   start log_observer
+   start inittpdebug
+
+#ifdef VENDOR_EDIT
+#Xiao.Liang@PSW.Wifi.Basic.Log.1072015,2018/10/21, add for collecting wifi driver log
+on property:vold.decrypt=trigger_restart_framework && property:persist.sys.assert.panic=true
+   start prepacketlog
+   #stop wifidriverlog_off
+   start wifidriverlog_on
+
+on property:persist.sys.assert.panic=true && property:ro.crypto.state=encrypted && property:ro.crypto.type=file
+   start prepacketlog
+   #stop wifidriverlog_off
+   start wifidriverlog_on
+
+#endif
+
+on property:sys.oppo.collectcache.start=true
+   start logcatcache
+   start radiocache
+   start eventcache
+   start kernelcache
+   start tcpdumpcache
+   start fingerprintcache
+   start logfor5Gcache
+   start fplogcache
+   start logcatuefi
+
+on property:sys.oppo.collectlog.start=true
+   start logcatsdcard
+   start logcatradio
+   start logcatevent
+   start logcatkernel
+   start tcpdumplog
+   start fingerprintlog
+   start logfor5G
+   start fplogqess
+   start cppstore
+   start qmilogon
+#ifdef OPLUS_DEBUG_SSLOG_CATCH
+#//Wankang.Zhang@TECH.MDM.POWER 2020/04/02,add for catch ss log
+   start locatModemTmp
+#endif
+
+#ifdef VENDOR_EDIT
+#Canjie.Zheng@Swdp.Android.OppoDebug.JunkLog,2016/07/25,add for junklog
+#start or stop base on the property
+on property:persist.sys.oppo.junklog=true
+    start junklog
+
+on property:persist.sys.oppo.junklog=false
+    start junklog
+#endif VENDOR_EDIT
+
+on property:sys.oppo.tranfer=true
+    stop logcatsdcard
+    stop logcatevent
+    stop logcatkernel
+    stop logcatradio
+    stop tcpdumplog
+    stop fingerprintlog
+    stop logfor5G
+    stop logcatuefi
+    stop fplogqess
+    stop log_observer
+    start tranfer
+    setprop persist.sys.assert.panic false
+    #ifdef OPLUS_DEBUG_SSLOG_CATCH
+#//Wankang.Zhang@TECH.MDM.POWER 2020/04/02,add for catch ss log
+    stop locatModemTmp
+#endif
+
+#ifdef VENDOR_EDIT
+#Canjie.Zheng@Swdp.Android.OppoDebug.LogKit,2017/03/09, add for Sensor.logger
+service resetlogpath /system/bin/autochmod.sh "resetlogpath"
+    class main
+    user root
+    disabled
+    oneshot
+#endif
+
+#ifdef VENDOR_EDIT
+#Jianping.Zheng@Swdp.Android.Stability.Crash,2017/04/04,add for record performance
+on property:persist.sys.oppo.perfrecord=true
+    start perf_record
+
+on property:persist.sys.oppo.perfrecord=false
+    stop perf_record
+#endif VENDOR_EDIT
+
+#ifdef VENDOR_EDIT
+#Wenzhen.Lin@Swdp.Android.OppoDebug.JunkLog,2017/4/19,add for pack up junk log
+service junklogmonitor /system/bin/autochmod.sh "junklogmonitor"
+    class main
+    user system
+    group system sdcard_rw sdcard_r
+    disabled
+    oneshot
+#endif VENDOR_EDIT
+
+#Jianping.Zheng@PSW.Android.Stability.Crash,2017/05/08,add for systemserver futex_wait block check
+on property:persist.sys.oppo.checkfutexwait=true
+    start checkfutexwait_wrap
+
+on property:persist.sys.oppo.checkfutexwait=false
+    stop checkfutexwait_wrap
+#end, add for systemserver futex_wait block check
+
+#ifdef VENDOR_EDIT
+#Canjie.Zheng@Swdp.Android.OppoDebug.LogKit,2016/11/28,add for tp
+service gettpinfo /system/bin/autochmod.sh "gettpinfo"
+    class main
+    user root
+    seclabel u:r:rutilsdaemon:s0
+    disabled
+    oneshot
+
+service inittpdebug /system/bin/autochmod.sh "inittpdebug"
+    class main
+    user root
+    seclabel u:r:rutilsdaemon:s0
+    disabled
+    oneshot
+
+service settplevel /system/bin/autochmod.sh "settplevel"
+    class main
+    user root
+    seclabel u:r:rutilsdaemon:s0
+    disabled
+    oneshot
+
+service rmminidump /system/bin/autochmod.sh "rmminidump"
+    class main
+    user root
+    disabled
+    oneshot
+
+
+service readdump /system/bin/autochmod.sh "readdump"
+    class main
+    user root
+    seclabel u:r:rutilsdaemon:s0
+    oneshot
+
+#Canjie.Zheng@PSW.AD.OppoDebug.LogKit.1078692, 2017/11/20, Add for iotop
+service getiotop /system/bin/autochmod.sh "getiotop"
+    class main
+    user root
+    oneshot
+
+on property:sys.oppo.minidump=on
+    write /sys/module/msm_poweroff/parameters/download_mode 1
+
+on property:sys.oppo.minidump=off
+    write /sys/module/msm_poweroff/parameters/download_mode 0
+
+
+on property:persist.sys.assert.panic.camera=false
+    start inittpdebug
+    start resetlogpath
+
+on property:persist.sys.assert.panic=false
+    start inittpdebug
+#ifdef VENDOR_EDIT
+#Canjie.Zheng@Swdp.Android.OppoDebug.LogKit,2017/03/09, add for Sensor.logger
+    start resetlogpath
+#Chunbo.Gao@PSW.AD.OppoDebug.LogKit.1968962, 2019/4/24, Add for qmi log
+    start qmilogoff
+#endif
+#ifdef VENDOR_EDIT
+#Xiao.Liang@PSW.Wifi.Basic.Log.1072015,2018/10/21, add for collecting wifi driver log
+on property:vold.decrypt=trigger_restart_framework && property:persist.sys.assert.panic=false
+    stop wifidriverlog_on
+    #start wifidriverlog_off
+    start wifipktlogtransf
+    chmod 0770 /data/vendor/wifi
+
+on property:persist.sys.assert.panic=false && property:ro.crypto.state=encrypted && property:ro.crypto.type=file
+    stop wifidriverlog_on
+    #start wifidriverlog_off
+    start wifipktlogtransf
+    chmod 0770 /data/vendor/wifi
+#endif
+
+on property:persist.sys.oppodebug.tplevel=*
+    start settplevel
+
+#RunSheng.Pei@Swdp.Android.OppoDebug.AssertTip, 2017/02/16, add for asserttip begin:{
+on property:persist.sys.assert.state=true
+    start oppoasserttip
+#end.
+
+#endif VENDOR_EDIT
+
+
+#./add for new log kit begin
+service tranfer2 /system/bin/autochmod.sh "tranfer2"
+    class core
+    user root
+    disabled
+    seclabel u:r:rutilsdaemon:s0
+    oneshot
+
+service deleteOrigin /system/bin/autochmod.sh "deleteOrigin"
+    class core
+    user root
+    disabled
+    oneshot
+
+service deleteFolder /system/bin/autochmod.sh "deleteFolder"
+    class core
+    user root
+    disabled
+    oneshot
+
+service testKit /system/bin/autochmod.sh "testkit"
+    class core
+    user root
+    disabled
+    oneshot
+
+service calSize /system/bin/autochmod.sh "calculateFolderSize"
+    class core
+    user root
+    disabled
+    oneshot
+
+service testassert /system/bin/autochmod.sh "test"
+   class core
+   user root
+   disabled
+   oneshot
+
+on property:persist.sys.assert.test=true
+    start testassert
+    start logpreprocess
+    start tranfer2
+#endif
+#./add for new log kit end
+
+#ifdef VENDOR_EDIT
+#Haoran.Zhang@PSW.AD.BuildConfig.StandaloneUserdata.1143522, 2017/09/13, Modify for [read new prop for feature StandaloneUserdata]
+on post-fs-data
+   start datarefresh
+   start lowram_device_setup
+
+service datarefresh /system/bin/sh /system/bin/autochmod.sh "userdatarefresh"
+    class core
+    user root
+    seclabel u:r:rutilsdaemon:s0
+    disabled
+    oneshot
+#endif
+#end add
+
+#ifdef VENDOR_EDIT
+#Shuangquan.du@PSW.AD.Recovery.0, 2019/07/03, add for generate runtime prop
+on post-fs-data
+    start generate_runtime_prop
+
+service generate_runtime_prop /system/bin/autochmod.sh "generate_runtime_prop"
+    class core
+    user root
+    seclabel u:r:rutilsdaemon:s0
+    disabled
+    oneshot
+#endif
+
+#ifdef VENDOR_EDIT
+#Weitao.Chen@PSW.AD.Stability.Crash.1295294, 2018/03/01, Add for trying to recover from sysetm hang
+on property:sys.oppo.boot_completed=0
+   start recover_hang
+
+service recover_hang /system/bin/sh /system/bin/autochmod.sh "recover_hang"
+    class core
+    user root
+    seclabel u:r:rutilsdaemon:s0
+    disabled
+    oneshot
+#endif
+
+#ifdef VENDOR_EDIT
+#Jiemin.Zhu@PSW.AD.Memroy.Performance, 2017/10/12, add for low memory device
+service lowram_device_setup /system/bin/sh /system/bin/autochmod.sh "lowram_device_setup"
+    class core
+    user root
+    seclabel u:r:rutilsdaemon:s0
+    disabled
+    oneshot
+#endif
+#add for customer log
+service delcustomlog  /system/bin/autochmod.sh "delcustomlog"
+    class core
+    user root
+    seclabel u:r:rutilsdaemon:s0
+    disabled
+    oneshot
+
+service customdmesg  /system/bin/autochmod.sh "customdmesg"
+    class core
+    user root
+    seclabel u:r:rutilsdaemon:s0
+    disabled
+    oneshot
+
+service customdiaglog  /system/bin/autochmod.sh "customdiaglog"
+    class core
+    user root
+    seclabel u:r:rutilsdaemon:s0
+    disabled
+    oneshot
+
+service cleanramdump  /system/bin/autochmod.sh "cleanramdump"
+    class core
+    user root
+    seclabel u:r:rutilsdaemon:s0
+    disabled
+    oneshot
+
+service mvrecoverylog  /system/bin/autochmod.sh "mvrecoverylog"
+    class core
+    user root
+    seclabel u:r:rutilsdaemon:s0
+    disabled
+    oneshot
+
+service writenoop  /system/bin/autochmod.sh "writenoop"
+    class core
+    user root
+    seclabel u:r:rutilsdaemon:s0
+    disabled
+    oneshot
+
+service writecfq  /system/bin/autochmod.sh "writecfq"
+    class core
+    user root
+    seclabel u:r:rutilsdaemon:s0
+    disabled
+    oneshot
+
+service logcusmain  /system/bin/autochmod.sh "logcusmain"
+    class core
+    user root
+    seclabel u:r:rutilsdaemon:s0
+    disabled
+    oneshot
+
+service logcusevent /system/bin/autochmod.sh "logcusevent"
+    class core
+    user root
+    seclabel u:r:rutilsdaemon:s0
+    disabled
+    oneshot
+
+service logcusradio /system/bin/autochmod.sh "logcusradio"
+    class core
+    user root
+    disabled
+    oneshot
+
+service logcuskernel /system/bin/autochmod.sh "logcuskernel"
+    class core
+    user root
+    seclabel u:r:rutilsdaemon:s0
+    disabled
+    oneshot
+
+service logcustcp  /system/bin/autochmod.sh "logcustcp"
+    class core
+    user root
+    seclabel u:r:rutilsdaemon:s0
+    disabled
+    oneshot
+
+service logcuswifi  /system/bin/autochmod.sh "logcuswifi"
+    class core
+    user root
+    seclabel u:r:rutilsdaemon:s0
+    disabled
+    oneshot
+service logcusqmistart  /system/bin/autochmod.sh "logcusqmistart"
+    class core
+    user root
+    seclabel u:r:rutilsdaemon:s0
+    disabled
+    oneshot
+service logcusqmistop  /system/bin/autochmod.sh "logcusqmistop"
+    class core
+    user root
+    seclabel u:r:rutilsdaemon:s0
+    disabled
+    oneshot
+service chmodmodemconfig  /system/bin/autochmod.sh "chmodmodemconfig"
+    class core
+    user root
+    seclabel u:r:rutilsdaemon:s0
+    disabled
+    oneshot
+
+#ifdef VENDOR_EDIT
+#Jian.Wang@PSW.CN.WiFi.Basic.Log.1162003, 2018/7/02, Add for dynamic collect wifi mini dump
+
+on property:vendor.oppo.wifi.minidump=1
+    start skipscollectwifidmesg
+
+service touchwifiminidumpfile /system/bin/autochmod.sh "touchwifiminidumpfile"
+    class core
+    user system
+    group wifi system misc
+    disabled
+    oneshot
+
+service enablewifidump /system/bin/autochmod.sh "enablewifidump"
+    class core
+    user root
+    disabled
+    oneshot
+
+service disablewifidump /system/bin/autochmod.sh "disablewifidump"
+    class core
+    user root
+    disabled
+    oneshot
+
+service collectwifidmesg /system/bin/autochmod.sh "collectwifidmesg"
+    class main
+    user system
+    group wifi system misc
+    seclabel u:r:rutilsdaemon:s0
+    disabled
+    oneshot
+
+service skipscollectwifidmesg /system/bin/autochmod.sh "skipscollectwifidmesg"
+    class main
+    user system
+    group wifi system misc
+    seclabel u:r:rutilsdaemon:s0
+    disabled
+    oneshot
+#endif /*VENDOR_EDIT*/
+
+#ifdef VENDOR_EDIT
+#Laixin@PSW.CN.WiFi.Basic.Switch.1069763, 2018/09/03, Add for collect wifi switch log
+service collectWifiSwitchLog /system/bin/autochmod.sh "collectWifiSwitchLog"
+    class main
+    user root
+    disabled
+    seclabel u:r:rutilsdaemon:s0
+    oneshot
+
+service packWifiSwitchLog /system/bin/autochmod.sh "packWifiSwitchLog"
+    class main
+    user root
+    disabled
+    seclabel u:r:rutilsdaemon:s0
+    oneshot
+
+on property:sys.oppo.wifi.switch.log.stop=1
+    start packWifiSwitchLog
+
+service collectWifiP2pLog /system/bin/autochmod.sh "collectWifiP2pLog"
+    class main
+    user root
+    disabled
+    seclabel u:r:rutilsdaemon:s0
+    oneshot
+
+service packWifiP2pFailLog /system/bin/autochmod.sh "packWifiP2pFailLog"
+    class main
+    user root
+    disabled
+    seclabel u:r:rutilsdaemon:s0
+    oneshot
+
+on property:sys.oppo.wifi.p2p.log.stop=1
+    start packWifiP2pFailLog
+
+service mvWifiSwitchLog /system/bin/autochmod.sh "mvWifiSwitchLog"
+    class main
+    user root
+    disabled
+    seclabel u:r:rutilsdaemon:s0
+    oneshot
+
+#Gong Tao@PSW.CN.WiFi.Connect.Connect.1065680, 2020/03/16, Add for collect wifi connect fail log
+service collectWifiConnectFailLog /system/bin/autochmod.sh "collectWifiConnectFailLog"
+    class main
+    user root
+    disabled
+    seclabel u:r:rutilsdaemon:s0
+    oneshot
+
+service packWifiConnectFailLog /system/bin/autochmod.sh "packWifiConnectFailLog"
+    class main
+    user root
+    disabled
+    seclabel u:r:rutilsdaemon:s0
+    oneshot
+
+on property:sys.oppo.wifi.connectfail.log.stop=1
+    start packWifiConnectFailLog
+#endif /*VENDOR_EDIT*/
+
+#ifdef VENDOR_EDIT
+#Xiao.Liang@PSW.CN.WiFi.Basic.SoftAP.1610391, 2018/10/30, Modify for reading client devices name from /data/misc/dhcp/dnsmasq.leases
+service changedhcpfolderpermissions /system/bin/autochmod.sh "changedhcpfolderpermissions"
+    class main
+    user root
+    disabled
+    oneshot
+#endif /* VENDOR_EDIT */
+
+#ifdef VENDOR_EDIT
+#Lei.Zhang@PSW.CN.WiFi.Basic.Hardware.1687242, 2018/12/04, Add for change ini file for WiFi roaming test
+service switchWiFiIniForRoam /vendor/bin/vendor.autochmod.sh "switchWiFiIniForRoam"
+    class main
+    user root
+    disabled
+    seclabel u:r:rutilsdaemon:s0
+    oneshot
+#endif /* VENDOR_EDIT */
+
+#ifdef VENDOR_EDIT
+#Xuefeng.Peng@PSW.AD.Performance.Storage.1721598, 2018/12/26, Add for abnormal sd card shutdown long time
+on property:persist.sys.fsck_shutdown=true
+   start fsck_shutdown
+
+service fsck_shutdown /system/bin/autochmod.sh "fsck_shutdown"
+    class core
+    user root
+    seclabel u:r:rutilsdaemon:s0
+    disabled
+    oneshot
+
+#Xuefeng.Peng@PSW.AD.Performance.Storage.1721598, 2018/12/26, Add for customize version to control sdcard
+on property:persist.sys.exStorage_support=*
+   start exstorage_support
+
+service exstorage_support /system/bin/autochmod.sh "exstorage_support"
+    class core
+    user root
+    seclabel u:r:rutilsdaemon:s0
+    disabled
+#endif/*VENDOR_EDIT*/
+
+#//Canjie.Zheng@AD.OppoFeature.Kinect.1069892,2019/03/09, Add for kill hidl
+service killsensorhidl /system/bin/autochmod.sh "killsensorhidl"
+    class core
+    user root
+    seclabel u:r:rutilsdaemon:s0
+    disabled
+    oneshot
+
+#ifdef VENDOR_EDIT
+#Bin.Li@BSP.Fingerprint.Secure 2018/12/27, Add for oae get bootmode
+service oae_boot_mode /system/bin/autochmod.sh "oae_bootmode"
+    class core
+    user root
+    seclabel u:r:rutilsdaemon:s0
+    oneshot
+#endif /* VENDOR_EDIT */
+
+#endif /* VENDOR_EDIT */
+
+#ifdef VENDOR_EDIT
+#Fangfang.Hui@PSW.TECH.AD.OppoDebug.LogKit.1078692, 2019/03/07, Add for mount mnt/vendor/opporeserve/stamp to data/oppo/log/stamp
+service remount_stamp /system/bin/autochmod.sh "remount_opporeserve2_stamp_to_data"
+    class core
+    user root
+    seclabel u:r:rutilsdaemon:s0
+    disabled
+    oneshot
+#endif /* VENDOR_EDIT */
+
+#ifdef VENDOR_EDIT
+# wenjie.liu@CN.NFC.Basic.Hardware, 2019/4/24, fix the core domain limits to search /mnt/vendor/opporeserve/connectivity
+service remount_sony_felica /system/bin/autochmod.sh "remount_opporeserve2_felica_to_data"
+    class core
+    user root
+    seclabel u:r:rutilsdaemon:s0
+    disabled
+    oneshot
+#endif /* VENDOR_EDIT */
+
+#ifdef VENDOR_EDIT
+#ruhong.huang@CN.NFC.Basic.hardware 2087979, 2019/06/12, add for test nfc before NFC ON
+service oppopnscrcmd /system/bin/oppopnscrcmd
+    user root
+    group root system nfc
+    oneshot
+    seclabel u:r:rutilsdaemon:s0
+    disabled
+
+on property:persist.sys.nfc_pnscr_start=1
+    start oppopnscrcmd
+
+on property:persist.sys.nfc_pnscr_start=0
+    stop oppopnscrcmd
+#endif /* VENDOR_EDIT */
+
+#add for oidt begin
+service oidtlogs /system/bin/autochmod.sh "oidtlogs"
+    class core
+    user root
+    seclabel u:r:rutilsdaemon:s0
+    disabled
+    oneshot
+#add for oidt end
+
+#ifdef VENDOR_EDIT
+#Kun.Hu@TECH.BSP.Stability.PHOENIX_PROJECT, 2019/06/11, Add for phoenix project
+on post-fs
+    write /proc/phoenix "SET_BOOTSTAGE@NATIVE_INIT_POST_FS"
+
+on property:sys.oppo.phoenix.prepare_log=*
+    exec u:r:rutilsdaemon:s0 root root -- /system/bin/phoenix_log_manager
+on property:sys.oppo.phoenix.handle_error=*
+    exec  u:r:rutilsdaemon:s0 root root -- /system/bin/phoenix_log_native_helper.sh ${sys.oppo.phoenix.handle_error}
+on property:sys.boot_completed=1
+    setprop sys.oppo.phoenix.prepare_log boot_success
+#Liang.Zhang@TECH.BSP.Stability.OPPO_SHUTDOWN_DETECT, 2019/04/28, Add for shutdown detect
+    setprop sys.oppo.shutdown.prepare_log boot_success
+
+service remount_opporeserve2 /system/bin/autochmod.sh "remount_opporeserve2"
+    class core
+    user root
+    seclabel u:r:rutilsdaemon:s0
+    disabled
+    oneshot
+#endif  /* VENDOR_EDIT */
+
+#ifdef VENDOR_EDIT
+on post-fs-data && property:ro.crypto.type=file
+# Kun.Hu@PSW.TECH.RELIABILTY, 2019/1/3, fix the core domain limits to search /mnt/vendor/opporeserve
+    start remount_opporeserve2
+#Fangfang.Hui@PSW.TECH.AD.OppoDebug.LogKit.1078692, 2019/03/07, Add for mount mnt/vendor/opporeserve/stamp to data/oppo/log/stamp
+    start remount_stamp
+#endif /* VENDOR_EDIT */
+
+#ifdef VENDOR_EDIT
+on post-fs-data && property:ro.crypto.type=block
+#XuFeifei@Netwok.Data.DiagTools,2020/6/30 add for create stamp.db and chmod it 777 to aovid java layer create it
+    start remount_stamp
+#endif /* VENDOR_EDIT */
+
+#ifdef VENDOR_EDIT
+# wenjie.liu@CN.NFC.Basic.Hardware, 2019/4/24, fix the core domain limits to search /mnt/vendor/opporeserve/connectivity
+on early-boot && property:ro.crypto.type=file
+    start remount_sony_felica
+
+#Liang.Zhang@TECH.Storage.Stability.OPPO_SHUTDOWN_DETECT, 2019/04/28, Add for shutdown detect
+service remount_opporeserve2_shutdown /system/bin/autochmod.sh "remount_opporeserve2_shutdown"
+    class core
+    user root
+    seclabel u:r:rutilsdaemon:s0
+    disabled
+    oneshot
+on post-fs-data && property:ro.crypto.type=file
+    start remount_opporeserve2_shutdown
+#endif /* VENDOR_EDIT */
+
+#ifdef VENDOR_EDIT
+#Liang.Zhang@TECH.Storage.Stability.OPPO_SHUTDOWN_DETECT, 2019/04/28, Add for shutdown detect
+on property:sys.oppo.shutdown.prepare_log=*
+    exec u:r:rutilsdaemon:s0 root root -- /system/bin/shutdown_log_back
+#endif  /* VENDOR_EDIT */
+
+
+#ifdef VENDOR_EDIT
+#Chunbo.Gao@PSW.AD.OppoDebug.LogKit.1968962, 2019/4/23, Add for qmi log
+service qmilogon /system/bin/autochmod.sh "qmilogon"
+    class core
+    user root
+    seclabel u:r:rutilsdaemon:s0
+    disabled
+    oneshot
+
+service qmilogoff /system/bin/autochmod.sh "qmilogoff"
+    class core
+    user root
+    seclabel u:r:rutilsdaemon:s0
+    disabled
+    oneshot
+
+service qrtrlookup /system/bin/autochmod.sh "qrtrlookup"
+    class core
+    user root
+    seclabel u:r:rutilsdaemon:s0
+    disabled
+    oneshot
+
+service adspglink /system/bin/autochmod.sh "adspglink"
+    class core
+    user root
+    seclabel u:r:rutilsdaemon:s0
+    disabled
+    oneshot
+
+service modemglink /system/bin/autochmod.sh "modemglink"
+    class core
+    user root
+    seclabel u:r:rutilsdaemon:s0
+    disabled
+    oneshot
+
+service cdspglink /system/bin/autochmod.sh "cdspglink"
+    class core
+    user root
+    seclabel u:r:rutilsdaemon:s0
+    disabled
+    oneshot
+
+service modemqrtr /system/bin/autochmod.sh "modemqrtr"
+    class core
+    user root
+    seclabel u:r:rutilsdaemon:s0
+    disabled
+    oneshot
+
+service sensorqrtr /system/bin/autochmod.sh "sensorqrtr"
+    class core
+    user root
+    seclabel u:r:rutilsdaemon:s0
+    disabled
+    oneshot
+
+service npuqrtr /system/bin/autochmod.sh "npuqrtr"
+    class core
+    user root
+    seclabel u:r:rutilsdaemon:s0
+    disabled
+    oneshot
+
+service slpiqrtr /system/bin/autochmod.sh "slpiqrtr"
+    class core
+    user root
+    seclabel u:r:rutilsdaemon:s0
+    disabled
+    oneshot
+
+service slpiglink /system/bin/autochmod.sh "slpiglink"
+    class core
+    user root
+    seclabel u:r:rutilsdaemon:s0
+    disabled
+    oneshot
+
+#ifdef OPLUS_DEBUG_SSLOG_CATCH
+#//Wankang.Zhang@TECH.MDM.POWER 2020/04/02,add for catch ss log
+service logcatModemTmp /system/bin/autochmod.sh "logcatModemTmp"
+    class core
+    user root
+    group root
+    seclabel u:r:dumpstate:s0
+    disabled
+    oneshot
+#endif
+
+#Qilong.Ao@PSW.AD.OppoDebug.LogKit.NA, 2019/8/27, Add for monkey log
+service save_latest_log /system/bin/autochmod.sh "save_latest_log"
+    class core
+    user root
+    seclabel u:r:rutilsdaemon:s0
+    disabled
+    oneshot
+
+#Chunbo.Gao@PSW.AD.OppoDebug.LogKit.NA, 2019/6/26, Add for bugreport log
+service dump_bugreport /system/bin/autochmod.sh "dump_bugreport"
+    class core
+    user root
+    seclabel u:r:rutilsdaemon:s0
+    disabled
+    oneshot
+#endif  /* VENDOR_EDIT */
+
+#ifdef VENDOR_EDIT
+#Baozhu.Yu@NW.MBN, 2019/10/08,add for switchmbn
+service switch_mbntype /system/bin/autochmod.sh "switch_mbntype"
+    class core
+    user root
+    seclabel u:r:rutilsdaemon:s0
+    disabled
+    oneshot
+
+#on property:persist.sys.nw_lab_test=1
+#    start switch_mbntype
+
+on property:persist.sys.next_mbntype=*
+    start switch_mbntype
+#endif /* VENDOR_EDIT */
+
+#ifdef VENDOR_EDIT
+#Qing.Wu@PSW.AD.Stability.2278668, 2019/09/03, Add for capture binder info
+service binderinfocapture /system/bin/autochmod.sh "binderinfocapture"
+    class core
+    user root
+    seclabel u:r:rutilsdaemon:s0
+    disabled
+    oneshot
+
+on property:debug.binderinfo.capture=true
+    start binderinfocapture
+#endif /* VENDOR_EDIT */
+
+#ifdef VENDOR_EDIT
+#Haiping.Zhong@AD.BuildConfig.2516504, 2019/11/07, Add for set logd prop
+on property:persist.oppo.logd.kernel=true
+    stop logd
+    start logd
+#endif
+
+#ifdef VENDOR_EDIT
+#qilong.ao@PSW.AD.OppoDebug.CriticalLog.1067207, 2019/02/13, Add for firstboot log
+service resetlogfirstbootbuffer  /system/bin/autochmod.sh "resetlogfirstbootbuffer"
+    class core
+    user root
+    seclabel u:r:rutilsdaemon:s0
+    disabled
+    oneshot
+
+service logfirstbootmain  /system/bin/autochmod.sh "logfirstbootmain"
+    class core
+    user root
+    seclabel u:r:rutilsdaemon:s0
+    disabled
+    oneshot
+
+service logfirstbootevent  /system/bin/autochmod.sh "logfirstbootevent"
+    class core
+    user root
+    seclabel u:r:rutilsdaemon:s0
+    disabled
+    oneshot
+
+service logfirstbootkernel  /system/bin/autochmod.sh "logfirstbootkernel"
+    class core
+    user root
+    seclabel u:r:rutilsdaemon:s0
+    disabled
+    oneshot
+
+on property:sys.oppo.logfirstboot=true
+    start logfirstbootmain
+    start logfirstbootevent
+    start logfirstbootkernel
+
+on property:sys.oppo.logfirstboot=false
+    stop logfirstbootmain
+    stop logfirstbootevent
+    stop logfirstbootkernel
+#endif /*VENDOR_EDIT*/
+
+#ifdef VENDOR_EDIT
+#Fuchun.Liao@BSP.CHG.Basic 2019/06/09 modify for black/bright screen check
+service create_black_bright_check_file /system/bin/autochmod.sh "create_black_bright_check_file"
+    class core
+    user root
+    seclabel u:r:rutilsdaemon:s0
+    disabled
+    oneshot
+
+on post-fs-data && property:ro.crypto.type=file
+    mkdir /data/oppo/log/bsp/ 0777 system system
+    start create_black_bright_check_file
+#endif /* VENDOR_EIDT */
+
+#ifdef VENDOR_EDIT
+#Jiaobo@PSW.CN.WiFi.Basic.Switch.2121524, 2019/06/24
+#Add for: check persist partition, use default WCNSS_qcom_cfg.ini when the persist partition is mount failed
+service wlanpersistmountcheck /vendor/bin/vendor.autochmod.sh "wlanpersistmountcheck"
+    class core
+    user root
+    seclabel u:r:rutilsdaemon:s0
+    disabled
+    oneshot
+
+on property:vendor.oppo.wifi.check.persist=mount_checking
+    start wlanpersistmountcheck
+#endif /* VENDOR_EDIT */
+
+#ifdef VENDOR_EDIT
+#Hailong.Liu@ANDROID.MM, 2020/03/18, add for capture native malloc leak on aging_monkey test
+on property:libc.debug.hooks.enable=svelte
+   start storesveltelog
+
+service storesveltelog /system/bin/autochmod.sh "storeSvelteLog"
+    class core
+    user root
+    seclabel u:r:dumpstate:s0
+    disabled
+    oneshot
+#endif /* VENDOR_EDIT */

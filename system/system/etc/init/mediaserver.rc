@@ -1,0 +1,10 @@
+service media /system/bin/mediaserver
+    class main
+    user media
+    #ifdef VENDOR_EDIT
+    #Zhicheng.Luo@PSW.MM.AudioServer.Framework.2371624, 2019/09/27, add readproc permission for mediaserver
+    #group audio camera inet net_bt net_bt_admin net_bw_acct drmrpc mediadrm
+    group audio camera inet net_bt net_bt_admin net_bw_acct drmrpc mediadrm readproc
+    #endif /* VENDOR_EDIT */
+    ioprio rt 4
+    writepid /dev/cpuset/foreground/tasks /dev/stune/foreground/tasks

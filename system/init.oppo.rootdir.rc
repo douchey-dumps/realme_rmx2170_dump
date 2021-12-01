@@ -1,0 +1,176 @@
+#/********************************************************************************
+# ** Copyright (C), 2018-2023, OPPO Mobile Comm Corp., Ltd
+# ** VENDOR_EDIT, All rights reserved.
+# **
+# ** File: - init.oppo.rootdir.rc
+# ** Description:
+# **     Euclid : oppo custumize for init.oppo.rootdir.rc
+# **
+# ** Version: 1.0
+# ** Date: 2019-06-05
+# ** Author: Xuefeng.Peng@PSW.AD
+# **
+# ** ------------------------------- Revision History: ----------------------------
+# ** <author>                        <data>       <version>   <desc>
+# ** ------------------------------------------------------------------------------
+#** Xuefeng.Peng@PSW.AD.0      2019-06-05   1.0         Create this moudle
+#********************************************************************************/
+
+on zygote-start && property:ro.crypto.state=encrypted && property:ro.crypto.type=file
+    #ifdef VENDOR_EDIT
+    #Xuefeng.Peng@PSW.AD.Storage.1596362, 2018/11/30, add for FBE
+    start bspFwUpdate
+    #endif/*VENDOR_EDIT*/
+
+on property:sys.boot_completed=1
+    #ifdef VENDOR_EDIT
+    #Xuefeng.Peng@PSW.AD.Usb.1410703, 2018/06/19, Add for support NDIS 5.0
+    write /config/usb_gadget/g1/functions/gsi.rndis/rndis_class_id 1
+    #endif /*VENDOR_EDIT*/
+
+#ifdef VENDOR_EDIT
+#Ping.Liu@BSP.Fingerprint.Secure 2019/10/24, Add for secure common rc.
+import /init.oppo.seccommon.rc
+#endif /* VENDOR_EDIT */
+
+on post-fs-data
+    #ifdef VENDOR__EDIT
+    #Jiemin.Zhu@PSW.Android.SELinux, 2017/12/12, create recycle for DCIM before restorecon
+    mkdir /data/.recycle 0770 media_rw media_rw
+    #Jiemin.Zhu@PSW.Android.SELinux, 2018/08/06, Add for skip /data/oppo_lib for chcon exec_type
+    mkdir /data/oppo_lib 0777 root root
+    #endif /* VENDOR_EDIT */
+
+    #ifdef /* COLOROS_EDIT */
+    #JiFeng.Tan@ROM.SDK.Font, 2019-08-26 : Add for webview flipfont
+    mkdir /data/format_unclear/font 0777 system system
+    chmod 0777 /data/format_unclear/font
+    symlink /system/fonts/Roboto-Thin.ttf /data/format_unclear/font/ColorOSUI-Thin.ttf
+    symlink /system/fonts/Roboto-ThinItalic.ttf /data/format_unclear/font/ColorOSUI-ThinItalic.ttf
+    symlink /system/fonts/Roboto-Light.ttf /data/format_unclear/font/ColorOSUI-Light.ttf
+    symlink /system/fonts/Roboto-LightItalic.ttf /data/format_unclear/font/ColorOSUI-LightItalic.ttf
+    symlink /system/fonts/Roboto-Regular.ttf /data/format_unclear/font/ColorOSUI-Regular.ttf
+    symlink /system/fonts/Roboto-Italic.ttf /data/format_unclear/font/ColorOSUI-Italic.ttf
+    symlink /system/fonts/Roboto-Medium.ttf /data/format_unclear/font/ColorOSUI-Medium.ttf
+    symlink /system/fonts/Roboto-MediumItalic.ttf /data/format_unclear/font/ColorOSUI-MediumItalic.ttf
+    symlink /system/fonts/Roboto-Black.ttf /data/format_unclear/font/ColorOSUI-Black.ttf
+    symlink /system/fonts/Roboto-BlackItalic.ttf /data/format_unclear/font/ColorOSUI-BlackItalic.ttf
+    symlink /system/fonts/Roboto-Bold.ttf /data/format_unclear/font/ColorOSUI-Bold.ttf
+    symlink /system/fonts/Roboto-BoldItalic.ttf /data/format_unclear/font/ColorOSUI-BoldItalic.ttf
+    symlink /system/fonts/Roboto-Regular.ttf /data/format_unclear/font/ColorOSUI-Myanmar.ttf
+    mkdir /data/system/font 0777 system system
+    chmod 0777 /data/system/font
+    symlink /system/fonts/Roboto-Thin.ttf /data/system/font/ColorOSUI-Thin.ttf
+    symlink /system/fonts/Roboto-ThinItalic.ttf /data/system/font/ColorOSUI-ThinItalic.ttf
+    symlink /system/fonts/Roboto-Light.ttf /data/system/font/ColorOSUI-Light.ttf
+    symlink /system/fonts/Roboto-LightItalic.ttf /data/system/font/ColorOSUI-LightItalic.ttf
+    symlink /system/fonts/Roboto-Regular.ttf /data/system/font/ColorOSUI-Regular.ttf
+    symlink /system/fonts/Roboto-Italic.ttf /data/system/font/ColorOSUI-Italic.ttf
+    symlink /system/fonts/Roboto-Medium.ttf /data/system/font/ColorOSUI-Medium.ttf
+    symlink /system/fonts/Roboto-MediumItalic.ttf /data/system/font/ColorOSUI-MediumItalic.ttf
+    symlink /system/fonts/Roboto-Black.ttf /data/system/font/ColorOSUI-Black.ttf
+    symlink /system/fonts/Roboto-BlackItalic.ttf /data/system/font/ColorOSUI-BlackItalic.ttf
+    symlink /system/fonts/Roboto-Bold.ttf /data/system/font/ColorOSUI-Bold.ttf
+    symlink /system/fonts/Roboto-BoldItalic.ttf /data/system/font/ColorOSUI-BoldItalic.ttf
+    symlink /system/fonts/Roboto-Regular.ttf /data/system/font/ColorOSUI-Myanmar.ttf
+
+    #ifdef VENDOR_EDIT
+    #Linjie.Xu@PSW.AD,2017.10.27:add for coloros app to access the system data file. etc
+    mkdir /data/oppo/psw/ 0764 system system
+    mkdir /data/oppo/log/DCS/en/dcs 0777 system system
+    mkdir /data/oppo/psw/thermal 0764 system system
+    mkdir /data/oppo/log/DCS/de/thermal 0777 system system
+    mkdir /data/oppo/log/DCS/en/thermal 0777 system system
+    #endif /* VENDOR_EDIT */
+
+    #ifdef COLOROS_EDIT
+    #SunYi@Rom.Framework, 2019/11/14, Modify for record temperature per hour
+    mkdir /data/oppo/log/DCS/de/trace_viewer 0764 system system
+    mkdir /data/oppo/log/DCS/en/trace_viewer 0777 system system
+    #endif /* COLOROS_EDIT */
+
+on init
+    #Jiemin.Zhu@PSW.Android.SdardFs, 2017/12/12, Add for sdcardfs delete dcim record
+    chown root system /proc/fs/sdcardfs/skipd_delete
+    chmod 0664 /proc/fs/sdcardfs/skipd_delete
+    chown root system /sys/module/sdcardfs/parameters/skipd_enable
+    chmod 0664 /sys/module/sdcardfs/parameters/skipd_enable
+    chown root system /sys/module/sdcardfs/parameters/extra_enable
+    chmod 0664 /sys/module/sdcardfs/parameters/extra_enable
+
+on boot
+#ifdef VENDOR_EDIT
+    #Yilong.Wei@PSW.NW.RF.1178789, 2017/12/11
+    #add for Screen MIPI frequency interference GSM reception
+    chmod 0664  /sys/kernel/oppo_display/panel/dynamic_dsi_clock
+    chown radio root  /sys/kernel/oppo_display/panel/dynamic_dsi_clock
+#endif
+#ifdef VENDOR_EDIT
+#wenhua.Leng@SWDP.MM.Display.LCD, 2018/4/18 Add for display
+    chown system system /sys/kernel/oppo_display/dump_info
+    chown system system /sys/kernel/oppo_display/hbm
+    chown system system /sys/kernel/oppo_display/cabc
+    chown system system /sys/kernel/oppo_display/seed
+    chown system system /sys/kernel/oppo_display/dimlayer_bl_en
+    chown system system /sys/kernel/oppo_display/ffl_set
+    chown system system /sys/kernel/oppo_display/dimlayer_hbm
+    chown system system /sys/kernel/oppo_display/force_screenfp
+    chown system system /sys/kernel/oppo_display/notify_fppress
+    chown system system /sys/kernel/oppo_display/aod_light_mode_set
+
+    chmod 0666 /sys/kernel/oppo_display/dump_info
+    chmod 0666 /sys/kernel/oppo_display/hbm
+    chmod 0666 /sys/kernel/oppo_display/cabc
+    chmod 0666 /sys/kernel/oppo_display/seed
+    chmod 0666 /sys/kernel/oppo_display/dimlayer_bl_en
+    chmod 0666 /sys/kernel/oppo_display/ffl_set
+    chmod 0666 /sys/kernel/oppo_display/dimlayer_hbm
+    chmod 0666 /sys/kernel/oppo_display/force_screenfp
+    chmod 0666 /sys/kernel/oppo_display/notify_fppress
+    chmod 0666 /sys/kernel/oppo_display/aod_light_mode_set
+#Jie.Hu@SWDP.MM.Display.LCD, 2018/4/19 Add for display
+    chown system system /sys/kernel/oppo_display/power_status
+    chown system system /sys/kernel/oppo_display/sau_closebl_node
+    chown system system /sys/kernel/oppo_display/esd_status
+    chown system system /sys/kernel/oppo_display/spr
+
+    chmod 0666 /sys/kernel/oppo_display/power_status
+    chmod 0666 /sys/kernel/oppo_display/sau_closebl_node
+    chmod 0666 /sys/kernel/oppo_display/esd_status
+#Rongchun.zhang@PSW.MM.Display, 2017/07/03, Add for Rom Update.[From: Deliang.Peng@PSW.MM.Performance.Display]
+    chmod 0644 /data/oppo/multimedia/oppo_display_perf_list.xml
+    chmod 0664 /sys/kernel/oppo_display/spr
+
+#Le.Li@SWDP.MM.Audio.SmartPa, 2018/12/08, Add for smartPa calibrate
+    mkdir /mnt/vendor/persist/media 0775 media media
+#endif /* VENDOR_EDIT */
+
+#ifdef VENDOR_EDIT
+#Liangwen.Ke@PSW.CN.BT.Basic.Customize.2120948, 2019/06/26,
+#Add for supporting QC firmware update by sau_res
+
+on post-fs-data
+    mkdir /data/vendor/bluetooth/fw 0770 bluetooth bluetooth
+
+service btfirmwareupdate /system/bin/init.oppo.bluetooth.sh "btfirmwareupdate"
+    class core
+    user root
+    disabled
+    seclabel u:r:rutilsdaemon:s0
+    oneshot
+
+service btfirmwaredelete /system/bin/init.oppo.bluetooth.sh "btfirmwaredelete"
+    class core
+    user root
+    disabled
+    seclabel u:r:rutilsdaemon:s0
+    oneshot
+#endif /* VENDOR_EDIT */
+
+#ifdef VENDOR_EDIT
+#Xuefeng.Peng@PSW.AD.Usb.Adb.0, 2019/07/25, Add for QT test enable adb after fastboot flash the device for FDE version
+on boot && property:ro.crypto.state=encrypted && property:ro.crypto.type=file
+    load_fastboot_adb_props
+#endif/*VENDOR_EDIT*/
+
+

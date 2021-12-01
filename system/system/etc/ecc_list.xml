@@ -1,0 +1,543 @@
+<?xml version="1.0" encoding="utf-8"?>
+<EccTable>
+    <!--
+        The attribute definition for tag EccEntry:
+        - Mcc: the emergency number MCC
+        - Mnc: the emergency number MNC
+        - Mask: Ecc condition mask
+            - Bit 1 (1): PBM_ECC_VALID_WITH_UIM
+            - Bit 2 (2): PBM_ECC_VALID_WITHOUT_UIM
+            - Bit 3 (4): PBM_ECC_VALID_FULL_SERVICE
+            - Bit 4 (8): PBM_ECC_VALID_LMT_SERVICE
+        - Ecc: the Ecc dialing number
+        - Cat_len : Category length
+        - Cat_val: the service category (From 3GPP TS24.008)
+            - Bit 1 (1): Police
+            - Bit 2 (2): Ambulance
+            - Bit 3 (4): Fire Brigade
+            - Bit 4 (8): Marine Guard
+            - Bit 5 (16): Mountain Rescue
+            - Bit 6 (32): Manually initiated eCall
+            - Bit 7 (64): Automatically initiated eCall
+            - Bit 8 (128): is spare and set to "0"
+        - Mode : Call Mode
+            - 0 : EMERGENCY_GW
+            - 1 : EMERGENCY_1X
+            - 2 : EMERGENCY_GW_1X
+        - Special : FULL service as Emergency Call otherwise not
+          ecall - ui emerngecy , signaling emergency
+          ncall - ui emergency , signaling normal
+           -0 ：ims-ecall ; cs-ecall
+           -1 : ims-ecall ; cs-ncall
+           -2 : ims-ncall ; cs-ecall
+           -4 : ims-ncall ; cs-ncall
+    -->
+    <!--001 Instrument-->
+    <EccEntry Mcc="001" Mnc="999" Mask="2" Ecc="120" Cat_len="1" Cat_val="0" Mode="0" Special="0"/>
+    <EccEntry Mcc="001" Mnc="999" Mask="2" Ecc="122" Cat_len="1" Cat_val="0" Mode="0" Special="0"/>
+    <EccEntry Mcc="001" Mnc="999" Mask="1" Ecc="999" Cat_len="1" Cat_val="0" Mode="0" Special="0"/>
+    <!--202 Greece-->
+    <!--204 Netherlands-->
+    <!--206 Belgium-->
+    <EccEntry Mcc="206" Mnc="999" Mask="3" Ecc="100" Cat_len="1" Cat_val="0" Mode="0" Special="0"/>
+    <!--208 France-->
+    <!--Yongan.Lin@RM.NW.CALL.2329817, 2019/11/15, add 15,17,18 ecc number -->
+    <EccEntry Mcc="208" Mnc="999" Mask="3" Ecc="15" Cat_len="1" Cat_val="0" Mode="0" Special="0"/>
+    <EccEntry Mcc="208" Mnc="999" Mask="3" Ecc="17" Cat_len="1" Cat_val="0" Mode="0" Special="0"/>
+    <EccEntry Mcc="208" Mnc="999" Mask="3" Ecc="18" Cat_len="1" Cat_val="0" Mode="0" Special="0"/>
+    <!--212 Monaco-->
+    <!--213 Andorra-->
+    <!--214 Spain-->
+    <!--218 Bosnia and Herzegovina-->
+    <!--216 Hungary-->
+    <!--219 Croatia-->
+    <!--220 Serbia and Montenegro-->
+    <!--222 Italy-->
+    <!--226 Romania-->
+    <!--228 Switzerland-->
+    <EccEntry Mcc="228" Mnc="999" Mask="3" Ecc="117" Cat_len="1" Cat_val="0" Mode="0" Special="4"/>
+    <EccEntry Mcc="228" Mnc="999" Mask="3" Ecc="118" Cat_len="1" Cat_val="0" Mode="0" Special="4"/>
+    <EccEntry Mcc="228" Mnc="999" Mask="3" Ecc="143" Cat_len="1" Cat_val="0" Mode="0" Special="4"/>
+    <EccEntry Mcc="228" Mnc="999" Mask="3" Ecc="144" Cat_len="1" Cat_val="0" Mode="0" Special="4"/>
+    <EccEntry Mcc="228" Mnc="999" Mask="3" Ecc="145" Cat_len="1" Cat_val="0" Mode="0" Special="4"/>
+    <EccEntry Mcc="228" Mnc="999" Mask="3" Ecc="147" Cat_len="1" Cat_val="0" Mode="0" Special="4"/>
+    <!--230 Czech Republic-->
+    <EccEntry Mcc="230" Mnc="999" Mask="3" Ecc="150" Cat_len="1" Cat_val="0" Mode="0" Special="4"/>
+    <EccEntry Mcc="230" Mnc="999" Mask="3" Ecc="158" Cat_len="1" Cat_val="0" Mode="0" Special="4"/>
+    <EccEntry Mcc="230" Mnc="999" Mask="3" Ecc="155" Cat_len="1" Cat_val="0" Mode="0" Special="4"/>
+    <EccEntry Mcc="230" Mnc="999" Mask="3" Ecc="156" Cat_len="1" Cat_val="0" Mode="0" Special="4"/>
+    <!--231 Slovakia -->
+    <EccEntry Mcc="231" Mnc="999" Mask="3" Ecc="150" Cat_len="1" Cat_val="0" Mode="0" Special="0"/>
+    <EccEntry Mcc="231" Mnc="999" Mask="3" Ecc="155" Cat_len="1" Cat_val="0" Mode="0" Special="0"/>
+    <EccEntry Mcc="231" Mnc="999" Mask="3" Ecc="158" Cat_len="1" Cat_val="0" Mode="0" Special="0"/>
+    <EccEntry Mcc="231" Mnc="999" Mask="3" Ecc="159" Cat_len="1" Cat_val="0" Mode="0" Special="0"/>
+    <!--232 Austria-->
+    <!--234 England-->
+    <EccEntry Mcc="234" Mnc="999" Mask="3" Ecc="999" Cat_len="1" Cat_val="0" Mode="0" Special="0"/>
+    <EccEntry Mcc="234" Mnc="30" Mask="1" Ecc="9999" Cat_len="1" Cat_val="0" Mode="0" Special="0"/>
+    <EccEntry Mcc="234" Mnc="30" Mask="1" Ecc="1122" Cat_len="1" Cat_val="0" Mode="0" Special="0"/>
+    <EccEntry Mcc="234" Mnc="33" Mask="1" Ecc="9999" Cat_len="1" Cat_val="0" Mode="0" Special="0"/>
+    <EccEntry Mcc="234" Mnc="33" Mask="1" Ecc="1122" Cat_len="1" Cat_val="0" Mode="0" Special="0"/>
+    <!--238 Denmark-->
+    <EccEntry Mcc="238" Mnc="999" Mask="1" Ecc="08" Cat_len="1" Cat_val="0" Mode="0" Special="0"/>
+    <EccEntry Mcc="238" Mnc="999" Mask="1" Ecc="000" Cat_len="1" Cat_val="0" Mode="0" Special="0"/>
+    <EccEntry Mcc="238" Mnc="999" Mask="1" Ecc="118" Cat_len="1" Cat_val="0" Mode="0" Special="0"/>
+    <EccEntry Mcc="238" Mnc="999" Mask="1" Ecc="119" Cat_len="1" Cat_val="0" Mode="0" Special="0"/>
+    <EccEntry Mcc="238" Mnc="999" Mask="3" Ecc="114" Cat_len="1" Cat_val="0" Mode="0" Special="0"/>
+    <!--240 Sweden-->
+    <EccEntry Mcc="240" Mnc="999" Mask="1" Ecc="08" Cat_len="1" Cat_val="0" Mode="0" Special="0"/>
+    <EccEntry Mcc="240" Mnc="999" Mask="1" Ecc="000" Cat_len="1" Cat_val="0" Mode="0" Special="0"/>
+    <!--242 Norway-->
+    <EccEntry Mcc="242" Mnc="999" Mask="3" Ecc="110" Cat_len="1" Cat_val="0" Mode="0" Special="0"/>
+    <EccEntry Mcc="242" Mnc="999" Mask="3" Ecc="112" Cat_len="1" Cat_val="0" Mode="0" Special="0"/>
+    <EccEntry Mcc="242" Mnc="999" Mask="3" Ecc="113" Cat_len="1" Cat_val="0" Mode="0" Special="0"/>
+    <!--244 Finland-->
+    <!--246 Lithuania-->
+    <!--247 Latvia-->
+    <!--248 Estonia-->
+    <!--250 Russian-->
+    <!--255 Ukraine-->
+    <!--257 Belarus-->
+    <EccEntry Mcc="257" Mnc="999" Mask="1" Ecc="101" Cat_len="1" Cat_val="0" Mode="0" Special="4"/>
+    <EccEntry Mcc="257" Mnc="999" Mask="1" Ecc="102" Cat_len="1" Cat_val="0" Mode="0" Special="4"/>
+    <EccEntry Mcc="257" Mnc="999" Mask="1" Ecc="103" Cat_len="1" Cat_val="0" Mode="0" Special="4"/>
+    <EccEntry Mcc="257" Mnc="999" Mask="1" Ecc="104" Cat_len="1" Cat_val="0" Mode="0" Special="4"/>
+    <!--259 Moldova-->
+    <!--260 Poland-->
+    <!--262 Germany-->
+    <!--266 Gibraltar-->
+    <!--268 Portugal-->
+    <!--270 Luxembourg-->
+    <!--272 Ireland-->
+    <EccEntry Mcc="272" Mnc="999" Mask="1" Ecc="999" Cat_len="1" Cat_val="0" Mode="0" Special="0"/>
+    <!--274 Iceland-->
+    <!--276 Albania-->
+    <!--278 Malta-->
+    <!--280 Cyprus-->
+    <EccEntry Mcc="280" Mnc="999" Mask="3" Ecc="199" Cat_len="1" Cat_val="0" Mode="0" Special="0"/>
+    <!--282 Georgia-->
+    <!--283 Armenia-->
+    <!--284 Bulgaria-->
+    <!--286 Turkey-->
+    <!--288 Faroe Islands-->
+    <!--290 Greenland-->
+    <!--292 San Marino-->
+    <!--293 Slovenia-->
+    <!--294 The Former Yugoslav Republic of Macedonia-->
+    <!--295 Liechtenstein-->
+    <!--297 Montenegro-->
+    <!--302 Canada-->
+    <!--308 Saint Pierre and Miquelon-->
+    <!--310 United States of America-->
+    <!--311 United States of America-->
+    <!--312 United States of America-->
+    <!--313 United States of America-->
+    <!--314 United States of America-->
+    <!--315 United States of America-->
+    <!--316 United States of America-->
+    <!--330 Puerto Rico-->
+    <!--334 Mexico-->
+    <!--338 Jamaica-->
+    <!--340 Guadeloupe-->
+    <!--342 Barbados-->
+    <!--344 Antigua and Barbuda-->
+    <!--346 Guadeloupe-->
+    <!--348 British Virgin Islands-->
+    <!--350 Bermuda-->
+    <!--352 Grenada-->
+    <!--354 Montserrat-->
+    <!--356 Saint Kitts and Nevis-->
+    <!--358 Saint Lucia-->
+    <!--360 Saint Vincent and the Grenadines-->
+    <!--362 Netherlands Antilles-->
+    <!--363 Aruba-->
+    <!--364 Bahamas-->
+    <EccEntry Mcc="364" Mnc="999" Mask="3" Ecc="919" Cat_len="1" Cat_val="0" Mode="0" Special="0"/>
+    <!--365 Anguilla-->
+    <!--366 Dominica-->
+    <!--368 Cuba-->
+    <EccEntry Mcc="368" Mnc="999" Mask="3" Ecc="104" Cat_len="1" Cat_val="0" Mode="0" Special="4"/>
+    <EccEntry Mcc="368" Mnc="999" Mask="3" Ecc="105" Cat_len="1" Cat_val="0" Mode="0" Special="4"/>
+    <EccEntry Mcc="368" Mnc="999" Mask="3" Ecc="106" Cat_len="1" Cat_val="0" Mode="0" Special="4"/>
+    <!--370 Dominican Republic-->
+    <!--372 Haiti-->
+    <!--376 Turks and Caicos Islands-->
+    <!--374 Trinidad and Tobago-->
+    <EccEntry Mcc="374" Mnc="999" Mask="3" Ecc="811" Cat_len="1" Cat_val="0" Mode="0" Special="0"/>
+    <!--400 Azerbaijani-->
+    <!--401 Kazakhstan-->
+    <EccEntry Mcc="401" Mnc="999" Mask="3" Ecc="101" Cat_len="1" Cat_val="0" Mode="0" Special="0"/>
+    <EccEntry Mcc="401" Mnc="999" Mask="3" Ecc="102" Cat_len="1" Cat_val="0" Mode="0" Special="0"/>
+    <EccEntry Mcc="401" Mnc="999" Mask="3" Ecc="103" Cat_len="1" Cat_val="0" Mode="0" Special="0"/>
+    <EccEntry Mcc="401" Mnc="999" Mask="3" Ecc="104" Cat_len="1" Cat_val="0" Mode="0" Special="0"/>
+    <!--402 Bhutan-->
+    <!--404 India-->
+    <EccEntry Mcc="404" Mnc="999" Mask="3" Ecc="100" Cat_len="1" Cat_val="0" Mode="0" Special="4"/>
+    <EccEntry Mcc="404" Mnc="999" Mask="3" Ecc="101" Cat_len="1" Cat_val="0" Mode="0" Special="4"/>
+    <EccEntry Mcc="404" Mnc="999" Mask="3" Ecc="102" Cat_len="1" Cat_val="0" Mode="0" Special="4"/>
+    <EccEntry Mcc="404" Mnc="999" Mask="3" Ecc="108" Cat_len="1" Cat_val="0" Mode="0" Special="4"/>
+    <!--405 India-->
+    <EccEntry Mcc="405" Mnc="999" Mask="3" Ecc="100" Cat_len="1" Cat_val="0" Mode="0" Special="4"/>
+    <EccEntry Mcc="405" Mnc="999" Mask="3" Ecc="101" Cat_len="1" Cat_val="0" Mode="0" Special="4"/>
+    <EccEntry Mcc="405" Mnc="999" Mask="3" Ecc="102" Cat_len="1" Cat_val="0" Mode="0" Special="4"/>
+    <EccEntry Mcc="405" Mnc="999" Mask="3" Ecc="108" Cat_len="1" Cat_val="0" Mode="0" Special="4"/>
+    <!--406 India-->
+    <EccEntry Mcc="406" Mnc="999" Mask="3" Ecc="100" Cat_len="1" Cat_val="0" Mode="0" Special="4"/>
+    <EccEntry Mcc="406" Mnc="999" Mask="3" Ecc="101" Cat_len="1" Cat_val="0" Mode="0" Special="0"/>
+    <EccEntry Mcc="406" Mnc="999" Mask="3" Ecc="102" Cat_len="1" Cat_val="0" Mode="0" Special="0"/>
+    <EccEntry Mcc="406" Mnc="999" Mask="3" Ecc="108" Cat_len="1" Cat_val="0" Mode="0" Special="0"/>
+    <!--410 Pakistan-->
+    <EccEntry Mcc="410" Mnc="999" Mask="3" Ecc="15" Cat_len="1" Cat_val="0" Mode="0" Special="4"/>
+    <EccEntry Mcc="410" Mnc="999" Mask="3" Ecc="16" Cat_len="1" Cat_val="0" Mode="0" Special="4"/>
+    <EccEntry Mcc="410" Mnc="999" Mask="3" Ecc="115" Cat_len="1" Cat_val="0" Mode="0" Special="4"/>
+    <EccEntry Mcc="410" Mnc="999" Mask="3" Ecc="1122" Cat_len="1" Cat_val="0" Mode="0" Special="4"/>
+    <!--412 Afghanistan-->
+    <!--413 Sri Lanka-->
+    <EccEntry Mcc="413" Mnc="999" Mask="3" Ecc="110" Cat_len="1" Cat_val="0" Mode="0" Special="4"/>
+    <EccEntry Mcc="413" Mnc="999" Mask="3" Ecc="118" Cat_len="1" Cat_val="0" Mode="0" Special="4"/>
+    <EccEntry Mcc="413" Mnc="999" Mask="3" Ecc="119" Cat_len="1" Cat_val="0" Mode="0" Special="4"/>
+    <EccEntry Mcc="413" Mnc="3" Mask="3" Ecc="911" Cat_len="1" Cat_val="0" Mode="0" Special="4"/>
+    <!--414 Myanmar-->
+    <EccEntry Mcc="414" Mnc="999" Mask="3" Ecc="191" Cat_len="1" Cat_val="0" Mode="0" Special="4"/>
+    <EccEntry Mcc="414" Mnc="999" Mask="3" Ecc="192" Cat_len="1" Cat_val="0" Mode="0" Special="4"/>
+    <EccEntry Mcc="414" Mnc="999" Mask="3" Ecc="199" Cat_len="1" Cat_val="0" Mode="0" Special="4"/>
+    <!--415 Lebanon-->
+    <EccEntry Mcc="415" Mnc="999" Mask="3" Ecc="125" Cat_len="1" Cat_val="0" Mode="0" Special="0"/>
+    <EccEntry Mcc="415" Mnc="999" Mask="3" Ecc="175" Cat_len="1" Cat_val="0" Mode="0" Special="0"/>
+    <EccEntry Mcc="415" Mnc="999" Mask="3" Ecc="140" Cat_len="1" Cat_val="0" Mode="0" Special="0"/>
+    <!--416 Jordan-->
+    <!--417 Syrian Arab Republic-->
+    <!--418 Iraq-->
+    <EccEntry Mcc="418" Mnc="999" Mask="3" Ecc="104" Cat_len="1" Cat_val="0" Mode="0" Special="0"/>
+    <EccEntry Mcc="418" Mnc="999" Mask="3" Ecc="115" Cat_len="1" Cat_val="0" Mode="0" Special="0"/>
+    <EccEntry Mcc="418" Mnc="999" Mask="3" Ecc="122" Cat_len="1" Cat_val="0" Mode="0" Special="0"/>
+    <!--419 Kuwait-->
+    <EccEntry Mcc="419" Mnc="999" Mask="3" Ecc="152" Cat_len="1" Cat_val="0" Mode="0" Special="0"/>
+    <!--420 Saudi Arabia-->
+    <EccEntry Mcc="420" Mnc="999" Mask="3" Ecc="993" Cat_len="1" Cat_val="0" Mode="0" Special="4"/>
+    <EccEntry Mcc="420" Mnc="999" Mask="3" Ecc="997" Cat_len="1" Cat_val="0" Mode="0" Special="4"/>
+    <EccEntry Mcc="420" Mnc="999" Mask="3" Ecc="998" Cat_len="1" Cat_val="0" Mode="0" Special="4"/>
+    <EccEntry Mcc="420" Mnc="999" Mask="3" Ecc="999" Cat_len="1" Cat_val="0" Mode="0" Special="4"/>
+    <!--421 Yemen-->
+    <!--422 Oman-->
+    <EccEntry Mcc="422" Mnc="999" Mask="3" Ecc="999" Cat_len="1" Cat_val="0" Mode="0" Special="0"/>
+    <EccEntry Mcc="422" Mnc="999" Mask="3" Ecc="9999" Cat_len="1" Cat_val="0" Mode="0" Special="0"/>
+    <EccEntry Mcc="422" Mnc="999" Mask="3" Ecc="1442" Cat_len="1" Cat_val="0" Mode="0" Special="0"/>
+    <!--424 Arab Emirates-->
+    <EccEntry Mcc="424" Mnc="999" Mask="3" Ecc="999" Cat_len="1" Cat_val="0" Mode="0" Special="0"/>
+    <EccEntry Mcc="424" Mnc="999" Mask="3" Ecc="998" Cat_len="1" Cat_val="0" Mode="0" Special="0"/>
+    <EccEntry Mcc="424" Mnc="999" Mask="3" Ecc="997" Cat_len="1" Cat_val="0" Mode="0" Special="0"/>
+    <EccEntry Mcc="424" Mnc="999" Mask="3" Ecc="996" Cat_len="1" Cat_val="0" Mode="0" Special="0"/>
+    <EccEntry Mcc="424" Mnc="999" Mask="3" Ecc="993" Cat_len="1" Cat_val="0" Mode="0" Special="0"/>
+    <EccEntry Mcc="424" Mnc="999" Mask="3" Ecc="992" Cat_len="1" Cat_val="0" Mode="0" Special="0"/>
+    <EccEntry Mcc="424" Mnc="999" Mask="3" Ecc="991" Cat_len="1" Cat_val="0" Mode="0" Special="0"/>
+    <!--425 Israel/Palestine-->
+    <EccEntry Mcc="425" Mnc="999" Mask="3" Ecc="100" Cat_len="1" Cat_val="0" Mode="0" Special="4"/>
+    <EccEntry Mcc="425" Mnc="999" Mask="3" Ecc="101" Cat_len="1" Cat_val="0" Mode="0" Special="4"/>
+    <EccEntry Mcc="425" Mnc="999" Mask="3" Ecc="102" Cat_len="1" Cat_val="0" Mode="0" Special="4"/>
+    <!--426 Bahrain-->
+    <EccEntry Mcc="426" Mnc="999" Mask="3" Ecc="199" Cat_len="1" Cat_val="0" Mode="0" Special="0"/>
+    <EccEntry Mcc="426" Mnc="999" Mask="3" Ecc="990" Cat_len="1" Cat_val="0" Mode="0" Special="0"/>
+    <EccEntry Mcc="426" Mnc="999" Mask="3" Ecc="992" Cat_len="1" Cat_val="0" Mode="0" Special="0"/>
+    <EccEntry Mcc="426" Mnc="999" Mask="3" Ecc="994" Cat_len="1" Cat_val="0" Mode="0" Special="0"/>
+    <EccEntry Mcc="426" Mnc="999" Mask="3" Ecc="997" Cat_len="1" Cat_val="0" Mode="0" Special="0"/>
+    <EccEntry Mcc="426" Mnc="999" Mask="3" Ecc="998" Cat_len="1" Cat_val="0" Mode="0" Special="0"/>
+    <EccEntry Mcc="426" Mnc="999" Mask="3" Ecc="999" Cat_len="1" Cat_val="0" Mode="0" Special="4"/>
+    <!--427 Qatar-->
+    <EccEntry Mcc="427" Mnc="999" Mask="3" Ecc="999" Cat_len="1" Cat_val="0" Mode="0" Special="4"/>
+    <EccEntry Mcc="427" Mnc="999" Mask="3" Ecc="991" Cat_len="1" Cat_val="0" Mode="0" Special="4"/>
+    <EccEntry Mcc="427" Mnc="999" Mask="3" Ecc="992" Cat_len="1" Cat_val="0" Mode="0" Special="4"/>
+    <EccEntry Mcc="427" Mnc="999" Mask="3" Ecc="996" Cat_len="1" Cat_val="0" Mode="0" Special="4"/>
+    <EccEntry Mcc="427" Mnc="999" Mask="3" Ecc="998" Cat_len="1" Cat_val="0" Mode="0" Special="4"/>
+    <!--428 Mongolia-->
+    <!--429 Nepal-->
+    <EccEntry Mcc="429" Mnc="999" Mask="3" Ecc="100" Cat_len="1" Cat_val="0" Mode="0" Special="4"/>
+    <EccEntry Mcc="429" Mnc="999" Mask="3" Ecc="101" Cat_len="1" Cat_val="0" Mode="0" Special="4"/>
+    <EccEntry Mcc="429" Mnc="999" Mask="3" Ecc="102" Cat_len="1" Cat_val="0" Mode="0" Special="4"/>
+    <EccEntry Mcc="429" Mnc="999" Mask="3" Ecc="103" Cat_len="1" Cat_val="0" Mode="0" Special="4"/>
+    <EccEntry Mcc="429" Mnc="999" Mask="3" Ecc="108" Cat_len="1" Cat_val="0" Mode="0" Special="0"/>
+    <EccEntry Mcc="429" Mnc="999" Mask="3" Ecc="197" Cat_len="1" Cat_val="0" Mode="0" Special="0"/>
+    <!--432 Iran-->
+    <EccEntry Mcc="432" Mnc="999" Mask="1" Ecc="08" Cat_len="1" Cat_val="0" Mode="0" Special="0"/>
+    <EccEntry Mcc="432" Mnc="999" Mask="1" Ecc="000" Cat_len="1" Cat_val="0" Mode="0" Special="0"/>
+    <EccEntry Mcc="432" Mnc="999" Mask="1" Ecc="110" Cat_len="1" Cat_val="0" Mode="0" Special="0"/>
+    <EccEntry Mcc="432" Mnc="999" Mask="3" Ecc="115" Cat_len="1" Cat_val="0" Mode="0" Special="0"/>
+    <EccEntry Mcc="432" Mnc="999" Mask="3" Ecc="125" Cat_len="1" Cat_val="0" Mode="0" Special="0"/>
+    <!--434 Uzbekistan-->
+    <EccEntry Mcc="434" Mnc="999" Mask="1" Ecc="101" Cat_len="1" Cat_val="0" Mode="0" Special="4"/>
+    <EccEntry Mcc="434" Mnc="999" Mask="1" Ecc="102" Cat_len="1" Cat_val="0" Mode="0" Special="4"/>
+    <EccEntry Mcc="434" Mnc="999" Mask="1" Ecc="103" Cat_len="1" Cat_val="0" Mode="0" Special="4"/>
+    <EccEntry Mcc="434" Mnc="999" Mask="1" Ecc="104" Cat_len="1" Cat_val="0" Mode="0" Special="4"/>
+    <!--436 Tajikistan-->
+    <!--437 Kyrgyz-->
+    <!--438 Turkmenistan-->
+    <!--440 Japan-->
+    <EccEntry Mcc="440" Mnc="999" Mask="3" Ecc="110" Cat_len="1" Cat_val="0" Mode="0" Special="0"/>
+    <EccEntry Mcc="440" Mnc="999" Mask="3" Ecc="118" Cat_len="1" Cat_val="0" Mode="0" Special="0"/>
+    <EccEntry Mcc="440" Mnc="999" Mask="3" Ecc="119" Cat_len="1" Cat_val="0" Mode="0" Special="0"/>
+    <EccEntry Mcc="440" Mnc="20" Mask="3" Ecc="110" Cat_len="1" Cat_val="1" Mode="0" Special="0"/>
+    <EccEntry Mcc="440" Mnc="20" Mask="3" Ecc="118" Cat_len="1" Cat_val="8" Mode="0" Special="0"/>
+    <EccEntry Mcc="440" Mnc="20" Mask="3" Ecc="119" Cat_len="1" Cat_val="6" Mode="0" Special="0"/>
+    <!--450 Korea-->
+    <EccEntry Mcc="450" Mnc="999" Mask="3" Ecc="119" Cat_len="1" Cat_val="0" Mode="0" Special="0"/>
+    <!--452 Vietnam-->
+    <EccEntry Mcc="452" Mnc="999" Mask="3" Ecc="113" Cat_len="1" Cat_val="0" Mode="0" Special="0"/>
+    <EccEntry Mcc="452" Mnc="999" Mask="3" Ecc="114" Cat_len="1" Cat_val="0" Mode="0" Special="0"/>
+    <EccEntry Mcc="452" Mnc="999" Mask="3" Ecc="115" Cat_len="1" Cat_val="0" Mode="0" Special="0"/>
+    <EccEntry Mcc="452" Mnc="01" Mask="3" Ecc="113" Cat_len="1" Cat_val="0" Mode="0" Special="4"/>
+    <EccEntry Mcc="452" Mnc="01" Mask="3" Ecc="114" Cat_len="1" Cat_val="0" Mode="0" Special="4"/>
+    <EccEntry Mcc="452" Mnc="01" Mask="3" Ecc="115" Cat_len="1" Cat_val="0" Mode="0" Special="4"/>
+    <EccEntry Mcc="452" Mnc="03" Mask="3" Ecc="113" Cat_len="1" Cat_val="0" Mode="0" Special="4"/>
+    <EccEntry Mcc="452" Mnc="03" Mask="3" Ecc="114" Cat_len="1" Cat_val="0" Mode="0" Special="4"/>
+    <EccEntry Mcc="452" Mnc="03" Mask="3" Ecc="115" Cat_len="1" Cat_val="0" Mode="0" Special="4"/>
+    <EccEntry Mcc="452" Mnc="04" Mask="3" Ecc="113" Cat_len="1" Cat_val="0" Mode="0" Special="4"/>
+    <EccEntry Mcc="452" Mnc="04" Mask="3" Ecc="114" Cat_len="1" Cat_val="0" Mode="0" Special="4"/>
+    <EccEntry Mcc="452" Mnc="04" Mask="3" Ecc="115" Cat_len="1" Cat_val="0" Mode="0" Special="4"/>
+    <EccEntry Mcc="452" Mnc="05" Mask="3" Ecc="113" Cat_len="1" Cat_val="0" Mode="0" Special="4"/>
+    <EccEntry Mcc="452" Mnc="05" Mask="3" Ecc="114" Cat_len="1" Cat_val="0" Mode="0" Special="4"/>
+    <EccEntry Mcc="452" Mnc="05" Mask="3" Ecc="115" Cat_len="1" Cat_val="0" Mode="0" Special="4"/>
+    <EccEntry Mcc="452" Mnc="06" Mask="3" Ecc="113" Cat_len="1" Cat_val="0" Mode="0" Special="4"/>
+    <EccEntry Mcc="452" Mnc="06" Mask="3" Ecc="114" Cat_len="1" Cat_val="0" Mode="0" Special="4"/>
+    <EccEntry Mcc="452" Mnc="06" Mask="3" Ecc="115" Cat_len="1" Cat_val="0" Mode="0" Special="4"/>
+    <EccEntry Mcc="452" Mnc="07" Mask="3" Ecc="113" Cat_len="1" Cat_val="0" Mode="0" Special="4"/>
+    <EccEntry Mcc="452" Mnc="07" Mask="3" Ecc="114" Cat_len="1" Cat_val="0" Mode="0" Special="4"/>
+    <EccEntry Mcc="452" Mnc="07" Mask="3" Ecc="115" Cat_len="1" Cat_val="0" Mode="0" Special="4"/>
+    <EccEntry Mcc="452" Mnc="08" Mask="3" Ecc="113" Cat_len="1" Cat_val="0" Mode="0" Special="4"/>
+    <EccEntry Mcc="452" Mnc="08" Mask="3" Ecc="114" Cat_len="1" Cat_val="0" Mode="0" Special="4"/>
+    <EccEntry Mcc="452" Mnc="08" Mask="3" Ecc="115" Cat_len="1" Cat_val="0" Mode="0" Special="4"/>
+    <!--454 HongKong-->
+    <EccEntry Mcc="454" Mnc="999" Mask="3" Ecc="999" Cat_len="1" Cat_val="0" Mode="0" Special="0"/>
+    <!--455 Macao, China-->
+    <EccEntry Mcc="455" Mnc="999" Mask="1" Ecc="08" Cat_len="1" Cat_val="0" Mode="0" Special="0"/>
+    <EccEntry Mcc="455" Mnc="999" Mask="1" Ecc="000" Cat_len="1" Cat_val="0" Mode="0" Special="0"/>
+    <EccEntry Mcc="455" Mnc="999" Mask="3" Ecc="110" Cat_len="1" Cat_val="0" Mode="0" Special="0"/>
+    <EccEntry Mcc="455" Mnc="999" Mask="1" Ecc="118" Cat_len="1" Cat_val="0" Mode="0" Special="0"/>
+    <EccEntry Mcc="455" Mnc="999" Mask="3" Ecc="119" Cat_len="1" Cat_val="0" Mode="0" Special="0"/>
+    <EccEntry Mcc="455" Mnc="999" Mask="3" Ecc="120" Cat_len="1" Cat_val="0" Mode="0" Special="0"/>
+    <EccEntry Mcc="455" Mnc="999" Mask="3" Ecc="122" Cat_len="1" Cat_val="0" Mode="0" Special="0"/>
+    <EccEntry Mcc="455" Mnc="999" Mask="3" Ecc="999" Cat_len="1" Cat_val="0" Mode="0" Special="0"/>
+    <EccEntry Mcc="455" Mnc="999" Mask="3" Ecc="993" Cat_len="1" Cat_val="0" Mode="0" Special="0"/>
+    <!--456 Cambodia-->
+    <EccEntry Mcc="456" Mnc="999" Mask="3" Ecc="117" Cat_len="1" Cat_val="0" Mode="0" Special="4"/>
+    <EccEntry Mcc="456" Mnc="999" Mask="3" Ecc="119" Cat_len="1" Cat_val="0" Mode="0" Special="4"/>
+    <EccEntry Mcc="456" Mnc="999" Mask="3" Ecc="666" Cat_len="1" Cat_val="0" Mode="0" Special="4"/>
+    <EccEntry Mcc="456" Mnc="999" Mask="3" Ecc="118" Cat_len="1" Cat_val="0" Mode="0" Special="4"/>
+    <!--457 Lao People's Democratic Republic-->
+    <EccEntry Mcc="457" Mnc="999" Mask="3" Ecc="1191" Cat_len="1" Cat_val="0" Mode="0" Special="0"/>
+    <!--460 China-->
+    <EccEntry Mcc="460" Mnc="999" Mask="1" Ecc="08" Cat_len="1" Cat_val="0" Mode="2" Special="0"/>
+    <EccEntry Mcc="460" Mnc="999" Mask="1" Ecc="000" Cat_len="1" Cat_val="0" Mode="2" Special="0"/>
+    <EccEntry Mcc="460" Mnc="999" Mask="3" Ecc="110" Cat_len="1" Cat_val="0" Mode="2" Special="4"/>
+    <EccEntry Mcc="460" Mnc="999" Mask="1" Ecc="118" Cat_len="1" Cat_val="0" Mode="2" Special="0"/>
+    <EccEntry Mcc="460" Mnc="999" Mask="3" Ecc="119" Cat_len="1" Cat_val="0" Mode="2" Special="4"/>
+    <EccEntry Mcc="460" Mnc="999" Mask="3" Ecc="120" Cat_len="1" Cat_val="0" Mode="2" Special="4"/>
+    <EccEntry Mcc="460" Mnc="999" Mask="3" Ecc="122" Cat_len="1" Cat_val="0" Mode="2" Special="4"/>
+    <EccEntry Mcc="460" Mnc="999" Mask="1" Ecc="999" Cat_len="1" Cat_val="0" Mode="2" Special="0"/>
+    <!--466 TaiWan-->
+    <!--Yongan.Lin@RM.NW.CALL.2568150 & 2518996, 2019/11/15,  modify FET & CHT & TST special to 4 and modify APTG & TWM special to 0 -->
+    <EccEntry Mcc="466" Mnc="999" Mask="3" Ecc="110" Cat_len="1" Cat_val="0" Mode="0" Special="0"/>
+    <EccEntry Mcc="466" Mnc="999" Mask="3" Ecc="118" Cat_len="1" Cat_val="0" Mode="0" Special="0"/>
+    <EccEntry Mcc="466" Mnc="999" Mask="3" Ecc="119" Cat_len="1" Cat_val="0" Mode="0" Special="0"/>
+    <EccEntry Mcc="466" Mnc="1" Mask="3" Ecc="110" Cat_len="1" Cat_val="0" Mode="0" Special="4"/>
+    <EccEntry Mcc="466" Mnc="1" Mask="3" Ecc="118" Cat_len="1" Cat_val="0" Mode="0" Special="4"/>
+    <EccEntry Mcc="466" Mnc="1" Mask="3" Ecc="119" Cat_len="1" Cat_val="0" Mode="0" Special="4"/>
+    <EccEntry Mcc="466" Mnc="2" Mask="3" Ecc="110" Cat_len="1" Cat_val="0" Mode="0" Special="4"/>
+    <EccEntry Mcc="466" Mnc="2" Mask="3" Ecc="118" Cat_len="1" Cat_val="0" Mode="0" Special="4"/>
+    <EccEntry Mcc="466" Mnc="2" Mask="3" Ecc="119" Cat_len="1" Cat_val="0" Mode="0" Special="4"/>
+    <EccEntry Mcc="466" Mnc="5" Mask="3" Ecc="118" Cat_len="1" Cat_val="0" Mode="0" Special="4"/>
+    <EccEntry Mcc="466" Mnc="89" Mask="3" Ecc="110" Cat_len="1" Cat_val="0" Mode="0" Special="4"/>
+    <EccEntry Mcc="466" Mnc="89" Mask="3" Ecc="118" Cat_len="1" Cat_val="0" Mode="0" Special="4"/>
+    <EccEntry Mcc="466" Mnc="89" Mask="3" Ecc="119" Cat_len="1" Cat_val="0" Mode="0" Special="4"/>
+    <EccEntry Mcc="466" Mnc="92" Mask="3" Ecc="110" Cat_len="1" Cat_val="0" Mode="0" Special="4"/>
+    <EccEntry Mcc="466" Mnc="92" Mask="3" Ecc="118" Cat_len="1" Cat_val="0" Mode="0" Special="4"/>
+    <EccEntry Mcc="466" Mnc="92" Mask="3" Ecc="119" Cat_len="1" Cat_val="0" Mode="0" Special="4"/>
+    <EccEntry Mcc="466" Mnc="97" Mask="3" Ecc="118" Cat_len="1" Cat_val="0" Mode="0" Special="4"/>
+    <!--467 Democratic People's Republic of Korea-->
+    <!--470 Bangladesh-->
+    <EccEntry Mcc="470" Mnc="999" Mask="1" Ecc="999" Cat_len="1" Cat_val="0" Mode="0" Special="4"/>
+    <!--472 Maldives-->
+    <!--502 Malaysia-->
+    <EccEntry Mcc="502" Mnc="999" Mask="3" Ecc="999" Cat_len="1" Cat_val="0" Mode="0" Special="0"/>
+    <!--505 Australia-->
+    <EccEntry Mcc="505" Mnc="999" Mask="1" Ecc="000" Cat_len="1" Cat_val="0" Mode="0" Special="0"/>
+    <!--510 Indonesia-->
+    <EccEntry Mcc="510" Mnc="999" Mask="3" Ecc="110" Cat_len="1" Cat_val="0" Mode="0" Special="4"/>
+    <EccEntry Mcc="510" Mnc="999" Mask="3" Ecc="113" Cat_len="1" Cat_val="0" Mode="0" Special="4"/>
+    <EccEntry Mcc="510" Mnc="999" Mask="3" Ecc="118" Cat_len="1" Cat_val="0" Mode="0" Special="4"/>
+    <EccEntry Mcc="510" Mnc="999" Mask="3" Ecc="119" Cat_len="1" Cat_val="0" Mode="0" Special="4"/>
+    <!--514 Democratic People's Republic of Korea-->
+    <!--515 Philippines-->
+    <!--520 Thailand-->
+    <EccEntry Mcc="520" Mnc="999" Mask="3" Ecc="191" Cat_len="1" Cat_val="0" Mode="0" Special="0"/>
+    <EccEntry Mcc="520" Mnc="999" Mask="3" Ecc="199" Cat_len="1" Cat_val="0" Mode="0" Special="0"/>
+    <EccEntry Mcc="520" Mnc="999" Mask="3" Ecc="1669" Cat_len="1" Cat_val="0" Mode="0" Special="0"/>
+    <EccEntry Mcc="520" Mnc="5" Mask="3" Ecc="191" Cat_len="1" Cat_val="0" Mode="0" Special="4"/>
+    <EccEntry Mcc="520" Mnc="5" Mask="3" Ecc="199" Cat_len="1" Cat_val="0" Mode="0" Special="4"/>
+    <EccEntry Mcc="520" Mnc="5" Mask="3" Ecc="1669" Cat_len="1" Cat_val="0" Mode="0" Special="4"/>
+    <EccEntry Mcc="520" Mnc="3" Mask="3" Ecc="191" Cat_len="1" Cat_val="0" Mode="0" Special="4"/>
+    <EccEntry Mcc="520" Mnc="3" Mask="3" Ecc="199" Cat_len="1" Cat_val="0" Mode="0" Special="4"/>
+    <EccEntry Mcc="520" Mnc="3" Mask="3" Ecc="1669" Cat_len="1" Cat_val="0" Mode="0" Special="4"/>
+    <EccEntry Mcc="520" Mnc="1" Mask="3" Ecc="191" Cat_len="1" Cat_val="0" Mode="0" Special="4"/>
+    <EccEntry Mcc="520" Mnc="1" Mask="3" Ecc="199" Cat_len="1" Cat_val="0" Mode="0" Special="4"/>
+    <EccEntry Mcc="520" Mnc="1" Mask="3" Ecc="1669" Cat_len="1" Cat_val="0" Mode="0" Special="4"/>
+    <EccEntry Mcc="520" Mnc="18" Mask="3" Ecc="191" Cat_len="1" Cat_val="0" Mode="0" Special="4"/>
+    <EccEntry Mcc="520" Mnc="18" Mask="3" Ecc="199" Cat_len="1" Cat_val="0" Mode="0" Special="4"/>
+    <EccEntry Mcc="520" Mnc="18" Mask="3" Ecc="1669" Cat_len="1" Cat_val="0" Mode="0" Special="4"/>
+    <EccEntry Mcc="520" Mnc="47" Mask="3" Ecc="191" Cat_len="1" Cat_val="0" Mode="0" Special="4"/>
+    <EccEntry Mcc="520" Mnc="47" Mask="3" Ecc="199" Cat_len="1" Cat_val="0" Mode="0" Special="4"/>
+    <EccEntry Mcc="520" Mnc="47" Mask="3" Ecc="1669" Cat_len="1" Cat_val="0" Mode="0" Special="4"/>
+    <EccEntry Mcc="520" Mnc="0" Mask="3" Ecc="191" Cat_len="1" Cat_val="1" Mode="0" Special="0"/>
+    <EccEntry Mcc="520" Mnc="0" Mask="3" Ecc="199" Cat_len="1" Cat_val="4" Mode="0" Special="0"/>
+    <EccEntry Mcc="520" Mnc="0" Mask="3" Ecc="1669" Cat_len="1" Cat_val="2" Mode="0" Special="0"/>
+    <EccEntry Mcc="520" Mnc="4" Mask="3" Ecc="191" Cat_len="1" Cat_val="1" Mode="0" Special="0"/>
+    <EccEntry Mcc="520" Mnc="4" Mask="3" Ecc="199" Cat_len="1" Cat_val="4" Mode="0" Special="0"/>
+    <EccEntry Mcc="520" Mnc="4" Mask="3" Ecc="1669" Cat_len="1" Cat_val="2" Mode="0" Special="0"/>
+    <!--525 Singapore-->
+    <EccEntry Mcc="525" Mnc="999" Mask="3" Ecc="999" Cat_len="1" Cat_val="0" Mode="0" Special="0"/>
+    <EccEntry Mcc="525" Mnc="3" Mask="3" Ecc="999" Cat_len="1" Cat_val="0" Mode="0" Special="4"/>
+    <!-- Added singtel 999 as special -->
+    <!--528 Brunei Darussalam-->
+    <!--530 New Zeland-->
+    <EccEntry Mcc="530" Mnc="999" Mask="3" Ecc="111" Cat_len="1" Cat_val="0" Mode="0" Special="0"/>
+    <EccEntry Mcc="530" Mnc="999" Mask="1" Ecc="000" Cat_len="1" Cat_val="0" Mode="0" Special="0"/>
+    <EccEntry Mcc="530" Mnc="01" Mask="1" Ecc="999" Cat_len="1" Cat_val="0" Mode="0" Special="0"/>
+    <EccEntry Mcc="530" Mnc="24" Mask="1" Ecc="999" Cat_len="1" Cat_val="0" Mode="0" Special="0"/>
+    <EccEntry Mcc="530" Mnc="24" Mask="1" Ecc="119" Cat_len="1" Cat_val="0" Mode="0" Special="0"/>
+    <!--537 Papua New Guinea-->
+    <EccEntry Mcc="537" Mnc="999" Mask="3" Ecc="110" Cat_len="1" Cat_val="0" Mode="0" Special="0"/>
+    <EccEntry Mcc="537" Mnc="999" Mask="3" Ecc="111" Cat_len="1" Cat_val="0" Mode="0" Special="4"/>
+    <!--539 Tonga-->
+    <!--540 Solomon Islands-->
+    <EccEntry Mcc="540" Mnc="999" Mask="3" Ecc="999" Cat_len="1" Cat_val="0" Mode="0" Special="0"/>
+    <!--541 Vanuatu-->
+    <!--542 Fiji-->
+    <EccEntry Mcc="542" Mnc="999" Mask="1" Ecc="917" Cat_len="1" Cat_val="0" Mode="0" Special="0"/>
+    <!--543 Wallis and Futuna-->
+    <!--544 American Samoa-->
+    <!--546 New Caledonia-->
+    <!--547 French Polynesia-->
+    <!--548 Cook Islands-->
+    <EccEntry Mcc="548" Mnc="999" Mask="1" Ecc="999" Cat_len="1" Cat_val="0" Mode="0" Special="4"/>
+    <!--549 Samoa-->
+    <EccEntry Mcc="549" Mnc="999" Mask="3" Ecc="995" Cat_len="1" Cat_val="0" Mode="0" Special="0"/>
+    <!--550 Micronesia-->
+    <!--551 Marshall Islands-->
+    <!--552 Palau-->
+    <!--553 Tuvalu-->
+    <!--602 Egypt-->
+    <EccEntry Mcc="602" Mnc="999" Mask="3" Ecc="121" Cat_len="1" Cat_val="0" Mode="0" Special="4"/>
+    <EccEntry Mcc="602" Mnc="999" Mask="3" Ecc="122" Cat_len="1" Cat_val="0" Mode="0" Special="4"/>
+    <EccEntry Mcc="602" Mnc="999" Mask="3" Ecc="123" Cat_len="1" Cat_val="0" Mode="0" Special="4"/>
+    <EccEntry Mcc="602" Mnc="999" Mask="3" Ecc="126" Cat_len="1" Cat_val="0" Mode="0" Special="4"/>
+    <EccEntry Mcc="602" Mnc="999" Mask="3" Ecc="128" Cat_len="1" Cat_val="0" Mode="0" Special="4"/>
+    <EccEntry Mcc="602" Mnc="999" Mask="3" Ecc="129" Cat_len="1" Cat_val="0" Mode="0" Special="4"/>
+    <EccEntry Mcc="602" Mnc="999" Mask="3" Ecc="180" Cat_len="1" Cat_val="0" Mode="0" Special="4"/>
+    <!--603 Algeria-->
+    <EccEntry Mcc="603" Mnc="999" Mask="3" Ecc="1021" Cat_len="1" Cat_val="0" Mode="0" Special="4"/>
+    <EccEntry Mcc="603" Mnc="999" Mask="3" Ecc="14" Cat_len="1" Cat_val="0" Mode="0" Special="4"/>
+    <EccEntry Mcc="603" Mnc="999" Mask="3" Ecc="17" Cat_len="1" Cat_val="0" Mode="0" Special="4"/>
+    <EccEntry Mcc="603" Mnc="999" Mask="3" Ecc="1055" Cat_len="1" Cat_val="0" Mode="0" Special="4"/>
+    <EccEntry Mcc="603" Mnc="999" Mask="3" Ecc="1548" Cat_len="1" Cat_val="0" Mode="0" Special="4"/>
+    <!--604 Morocco-->
+    <EccEntry Mcc="604" Mnc="999" Mask="3" Ecc="15" Cat_len="1" Cat_val="0" Mode="0" Special="0"/>
+    <EccEntry Mcc="604" Mnc="999" Mask="3" Ecc="19" Cat_len="1" Cat_val="0" Mode="0" Special="0"/>
+    <EccEntry Mcc="604" Mnc="999" Mask="3" Ecc="177" Cat_len="1" Cat_val="0" Mode="0" Special="0"/>
+    <!--605 Tunisia-->
+    <EccEntry Mcc="605" Mnc="999" Mask="3" Ecc="190" Cat_len="1" Cat_val="0" Mode="0" Special="4"/>
+    <EccEntry Mcc="605" Mnc="999" Mask="3" Ecc="193" Cat_len="1" Cat_val="0" Mode="0" Special="4"/>
+    <EccEntry Mcc="605" Mnc="999" Mask="3" Ecc="197" Cat_len="1" Cat_val="0" Mode="0" Special="4"/>
+    <EccEntry Mcc="605" Mnc="999" Mask="3" Ecc="198" Cat_len="1" Cat_val="0" Mode="0" Special="4"/>
+    <!--606 Libya-->
+    <EccEntry Mcc="606" Mnc="999" Mask="1" Ecc="08" Cat_len="1" Cat_val="0" Mode="0" Special="0"/>
+    <!--607 Gambia-->
+    <!--608 Senegal-->
+    <!--609 Mauritania-->
+    <!--610 Mali-->
+    <!--611 Guinea-->
+    <!--612 C么te d'Ivoire-->
+    <!--613 Burkina Faso-->
+    <EccEntry Mcc="613" Mnc="999" Mask="1" Ecc="18" Cat_len="1" Cat_val="0" Mode="0" Special="0"/>
+    <!--614 Niger-->
+    <!--615 Togolese-->
+    <!--616 Benin-->
+    <!--617 Mauritius-->
+    <!--618 Liberia-->
+    <!--619 Sierra Leone-->
+    <!--620 Ghana-->
+    <EccEntry Mcc="620" Mnc="999" Mask="3" Ecc="999" Cat_len="1" Cat_val="0" Mode="0" Special="0"/>
+    <EccEntry Mcc="620" Mnc="999" Mask="3" Ecc="191" Cat_len="1" Cat_val="0" Mode="0" Special="0"/>
+    <EccEntry Mcc="620" Mnc="999" Mask="3" Ecc="192" Cat_len="1" Cat_val="0" Mode="0" Special="0"/>
+    <EccEntry Mcc="620" Mnc="999" Mask="1" Ecc="193" Cat_len="1" Cat_val="0" Mode="0" Special="0"/>
+    <!--621 Nigeria-->
+    <EccEntry Mcc="621" Mnc="999" Mask="1" Ecc="08" Cat_len="1" Cat_val="0" Mode="0" Special="0"/>
+    <EccEntry Mcc="621" Mnc="999" Mask="1" Ecc="000" Cat_len="1" Cat_val="0" Mode="0" Special="0"/>
+    <EccEntry Mcc="621" Mnc="999" Mask="1" Ecc="119" Cat_len="1" Cat_val="0" Mode="0" Special="0"/>
+    <!--622 Chad-->
+    <!--623 Central African Republic-->
+    <!--624 Cameroon-->
+    <!--625 Cape Verde-->
+    <!--626 Sao Tome and Principe-->
+    <!--627 Equatorial Guinea-->
+    <!--628 Gabonese-->
+    <!--629 Congo-->
+    <!--631 Angola-->
+    <!--633 Seychelles-->
+    <!--634 Sudan-->
+    <!--635 Rwanda-->
+    <!--636 Ethiopia-->
+    <!--637 Somali Democratic Republic-->
+    <!--638 Djibouti-->
+    <!--639 Kenya-->
+    <EccEntry Mcc="639" Mnc="999" Mask="1" Ecc="999" Cat_len="1" Cat_val="0" Mode="0" Special="0"/>
+    <!--640 Tanzania-->
+    <!--641 Uganda-->
+    <!--642 Burundi-->
+    <!--643 Mozambique-->
+    <!--645 Zambia-->
+    <!--648 Zimbabwe-->
+    <!--646 Madagascar-->
+    <!--649 Namibia-->
+    <!--650 Malawi-->
+    <!--651 Lesotho-->
+    <!--652 Botswana-->
+    <!--655 South Africa-->
+    <!--653 Swaziland-->
+    <!--702 Belize-->
+    <!--704 Guatemala-->
+    <!--708 Honduras-->
+    <!--710 Nicaragua-->
+    <!--712 Argentine-->
+    <!--714 Panama-->
+    <!--716 Peru-->
+    <EccEntry Mcc="716" Mnc="999" Mask="3" Ecc="105" Cat_len="1" Cat_val="0" Mode="0" Special="0"/>
+    <!--722 Argentine-->
+    <!--724 Brazil-->
+    <EccEntry Mcc="724" Mnc="999" Mask="3" Ecc="190" Cat_len="1" Cat_val="0" Mode="0" Special="0"/>
+    <EccEntry Mcc="724" Mnc="999" Mask="3" Ecc="194" Cat_len="1" Cat_val="0" Mode="0" Special="0"/>
+    <EccEntry Mcc="724" Mnc="999" Mask="3" Ecc="197" Cat_len="1" Cat_val="0" Mode="0" Special="0"/>
+    <EccEntry Mcc="724" Mnc="999" Mask="3" Ecc="199" Cat_len="1" Cat_val="0" Mode="0" Special="0"/>
+    <!--730 Chile-->
+    <EccEntry Mcc="730" Mnc="999" Mask="3" Ecc="133" Cat_len="1" Cat_val="0" Mode="0" Special="0"/>
+    <EccEntry Mcc="730" Mnc="999" Mask="3" Ecc="132" Cat_len="1" Cat_val="0" Mode="0" Special="4"/>
+    <EccEntry Mcc="730" Mnc="999" Mask="3" Ecc="131" Cat_len="1" Cat_val="0" Mode="0" Special="4"/>
+    <EccEntry Mcc="730" Mnc="999" Mask="3" Ecc="134" Cat_len="1" Cat_val="0" Mode="0" Special="4"/>
+    <!--732 Colombia-->
+    <!--734 Venezuela-->
+    <EccEntry Mcc="734" Mnc="999" Mask="3" Ecc="171" Cat_len="1" Cat_val="0" Mode="0" Special="0"/>
+    <!--736 Bolivia-->
+    <EccEntry Mcc="736" Mnc="999" Mask="1" Ecc="104" Cat_len="1" Cat_val="0" Mode="0" Special="4"/>
+    <EccEntry Mcc="736" Mnc="999" Mask="1" Ecc="110" Cat_len="1" Cat_val="0" Mode="0" Special="4"/>
+    <EccEntry Mcc="736" Mnc="999" Mask="1" Ecc="114" Cat_len="1" Cat_val="0" Mode="0" Special="4"/>
+    <EccEntry Mcc="736" Mnc="999" Mask="1" Ecc="119" Cat_len="1" Cat_val="0" Mode="0" Special="4"/>
+    <EccEntry Mcc="736" Mnc="999" Mask="1" Ecc="129" Cat_len="1" Cat_val="0" Mode="0" Special="4"/>
+    <EccEntry Mcc="736" Mnc="999" Mask="1" Ecc="911" Cat_len="1" Cat_val="0" Mode="0" Special="4"/>
+    <!--738 Guyana-->
+    <!--740 Ecuador-->
+    <!--746 Suriname-->
+    <!--744 Paraguay-->
+    <!--748 Uruguay-->
+    <EccEntry Mcc="748" Mnc="999" Mask="1" Ecc="104" Cat_len="1" Cat_val="0" Mode="0" Special="0"/>
+    <EccEntry Mcc="748" Mnc="999" Mask="1" Ecc="109" Cat_len="1" Cat_val="0" Mode="0" Special="0"/>
+    <!--826 Great Britain-->
+    <EccEntry Mcc="826" Mnc="999" Mask="1" Ecc="999" Cat_len="1" Cat_val="0" Mode="0" Special="0"/>
+</EccTable>

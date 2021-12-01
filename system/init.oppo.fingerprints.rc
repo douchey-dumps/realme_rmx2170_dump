@@ -1,0 +1,8 @@
+#Shengwang.Luo@BSP.Fingerprint.Basic, 2019/11/12, add unlock prop
+on property:ro.boot.vbmeta.device_state=unlocked
+    setprop vendor.boot.verifiedbootstate 1
+
+on property:ro.boot.vbmeta.device_state=locked
+    setprop vendor.boot.verifiedbootstate 0
+
+

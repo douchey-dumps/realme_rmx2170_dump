@@ -1,0 +1,114 @@
+##################################################################################
+### VENDOR_EDIT, OPPO All rights reserved.
+###
+### File: - init.oppo.rc
+### Author: jiangyg@PM
+###
+### ------------------------------- Revision History: ----------------------------
+### <author>                        <data>       <version>   <desc>
+### ------------------------------------------------------------------------------
+### jiangyg@PM                     2013-10-21                Create this file
+##################################################################################
+
+#ifdef VENDOR_EDIT
+#PengNan@Mobile.BSP.CHG 2016/07/25 add for otg_switch
+on property:persist.sys.oppo.otg_support=true
+	write /sys/class/power_supply/usb/otg_switch 1
+	
+on property:persist.sys.oppo.otg_support=false
+	write /sys/class/power_supply/usb/otg_switch 0
+#endif
+#ifdef VENDOR_EDIT
+on property:sys.oppo.disable_vooc=true
+    write /sys/class/power_supply/battery/call_mode 1
+
+on property:sys.oppo.disable_vooc=false
+    write /sys/class/power_supply/battery/call_mode 0
+#endif
+#ifdef VENDOR_EDIT
+#Jianchao.Shi@Mobile.BSP.CHG 2018/03/20, sjc Add for bsp criticallog
+service bspCriticalLog /system/bin/bspCriticalLog
+    user system
+    group system
+    class main
+#endif
+
+#Zhengpeng@OnLineRD.AirService.RIL, 2013/11/4, Add for create opponvitems dir
+on boot
+    mkdir /data/opponvitems  0771 radio radio
+    write /proc/sys/fs/suid_dumpable 1
+    setprop persist.vendor.radio.force_on_dc true
+    chmod 0660 /dev/mdmreason
+    chown system system /dev/mdmreason
+#endif
+#ifdef ODM_LQ_EDIT
+#huachun.li@ODM.LQ.CTS , 2019/12/30, Add for testPrctlDumpable
+on property:ro.build.release_type=true
+write /proc/sys/fs/suid_dumpable 0
+#endif ODM_LQ_EDIT
+#ifdef VENDOR_EDIT
+#Jianchao.Shi@Mobile.BSP.CHG 2018/03/20, sjc Add for otg_switch
+on property:persist.sys.oppo.otg_support=true
+    write /sys/class/power_supply/usb/otg_switch 1
+
+on property:persist.sys.oppo.otg_support=false
+    write /sys/class/power_supply/usb/otg_switch 0
+    setprop sys.engineermode.debug.otg false
+#endif
+
+#ifdef VENDOR_EDIT
+#Liangwen.Ke@PSW.CN.BT.Basic.Customize.2120948, 2019/06/26,
+#Add for supporting QC firmware update by sau_res
+
+on post-fs-data
+    mkdir /data/vendor/bluetooth/fw 0770 bluetooth bluetooth
+
+service btfirmwareupdate /system/bin/init.oppo.bluetooth.sh "btfirmwareupdate"
+    class core
+    user root
+    disabled
+    seclabel u:r:rutilsdaemon:s0
+    oneshot
+
+service btfirmwaredelete /system/bin/init.oppo.bluetooth.sh "btfirmwaredelete"
+    class core
+    user root
+    disabled
+    seclabel u:r:rutilsdaemon:s0
+    oneshot
+#endif /* VENDOR_EDIT */
+
+on boot:
+    #ifdef VENDOR_EDIT
+    #Mark.Yao@PSW.MM.Display.LCD.Params,2019-08-19 add for display
+    chown system system /sys/kernel/oppo_display/dump_info
+    chown system system /sys/kernel/oppo_display/hbm
+    chown system system /sys/kernel/oppo_display/cabc
+    chown system system /sys/kernel/oppo_display/seed
+    chown system system /sys/kernel/oppo_display/dimlayer_bl_en
+    chown system system /sys/kernel/oppo_display/ffl_set
+    chown system system /sys/kernel/oppo_display/dimlayer_hbm
+    chown system system /sys/kernel/oppo_display/force_screenfp
+    chown system system /sys/kernel/oppo_display/notify_fppress
+    chown system system /sys/kernel/oppo_display/aod_light_mode_set
+    chown system system /sys/kernel/oppo_display/power_status
+    chown system system /sys/kernel/oppo_display/sau_closebl_node
+    chown system system /sys/kernel/oppo_display/esd_status
+    chown system system /sys/kernel/oppo_display/spr
+
+    chmod 0666 /sys/kernel/oppo_display/dump_info
+    chmod 0666 /sys/kernel/oppo_display/hbm
+    chmod 0666 /sys/kernel/oppo_display/cabc
+    chmod 0666 /sys/kernel/oppo_display/seed
+    chmod 0666 /sys/kernel/oppo_display/dimlayer_bl_en
+    chmod 0666 /sys/kernel/oppo_display/ffl_set
+    chmod 0666 /sys/kernel/oppo_display/dimlayer_hbm
+    chmod 0666 /sys/kernel/oppo_display/force_screenfp
+    chmod 0666 /sys/kernel/oppo_display/notify_fppress
+    chmod 0666 /sys/kernel/oppo_display/aod_light_mode_set
+    chmod 0666 /sys/kernel/oppo_display/power_status
+    chmod 0666 /sys/kernel/oppo_display/sau_closebl_node
+    chmod 0666 /sys/kernel/oppo_display/esd_status
+    chmod 0644 /data/oppo/multimedia/oppo_display_perf_list.xml
+    chmod 0666 /sys/kernel/oppo_display/spr
+    #endif /* VENDOR_EDIT */

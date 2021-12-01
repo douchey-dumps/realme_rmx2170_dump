@@ -1,0 +1,12 @@
+#!/system/bin/sh
+svc wifi disable
+sleep 3
+#rmmod wlan.ko
+#sleep 1
+insmod /vendor/lib/modules/qca_cld3_wlan.ko
+sleep 2
+#ifconfig wlan0 up
+#sleep 2
+echo 5 > /sys/module/wlan/parameters/con_mode
+sleep 1
+ftmdaemon -n -dd

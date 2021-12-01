@@ -1,0 +1,6 @@
+<!-- This file is used by Exp Region: IR.  DO NOT MODIFY. -->
+<permissions>
+  <feature name="oppo.phone.not.log.emergency.call" />
+  <feature name="oppo.nfc.show.forground.favor.settings" />
+  <feature name="oppo.wirelesssettings.show.nfc.routing.table" />
+</permissions>

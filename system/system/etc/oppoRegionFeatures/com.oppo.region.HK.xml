@@ -1,0 +1,8 @@
+<!-- This file is used by Exp Region: IR.  DO NOT MODIFY. -->
+<permissions>
+  <feature name="coloros.customize.systemui.tile.gps_show_vowifi_dialog" />
+  <feature name="oppo.phone.nodisplayrecord" />
+  <feature name="oppo.phone.play.busy.tone" />
+  <feature name="coloros.customize.simsettings.check_location_status_for_vowifi" />
+  <feature name="coloros.customize.settings.wfc_dialog.support" />
+</permissions>

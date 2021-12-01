@@ -1,0 +1,12 @@
+service drm /system/bin/drmserver
+    class main
+    user drm
+    #ifndef VENDOR_EDIT
+    #dashuang.zhang@PSW.MM.MediaServer.Drm, 2019/07/01,
+    #Add for OMA DRM support
+    # Add drmserver access sdcard and internal storage permission
+    #group drm system inet drmrpc readproc
+    #else
+    group drm system inet drmrpc readproc sdcard_rw media_rw
+    #endif /* VENDOR_EDIT */
+    writepid /dev/cpuset/foreground/tasks

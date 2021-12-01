@@ -1,0 +1,6 @@
+(typeattributeset hal_systemhelper_hwservice_29_0 (hal_systemhelper_hwservice))
+(expandtypeattribute (hal_systemhelper_hwservice_29_0) true)
+(typeattribute hal_systemhelper_hwservice_29_0)
+(typeattributeset systemhelper_app_29_0 (systemhelper_app))
+(expandtypeattribute (systemhelper_app_29_0) true)
+(typeattribute systemhelper_app_29_0)

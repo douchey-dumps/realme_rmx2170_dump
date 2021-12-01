@@ -1,0 +1,7 @@
+<!-- This file is used by Exp Region: IR.  DO NOT MODIFY. -->
+<permissions>
+  <feature name="oppo.softsim.exp.support" />
+  <feature name="oppo.contacts.support.card.recognize" />
+  <feature name="oppo.phone.hide.roaming.assist" />
+  <feature name="oppo.contacts.disable.roaming.assist" />
+</permissions>

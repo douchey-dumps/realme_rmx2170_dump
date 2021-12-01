@@ -1,0 +1,19 @@
+##################################################################################
+### VENDOR_EDIT, OPPO All rights reserved.
+### 
+### File: - init.oppo.debug.nosd.rc
+### Author: Jason.Lee@OnlineRd.Framework
+### 
+### ------------------------------- Revision History: ----------------------------
+### <author>                        <data>       <version>   <desc>
+### ------------------------------------------------------------------------------
+### Jason.Lee@OnlineRd.Framework   2014-03-18               Create this file
+##################################################################################
+
+#ifdef VENDOR_EDIT
+#//hedong.liu@Connectivity.WiFi, 2015/05/29, Add for wlan FTM without diag 
+on property:persist.sys.adddevdiag=1
+     write /sys/devices/virtual/diag/diag/uevent add
+on property:persist.sys.adddevdiag=0
+     write /sys/devices/virtual/diag/diag/uevent add
+##endif /* VENDOR_EDIT */
