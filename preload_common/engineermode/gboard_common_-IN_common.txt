@@ -1,0 +1,9 @@
+ar_d3_20180105.dict
+fr_fr_d3_20180105.dict
+kk_d3_20180105.dict
+lo_la_d3_20171106.dict
+ru_ru_d3_20180105.dict
+si_lk_d3_20180105.dict
+sw_d3_20180105.dict
+ta_lk_d3_20180105.dict
+tl_d3_20180105.dict

@@ -1,0 +1,5 @@
+com.lazada.android
+com.ss.android.ugc.trill
+com.agoda.mobile.consumer
+com.tencent.qqlivei18n
+com.facebook.orca

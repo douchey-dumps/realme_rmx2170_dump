@@ -1,0 +1,12 @@
+as_d3_20180105.dict
+bn_bd_d3_20180105.dict
+gu_xt_d3_20171009.dict
+hi_d3_20180105.dict
+kn_xt_d3_20171009.dict
+ml_xt_d3_20171009.dict
+mr_xt_d3_20171009.dict
+ne_np_d3_20180105.dict
+or_xt_d3_20171009.dict
+pa_xv_d3_20171009.dict
+te_xa_d3_20180105.dict
+ur_pk_d3_20180105.dict

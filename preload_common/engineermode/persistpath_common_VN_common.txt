@@ -1,0 +1,9 @@
+data/app/com.lazada.android-206B1
+data/app/com.xb.topnews-206B1
+data/app/com.zing.zalo-206B1
+data/app/com.zing.mp3-206B1
+data/app/com.epi-206B1
+data/app/com.ss.android.ugc.trill-206B1
+data/app/com.agoda.mobile.consumer-206B1
+data/app/com.facebook.orca-206B1
+data/app/Agoda-206B1

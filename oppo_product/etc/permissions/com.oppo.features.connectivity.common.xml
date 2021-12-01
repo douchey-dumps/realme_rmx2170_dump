@@ -1,0 +1,10 @@
+<!-- This file is auto-generated.  DO NOT MODIFY. -->
+<!-- COLOR_EDIT.  add oppo.screen.hovering.support ;remove oppo.narrow.frame -->
+<permissions>
+    <!-- Yuan.Huang@PSW.CN.WiFi.Basic.SoftAp.1181662, 2018/10/22, Add for AP_STA concurrency feature -->
+    <feature name="oppo.ap.sta.concurrency.support" />
+    <!-- Wenkan.Zhu@PSW.CN.WiFi.Network.internet.1800709, 2019/01/24, Add for private feature -->
+    <feature name="oppo.wlan.privateDns.support" />
+    <!--add by Zuofa.Liu for show wfd menu on device which only 2.4G supported -->
+    <feature name="oppo.wirelesssetting.wifi.show.wfd.menu" />
+</permissions>

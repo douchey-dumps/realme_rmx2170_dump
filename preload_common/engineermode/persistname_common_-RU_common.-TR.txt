@@ -1,0 +1,3 @@
+com.google.android.apps.subscriptions.red
+com.google.android.apps.podcasts
+com.google.android.apps.magazines

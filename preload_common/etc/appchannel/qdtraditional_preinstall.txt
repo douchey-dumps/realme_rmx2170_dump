@@ -1,0 +1,5 @@
+{
+  "qimei": "1",
+  "androidId": "2",
+  "googleAdId": "3"
+}

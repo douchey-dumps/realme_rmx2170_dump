@@ -1,0 +1,368 @@
+[
+
+{
+  "VendorTag": "com.oppo.feature.auto.night.scence.support",
+  "Type": "Byte",
+  "Count": "1",
+  "Value": "1"
+},
+
+{
+  "VendorTag": "com.oppo.feature.video.eis.support",
+  "Type": "Byte",
+  "Count": "1",
+  "Value": "1"
+},
+
+{
+  "VendorTag": "com.oppo.tunning.video.eis.preview.scale",
+  "Type": "Float",
+  "Count": "1",
+  "Value": "1"
+},
+
+{
+  "VendorTag": "com.oppo.feature.video.super.eis.support",
+  "Type": "Byte",
+  "Count": "1",
+  "Value": "1"
+},
+
+{
+  "VendorTag": "com.oppo.tunning.front.panorama.max.height",
+  "Type": "Int32",
+  "Count": "1",
+  "Value": "1920"
+},
+
+{
+  "VendorTag": "com.oppo.tunning.back.portrait.normal.picturesize",
+  "Type": "Int32",
+  "Count": "2",
+  "Value": "4000x3000"
+},
+
+{
+  "VendorTag": "com.oppo.high.picturesize",
+  "Type": "Int32",
+  "Count": "2",
+  "Value": "8000x6000"
+},
+
+{
+  "VendorTag": "com.oppo.sat.ultra.support.imagesizes",
+  "Type": "Int32",
+  "Count": "6",
+  "Value": "3264x2448x3264x1506x2448x2448"
+},
+
+{
+  "VendorTag": "com.oppo.sat.tele.support.imagesizes",
+  "Type": "Int32",
+  "Count": "6",
+  "Value": "4000x3000x4000x1840x3000x3000"
+},
+
+{
+  "VendorTag": "com.oppo.feature.sticker.support",
+  "Type": "Byte",
+  "Count": "1",
+  "Value": "1"
+},
+
+{
+  "VendorTag": "com.oppo.feature.suppernight.support",
+  "Type": "Byte",
+  "Count": "1",
+  "Value": "1"
+},
+
+{
+  "VendorTag": "com.oppo.feature.portrait.new.style.support",
+  "Type": "Byte",
+  "Count": "1",
+  "Value": "1"
+},
+
+{
+  "VendorTag": "com.oppo.tunning.panorama.front.to.rear.switchtime",
+  "Type": "Int32",
+  "Count": "1",
+  "Value": "750"
+},
+
+{
+  "VendorTag": "com.oppo.tunning.panorama.rear.to.front.switchtime",
+  "Type": "Int32",
+  "Count": "1",
+  "Value": "750"
+},
+
+{
+  "VendorTag": "com.oppo.tunning.temperature.ultimate.limit",
+  "Type": "Int32",
+  "Count": "1",
+  "Value": "480"
+},
+
+{
+  "VendorTag": "com.oppo.feature.postcapture.support",
+  "Type": "Byte",
+  "Count": "1",
+  "Value": "0"
+},
+
+{
+  "VendorTag": "com.oppo.feature.postprocess.savejpeg.support",
+  "Type": "Byte",
+  "Count": "1",
+  "Value": "1"
+},
+
+{
+  "VendorTag": "com.oppo.feature.vivid.support",
+  "Type": "Byte",
+  "Count": "1",
+  "Value": "0"
+},
+
+{
+  "VendorTag": "com.oppo.feature.postview.support",
+  "Type": "Byte",
+  "Count": "1",
+  "Value": "1"
+},
+
+{
+  "VendorTag": "com.oppo.feature.googlelens.support",
+  "Type": "Byte",
+  "Count": "1",
+  "Value": "0"
+},
+
+{
+  "VendorTag": "com.oppo.feature.beauty3d.support",
+  "Type": "Byte",
+  "Count": "1",
+  "Value": "0"
+},
+
+{
+  "VendorTag": "com.oppo.feature.back.omoji.support",
+  "Type": "Byte",
+  "Count": "1",
+  "Value": "1"
+},
+
+{
+  "VendorTag": "com.oppo.feature.front.omoji.support",
+  "Type": "Byte",
+  "Count": "1",
+  "Value": "1"
+},
+
+{
+  "VendorTag": "com.oppo.feature.pi.support",
+  "Type": "Byte",
+  "Count": "1",
+  "Value": "1"
+},
+
+{
+  "VendorTag": "com.oppo.tunning.1080p.hfr.fps",
+  "Type": "Int32",
+  "Count": "1",
+  "Value": "240"
+},
+
+{
+  "VendorTag": "com.oppo.tunning.720p.hfr.fps",
+  "Type": "Int32",
+  "Count": "1",
+  "Value": "480"
+},
+
+{
+  "VendorTag": "com.oppo.tunning.front.to.rear.switchtime",
+  "Type": "Int32",
+  "Count": "1",
+  "Value": "700"
+},
+
+{
+  "VendorTag": "com.oppo.tunning.rear.to.front.switchtime",
+  "Type": "Int32",
+  "Count": "1",
+  "Value": "1000"
+},
+
+{
+  "VendorTag": "com.oppo.feature.video.4k.support",
+  "Type": "Byte",
+  "Count": "1",
+  "Value": "1"
+},
+
+{
+  "VendorTag": "com.oppo.feature.photo.3d.support",
+  "Type": "Byte",
+  "Count": "1",
+  "Value": "0"
+},
+
+{
+  "VendorTag": "com.oppo.tunning.portrait.capture.delay",
+  "Type": "Int32",
+  "Count": "1",
+  "Value": "300"
+},
+
+{
+  "VendorTag": "com.oppo.feature.slowvideo.1080p.support",
+  "Type": "Byte",
+  "Count": "1",
+  "Value": "1"
+},
+
+{
+  "VendorTag": "com.oppo.feature.video.720p.60fps.support",
+  "Type": "Byte",
+  "Count": "1",
+  "Value": "1"
+},
+
+{
+  "VendorTag": "com.oppo.feature.video.1080p.60fps.support",
+  "Type": "Byte",
+  "Count": "1",
+  "Value": "1"
+},
+
+{
+  "VendorTag": "com.oppo.feature.video.4k.60fps.support",
+  "Type": "Byte",
+  "Count": "1",
+  "Value": "1"
+},
+
+{
+  "VendorTag": "com.oppo.feature.motor.flashlight.support",
+  "Type": "Byte",
+  "Count": "1",
+  "Value": "1"
+},
+
+{
+  "VendorTag": "com.oppo.tunning.super.night.camera.mode",
+  "Type": "Int32",
+  "Count": "1",
+  "Value": "1057"
+},
+
+{
+  "VendorTag": "com.oppo.feature.portrait.support",
+  "Type": "Byte",
+  "Count": "1",
+  "Value": "1"
+},
+
+{
+  "VendorTag": "com.oppo.feature.3hdr.support",
+  "Type": "Byte",
+  "Count": "1",
+  "Value": "0"
+},
+
+{
+  "VendorTag": "com.oppo.feature.torch.softlight.support",
+  "Type": "Byte",
+  "Count": "1",
+  "Value": "1"
+},
+
+{
+  "VendorTag": "com.oppo.facebeauty.version",
+  "Type": "Int32",
+  "Count": "1",
+  "Value": "6"
+},
+
+{
+  "VendorTag": "com.oppo.feature.DCIP3.support",
+  "Type": "Byte",
+  "Count": "1",
+  "Value": "1"
+},
+
+{
+  "VendorTag": "com.oppo.high.picturesize.yuv",
+  "Type": "Int32",
+  "Count": "1",
+  "Value": "1"
+},
+
+{
+  "VendorTag": "com.oppo.sat.superphoto.zoom.ratio.range",
+  "Type": "Float",
+  "Count": "1",
+  "Value": "1.51,3.01,5.41,20"
+},
+
+{
+  "VendorTag": "com.oppo.sat.fusion.zoom.ratio.range",
+  "Type": "Float",
+  "Count": "1",
+  "Value": "0.69,0.99,3.01,4.99"
+},
+
+{
+  "VendorTag": "com.oppo.sat.hdr.fusion.zoom.ratio.range",
+  "Type": "Float",
+  "Count": "1",
+  "Value": "0.59,0.69"
+},
+
+{
+  "VendorTag": "com.oppo.sat.hdr.zoom.ratio.range",
+  "Type": "Float",
+  "Count": "1",
+  "Value": "0.99,1.09"
+},
+
+{
+  "VendorTag": "com.oppo.sat.normal.zoom.ratio.range",
+  "Type": "Float",
+  "Count": "1",
+  "Value": "1.09,1.51,4.99,5.41"
+},
+
+{
+  "VendorTag": "com.oppo.super.night.range.max.zoom.ratio",
+  "Type": "Float",
+  "Count": "1",
+  "Value": "4.99"
+},
+
+{
+  "VendorTag": "com.oppo.sat.ultrawide.zoom.range",
+  "Type": "Float",
+  "Count": "1",
+  "Value": "0.6,1.0"
+},
+
+{
+  "VendorTag": "com.oppo.sat.main.zoom.range",
+  "Type": "Float",
+  "Count": "1",
+  "Value": "1.0,5.0"
+},
+
+{
+  "VendorTag": "com.oppo.sat.tele.zoom.range",
+  "Type": "Float",
+  "Count": "1",
+  "Value": "5.0,60.0"
+}
+
+]
+

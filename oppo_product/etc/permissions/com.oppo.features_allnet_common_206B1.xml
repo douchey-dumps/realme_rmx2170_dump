@@ -1,0 +1,17 @@
+
+<permissions>
+    <feature name="oppo.feature.206B1" />
+    <!-- Yuan.Huang@PSW.CN.WiFi.Network.internet.1197891, 2018/08/24, Add for SLA feature -->
+    <feature name="oppo.wlan.sla.support" />
+    <!-- YunRui.Chen@RM.BSP.TP.Funtion, 2019/12/04, Add for blackgesture -->
+    <feature name="oppo.lcd.first.tp.last.support"/>
+    <feature name="oppo.sensor.fusionlight.support" />
+    <!-- #ifdef ODM_LQ_EDIT -->
+    <!-- yinwen.xu@ODM_LQ.AD.FINGERPRINT, 2020/05/20, optical fingerprint -->
+    <feature name="oppo.hardware.fingerprint.optical.support" />
+    <!-- #endif ODM_LQ_EDIT -->
+	<!-- Lixiang.Xue@ODM_LQ.Multimedia, 2020/07/08, Add for AOD Reamless-->
+    <feature name="oppo.aod.support" />
+	<feature name="oppo.aod.ramless.support" />
+    <!-- #endif ODM_LQ_EDIT -->
+</permissions>

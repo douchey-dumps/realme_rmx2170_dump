@@ -1,0 +1,6 @@
+/proc/oppoVersion/prjVersion,/proc/oppoVersion/operatorName,project
+206B1,177,206B1
+206B1,178,206B2
+206B1,179,206B3
+206B1,181,206B5
+

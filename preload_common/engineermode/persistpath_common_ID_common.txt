@@ -1,0 +1,8 @@
+data/app/com.lazada.android-206B1
+data/app/com.ss.android.ugc.trill-206B1
+data/app/com.realmecomm.app-206B1
+data/app/com.agoda.mobile.consumer-206B1
+data/app/com.jakarta.baca.lite-206B1
+data/app/com.msd.JTClient-206B1
+data/app/com.whatsapp-206B1
+data/app/Agoda-206B1

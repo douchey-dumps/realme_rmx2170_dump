@@ -1,0 +1,3 @@
+require version-baseband=4.4.c4-00030-RENNELL_GEN_PACK-2
+require version-trustzone=TZ.XF.5.0.3.C9-00019
+require version-vendor=1618995907

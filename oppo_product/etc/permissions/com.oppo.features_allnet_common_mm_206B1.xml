@@ -1,0 +1,43 @@
+
+<permissions>
+    <!-- Qicai.Zhu@PSW.Multimedia.Display.LCD.Params, 2019/06/19, Modify for screen underlightsensor -->
+    <feature name="oppo.roundcorner.support" />
+    <feature name="oppo.eyeprotect.support" />
+    <feature name="oppo.display.colormode.support" />
+    <feature name="com.oppo.feature.screen.heteromorphism" />
+    <!-- caobing@Swdp.Shanghai, 2019/02/05, Add for ovs smartmic support on 19125 -->
+    <feature name="oppo.ovs.smartmic.support" />
+    <!-- caobing@Swdp.Shanghai, 2019/03/29, Add for ovs three wakeup words support on 19125-->
+    <feature name="oppo.breeno.three.words.support" />
+    <feature name="oppo.appautoresolution.support" />
+    <!-- YaoJun.Luo@ROM.SDK, 2018/05/12, add support display compat-->
+    <feature name="oppo.display.compat.support" />
+    <!-- Zeke.Shi@RM.MM.Display.Feature, 2019/01/07, Add for cabc dynamic level support -->
+    <!-- Jun.Xiang@ODM_LQ.Multimedia, 2020/06/11, remove for cabc -->
+    <!--<feature name="cabc.level.dynamic.enable" /> -->
+    <!-- Qing.Wu@PSW.AD.Wms.0000, 2019/09/26, Add for 90Hz screeb support on max -->
+    <!-- Jun.Xiang@ODM_LQ.Multimedia, 2020/05/25, remove for 90hz -->
+    <!--<feature name="oppo.display.screen.90hz.support"/> -->
+    <!--<feature name="oppo.display.screen.defaultsmartmode"/> -->
+    <!-- Chenyang.Zhang@RM.MM.AuioServer.Policy, 2019/12/03, Add for DualHeadPhone -->
+    <feature name="realme.multimedia.dualheadphone"/>
+    <feature name="oppo.multimedia.internal.record" />
+    <!-- Zengjianxiong@ODM.MM.Auio.Driver, 2020/05/22, Add for DualSpeaker -->
+    <feature name="oppo.dual.speaker.support" />
+    <!-- Jun.Xiang@ODM_LQ.Multimedia, 2020/05/25, Add for high brightness -->
+    <feature name="oppo.high.brightness.support" />
+    <!-- Jun.Xiang@ODM_LQ.Multimedia, 2020/05/25, Add for gloablehbm -->
+    <feature name="oppo.display.screen.gloablehbm.support" />
+    <!-- Jun.Xiang@ODM_LQ.Multimedia, 2020/05/25, Add for DC backlight -->
+    <feature name="oppo.display.dcbacklight.support" />
+    <!-- Jun.Xiang@ODM_LQ.Multimedia, 2020/05/25, Add for fingerprint -->
+    <feature name="oppo.fingerprint.disable.dimlayer" />
+    <!-- Jun.Xiang@ODM_LQ.Multimedia, 2020/05/25, Add for psensor -->
+    <feature name="oppo.autolight.psensor.notsupport" />
+    <!-- Jun.Xiang@ODM_LQ.Multimedia, 2020/05/25, Add for oled colormode-->
+    <feature name="oppo.rm.display.colormode.oled.support" />
+    <!-- Zhihai.Zhong@ODM_LQ.Display, 2020/07/27, Add for dim alpha for index brightness-->
+    <feature name="oppo.display.index.brightness.support" />
+    <!-- guorongfeng@ODM_LQ.Audio, 2020/10/29, Add for set audio input device-->
+    <feature name="oppo.multimedia.record.channel.support" />
+</permissions>

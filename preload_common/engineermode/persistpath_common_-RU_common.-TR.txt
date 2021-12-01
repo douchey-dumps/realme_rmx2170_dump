@@ -1,0 +1,3 @@
+data/app/com.google.android.apps.subscriptions.red-206B1
+data/app/com.google.android.apps.podcasts-206B1
+data/app/com.google.android.apps.magazines-206B1

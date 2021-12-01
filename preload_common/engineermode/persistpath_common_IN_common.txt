@@ -1,0 +1,3 @@
+data/app/in.amazon.mShop.android.shopping-206B1
+data/app/com.realmecomm.app-206B1
+data/app/com.realmestore.app-206B1

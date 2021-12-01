@@ -1,0 +1,3 @@
+com.whatsapp
+ru.yandex.searchplugin
+com.yandex.browser

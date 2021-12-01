@@ -1,0 +1,8 @@
+com.lazada.android
+com.xb.topnews
+com.zing.zalo
+com.zing.mp3
+com.epi
+com.ss.android.ugc.trill
+com.agoda.mobile.consumer
+com.facebook.orca

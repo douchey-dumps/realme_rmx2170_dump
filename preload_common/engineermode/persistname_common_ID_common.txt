@@ -1,0 +1,7 @@
+com.lazada.android
+com.ss.android.ugc.trill
+com.realmecomm.app
+com.agoda.mobile.consumer
+com.jakarta.baca.lite
+com.msd.JTClient
+com.whatsapp
