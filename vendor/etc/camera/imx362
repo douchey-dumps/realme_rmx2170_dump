@@ -1,0 +1,63 @@
+[
+
+{
+  "Key": "NORMAL_RAWHDR_f1500_OUTDOOR_ISO",
+  "Value": "120"
+},
+
+{
+  "Key": "NORMAL_RAWHDR_f1500_OUTDOOR_FACE_ISO",
+  "Value": "200"
+},
+
+{
+  "Key": "NORMAL_RAWHDR_f1500_INDOOR_ISO",
+  "Value": "470"
+},
+
+{
+  "Key": "NORMAL_RAWHDR_f1500_INDOOR_FACE_ISO",
+  "Value": "750"
+},
+
+{
+  "Key": "REAR_LOWLIGHT_f1500_RAWHDR_ISO",
+  "Value": "1000"
+},
+
+{
+  "Key": "REAR_LOWLIGHT_f1500_MFNR_ISO",
+  "Value": "4000"
+},
+
+{
+  "Key": "NORMAL_RAWHDR_f2400_OUTDOOR_ISO",
+  "Value": "130"
+},
+
+{
+  "Key": "NORMAL_RAWHDR_f2400_OUTDOOR_FACE_ISO",
+  "Value": "500"
+},
+
+{
+  "Key": "NORMAL_RAWHDR_f2400_INDOOR_ISO",
+  "Value": "1050"
+},
+
+{
+  "Key": "NORMAL_RAWHDR_f2400_INDOOR_FACE_ISO",
+  "Value": "1600"
+},
+
+{
+  "Key": "REAR_LOWLIGHT_f2400_RAWHDR_ISO",
+  "Value": "2200"
+},
+
+{
+  "Key": "REAR_LOWLIGHT_f2400_MFNR_ISO",
+  "Value": "6100"
+}
+
+]

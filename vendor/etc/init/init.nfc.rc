@@ -1,0 +1,2 @@
+on post-fs-data
+    symlink /proc/oppoVersion/nfc_feature /vendor/etc/permissions/com.oppo.nfc_feature.xml

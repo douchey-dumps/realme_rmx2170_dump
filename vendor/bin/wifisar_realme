@@ -1,0 +1,48 @@
+#!/vendor/bin/sh
+
+WIFI_SAR_CMD_HEADER="/vendor/bin/vendor_cmd_tool -f /vendor/etc/wifi/sar-vendor-cmd.xml -i wlan0"
+WIFI_SAR_CMD_ENABLE="--START_CMD --SAR_SET --ENABLE 6 --NUM_SPECS 2 --SAR_SPEC"
+WIFI_SAR_CMD_DISABLE="--START_CMD --SAR_SET --ENABLE 5 --NUM_SPECS 0 --END_CMD"
+WIFI_SAR_CMD_BAND0="--NESTED_AUTO --BAND 0 --POW"
+WIFI_SAR_CMD_BAND1="--NESTED_AUTO --BAND 1 --POW"
+WIFI_SAR_CMD_END_ATTR="--END_ATTR"
+WIFI_SAR_CMD_END_ATTR_CMD="--END_ATTR --END_CMD"
+
+build_cmd_header() {
+    echo "$WIFI_SAR_CMD_HEADER"
+}
+
+build_cmd_body() {
+    if [ "$1" = "40" -a "$2" = "40" ];
+    then
+        echo "$WIFI_SAR_CMD_DISABLE"
+        #$WIFI_SAR_CMD_DISABLE_SAR
+    else
+        echo "$WIFI_SAR_CMD_ENABLE $WIFI_SAR_CMD_BAND0 $1 $WIFI_SAR_CMD_END_ATTR \
+$WIFI_SAR_CMD_BAND1 $2 $WIFI_SAR_CMD_END_ATTR $WIFI_SAR_CMD_END_ATTR_CMD"
+    fi
+}
+
+build_cmd() {
+    cHdr="$(build_cmd_header)"
+    cBody="$(build_cmd_body $1 $2)"
+
+    echo "$cHdr $cBody"
+}
+
+apply_sar() {
+    cmd="$(build_cmd $1 $2)"
+    echo "$cmd"
+
+    $cmd
+}
+
+# Note:
+# 1. index of 1-n(n=arraySize-1) is for specific sar setting;
+# 2. index of 0 is for disabling sar.
+sarIdx=$(getprop "vendor.wifi.sar.idx" "4040")
+
+band0=${sarIdx:0:2}
+band1=${sarIdx:2}
+
+apply_sar "$band0" "$band1"

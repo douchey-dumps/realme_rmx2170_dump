@@ -1,0 +1,53 @@
+[
+
+{
+  "Key": "FRONT_AUTO_HDR_OUTDOOR_LUX_HIGH_EV",
+  "Value": "-3,-15,1"
+},
+
+{
+  "Key": "FRONT_AUTO_HDR_OUTDOOR_LUX_L1_EV",
+  "Value": "-3,-21,1"
+},
+
+{
+  "Key": "FRONT_AUTO_HDR_OUTDOOR_LUX_L2_EV",
+  "Value": "-3,-24,1"
+},
+
+{
+  "Key": "FRONT_AUTO_HDR_OUTDOOR_LUX_L3_EV",
+  "Value": "-3,-24,1"
+},
+
+{
+  "Key": "FRONT_AUTO_HDR_OUTDOOR_LUX_OTHER_EV",
+  "Value": "-3,-30,1"
+},
+
+{
+  "Key": "FRONT_OPEN_HDR_OUTDOOR_LUX_L1_EV",
+  "Value": "-3,-15,1"
+},
+
+{
+  "Key": "FRONT_OPEN_HDR_OUTDOOR_LUX_L2_EV",
+  "Value": "-3,-21,1"
+},
+
+{
+  "Key": "FRONT_OPEN_HDR_OUTDOOR_LUX_L3_EV",
+  "Value": "-3,-24,1"
+},
+
+{
+  "Key": "FRONT_OPEN_HDR_OUTDOOR_LUX_L4_EV",
+  "Value": "-3,-24,1"
+},
+
+{
+  "Key": "FRONT_OPEN_HDR_OUTDOOR_LUX_OTHER_EV",
+  "Value": "-3,-30,1"
+}
+
+]

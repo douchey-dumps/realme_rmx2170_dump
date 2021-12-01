@@ -1,0 +1,40 @@
+#Xiong.Li@TECH.CN.WiFi.Network.2022890,2019/06/14, Add for OppoAppsMonitor to calc http send and recv packages
+on property:oppo.apps_monitor_enable=1
+    exec u:r:rutilsdaemon:s0 root root -- /system/bin/iptables -t mangle -I POSTROUTING -p tcp -o wlan+ -m string  --algo bm --from 0 --to 100 --hex-string "|474554202f|" -j NFLOG --nflog-group 3 --nflog-prefix "HttpGetViaWlan:"
+    exec u:r:rutilsdaemon:s0 root root -- /system/bin/iptables -t mangle -I POSTROUTING -p tcp -o wlan+ -m string  --algo bm --from 0 --to 100 --hex-string "|504f5354202f|" -j NFLOG --nflog-group 3 --nflog-prefix "HttpPostViaWlan:"
+    exec u:r:rutilsdaemon:s0 root root -- /system/bin/iptables -t mangle -I PREROUTING -p tcp -i wlan+ -m string  --algo bm --from 0 --to 100 --hex-string "|485454502f312e3120|" -j NFLOG --nflog-group 3 --nflog-prefix "HttpResponseViaWlan:"
+    exec u:r:rutilsdaemon:s0 root root -- /system/bin/iptables -t mangle -I POSTROUTING -p tcp -o rmnet_data+ -m string  --algo bm --from 0 --to 100 --hex-string "|474554202f|" -j NFLOG --nflog-group 3 --nflog-prefix "HttpGetViaCell:"
+    exec u:r:rutilsdaemon:s0 root root -- /system/bin/iptables -t mangle -I POSTROUTING -p tcp -o rmnet_data+ -m string  --algo bm --from 0 --to 100 --hex-string "|504f5354202f|" -j NFLOG --nflog-group 3 --nflog-prefix "HttpPostViaCell:"
+    exec u:r:rutilsdaemon:s0 root root -- /system/bin/iptables -t mangle -I PREROUTING -p tcp -i rmnet_data+ -m string  --algo bm --from 0 --to 100 --hex-string "|485454502f312e3120|" -j NFLOG --nflog-group 3 --nflog-prefix "HttpResponseViaCell:"
+#endif /* VENDOR_EDIT */
+
+#ifdef VENDOR_EDIT
+#Tao.Hui@PSW.CN.WiFi.Basic.Custom.1884719 20190308
+#add for bdf fw rus
+service bdfAutoUpdate /vendor/bin/init.oppo.wifiAutoRecovery.sh "bdfAutoUpdate"
+    class main
+    user root
+    group root system misc wifi
+    seclabel u:r:rutilsdaemon:s0
+    disabled
+    oneshot
+
+service sauFileTransfer /vendor/bin/init.oppo.wifiAutoRecovery.sh "sauFileTransfer"
+    class main
+    user root
+    group root system misc wifi
+    seclabel u:r:rutilsdaemon:s0
+    disabled
+    oneshot
+
+service wifiFwAssert /vendor/bin/init.oppo.wifiAutoRecovery.sh "wifiFwAssert"
+    class main
+    user root
+    group root system misc wifi
+    seclabel u:r:rutilsdaemon:s0
+    disabled
+    oneshot
+on property:vendor.oppo.wifi.minidump=*
+    setprop oppo.wifi.minidump ${vendor.oppo.wifi.minidump}
+
+#endif  /* VENDOR_EDIT */

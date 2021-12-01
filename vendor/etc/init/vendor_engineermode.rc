@@ -1,0 +1,57 @@
+
+on post-fs-data
+    exec u:r:engineer_vendor_daemon:s0 radio system -- /vendor/bin/engineer_vendor_shell.sh addRadioFile
+
+    mkdir /mnt/vendor/persist/engineermode
+    chown system system /mnt/vendor/persist/engineermode
+    chmod 0775 /mnt/vendor/persist/engineermode
+    chmod 0644 /mnt/vendor/persist/engineermode/ENG_RESULT
+    mkdir /mnt/vendor/persist/camera
+    chown system system /mnt/vendor/persist/camera
+    chmod 0777 /mnt/vendor/persist/camera
+    mkdir /mnt/vendor/persist/camera/dual_calibration
+    chown system system /mnt/vendor/persist/camera/dual_calibration
+    chmod 0775 /mnt/vendor/persist/camera/dual_calibration
+    mkdir /mnt/vendor/persist/camera/megvii
+    chown system system /mnt/vendor/persist/camera/megvii
+    chmod 0775 /mnt/vendor/persist/camera/megvii
+
+service startDiagSocket /vendor/bin/sh /vendor/bin/engineer_vendor_shell.sh startDiagSocketLog
+    user root
+    group root vendor_qti_diag wakelock
+    disabled
+    oneshot
+    seclabel u:r:engineer_vendor_daemon:s0
+
+service stopDiagSocket /vendor/bin/sh /vendor/bin/engineer_vendor_shell.sh stopDiagSocketLog
+    user root
+    group root vendor_qti_diag wakelock
+    disabled
+    oneshot
+    seclabel u:r:engineer_vendor_daemon:s0
+
+service OppoSysDaemon /vendor/bin/opposysd
+    user root
+    group root vendor_qti_diag
+    disabled
+    oneshot
+    seclabel u:r:engineer_vendor_daemon:s0
+
+#add for non-signal test
+on property:vendor.oppo.eng.nonsignal=1
+    start vendortransfer
+    start OppoSysDaemon
+
+on property:vendor.oppo.eng.nonsignal=0
+    stop OppoSysDaemon
+    stop vendortransfer
+
+#add for gps/wifi test launch opposysd to control motor block, enabled by wifi_diag
+on property:vendor.wifi.ftmtest=1
+    start OppoSysDaemon
+
+on property:vendor.wifi.ftmtest=0
+    stop OppoSysDaemon
+
+
+

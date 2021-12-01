@@ -1,0 +1,384 @@
+{
+	"aps_enable" : 1,
+	"aps_configs" : [
+		{
+			"mode" : "common",
+			"entity" : [
+				{
+					"id" : 0,
+					"enable" : 1,
+					"aps_algo_blurless" : 1,
+					"aps_algo_bokeh" : 0,
+					"aps_algo_hdr" : 1,
+					"aps_algo_lowlight_hdr" : 1,
+					"aps_algo_raw_hdr" : 0,
+					"aps_algo_pf" : 1,
+					"aps_algo_fusion" : 0,
+					"aps_algo_ai_night" : 0,
+					"aps_algo_rectify" : 0,
+					"aps_algo_supernight" : 0,
+					"aps_algo_superphoto" : 0,
+					"aps_algo_watermark" : 1,
+					"aps_algo_face_beauty" : 1,
+					"aps_algo_rotate_mirror" : 1,
+					"aps_algo_filter" : 1,
+					"aps_algo_single_blur" : 0,
+					"aps_algo_upscale" : 1,
+					"aps_algo_video_blur" : 0,
+					"aps_algo_single_bokeh" : 0
+				},
+				{
+					"id" : 1,
+					"enable" : 1,
+					"aps_algo_blurless" : 1,
+					"aps_algo_bokeh" : 0,
+					"aps_algo_hdr" : 1,
+					"aps_algo_lowlight_hdr" : 1,
+					"aps_algo_raw_hdr" : 0,
+					"aps_algo_pf" : 0,
+					"aps_algo_fusion" : 0,
+					"aps_algo_ai_night" : 0,
+					"aps_algo_rectify" : 0,
+					"aps_algo_supernight" : 0,
+					"aps_algo_superphoto" : 0,
+					"aps_algo_watermark" : 1,
+					"aps_algo_face_beauty" : 1,
+					"aps_algo_rotate_mirror" : 1,
+					"aps_algo_filter" : 1,
+					"aps_algo_single_blur" : 1,
+					"aps_algo_upscale" : 1,
+					"aps_algo_video_blur" : 0,
+					"aps_algo_single_bokeh" : 0
+				}
+			]
+		},
+		{
+			"mode" : "night",
+			"entity" : [
+				{
+					"id" : 0,
+					"enable" : 1,
+					"aps_algo_blurless" : 1,
+					"aps_algo_bokeh" : 0,
+					"aps_algo_hdr" : 1,
+					"aps_algo_lowlight_hdr" : 0,
+					"aps_algo_raw_hdr" : 0,
+					"aps_algo_pf" : 0,
+					"aps_algo_fusion" : 0,
+					"aps_algo_ai_night" : 1,
+					"aps_algo_rectify" : 1,
+					"aps_algo_supernight" : 1,
+					"aps_algo_superphoto" : 1,
+					"aps_algo_watermark" : 1,
+					"aps_algo_face_beauty" : 0,
+					"aps_algo_rotate_mirror" : 1,
+					"aps_algo_filter" : 0,
+					"aps_algo_single_blur" : 0,
+					"aps_algo_upscale" : 1,
+					"aps_algo_video_blur" : 0,
+					"aps_algo_single_bokeh" : 0
+				},
+				{
+					"id" : 1,
+					"enable" : 1,
+					"aps_algo_none" : 1
+				}
+			]
+		},
+		{
+			"mode" : "portrait",
+			"entity" : [
+				{
+					"id" : 0,
+					"enable" : 1,
+					"aps_algo_blurless" : 0,
+					"aps_algo_bokeh" : 1,
+					"aps_algo_hdr" : 0,
+					"aps_algo_lowlight_hdr" : 0,
+					"aps_algo_raw_hdr" : 0,
+					"aps_algo_pf" : 0,
+					"aps_algo_fusion" : 0,
+					"aps_algo_ai_night" : 0,
+					"aps_algo_rectify" : 0,
+					"aps_algo_supernight" : 0,
+					"aps_algo_superphoto" : 0,
+					"aps_algo_watermark" : 1,
+					"aps_algo_face_beauty" : 1,
+					"aps_algo_rotate_mirror" : 1,
+					"aps_algo_filter" : 1,
+					"aps_algo_single_blur" : 0,
+					"aps_algo_upscale" : 1,
+					"aps_algo_video_blur" : 0,
+					"aps_algo_single_bokeh" : 0
+				},
+				{
+					"id" : 1,
+					"enable" : 1,
+					"aps_algo_blurless" : 1,
+					"aps_algo_bokeh" : 1,
+					"aps_algo_hdr" : 1,
+					"aps_algo_lowlight_hdr" : 1,
+					"aps_algo_raw_hdr" : 0,
+					"aps_algo_pf" : 0,
+					"aps_algo_fusion" : 0,
+					"aps_algo_ai_night" : 0,
+					"aps_algo_rectify" : 0,
+					"aps_algo_supernight" : 0,
+					"aps_algo_superphoto" : 0,
+					"aps_algo_watermark" : 1,
+					"aps_algo_face_beauty" : 1,
+					"aps_algo_rotate_mirror" : 1,
+					"aps_algo_filter" : 1,
+					"aps_algo_single_blur" : 1,
+					"aps_algo_upscale" : 1,
+					"aps_algo_video_blur" : 0,
+					"aps_algo_single_bokeh" : 1
+				}
+			]
+		},
+		{
+			"mode" : "panorama",
+			"entity" : [
+				{
+					"id" : 0,
+					"enable" : 1,
+					"aps_algo_none" : 1
+				},
+				{
+					"id" : 1,
+					"enable" : 1,
+					"aps_algo_none" : 1
+				}
+			]
+		},
+		{
+			"mode" : "professional",
+			"entity" : [
+				{
+					"id" : 0,
+					"enable" : 1,
+					"aps_algo_blurless" : 1,
+					"aps_algo_bokeh" : 0,
+					"aps_algo_hdr" : 1,
+					"aps_algo_lowlight_hdr" : 1,
+					"aps_algo_raw_hdr" : 0,
+					"aps_algo_pf" : 1,
+					"aps_algo_fusion" : 1,
+					"aps_algo_ai_night" : 1,
+					"aps_algo_rectify" : 1,
+					"aps_algo_supernight" : 1,
+					"aps_algo_superphoto" : 1,
+					"aps_algo_watermark" : 1,
+					"aps_algo_face_beauty" : 1,
+					"aps_algo_rotate_mirror" : 1,
+					"aps_algo_filter" : 1,
+					"aps_algo_single_blur" : 0,
+					"aps_algo_upscale" : 1,
+					"aps_algo_video_blur" : 0,
+					"aps_algo_single_bokeh" : 0
+				},
+				{
+					"id" : 1,
+					"enable" : 1,
+					"aps_algo_none" : 1
+				}
+			]
+		},
+		{
+			"mode" : "sticker",
+			"entity" : [
+				{
+					"id" : 0,
+					"enable" : 1,
+					"aps_algo_blurless" : 1,
+					"aps_algo_bokeh" : 0,
+					"aps_algo_hdr" : 1,
+					"aps_algo_lowlight_hdr" : 1,
+					"aps_algo_raw_hdr" : 0,
+					"aps_algo_pf" : 1,
+					"aps_algo_fusion" : 1,
+					"aps_algo_ai_night" : 1,
+					"aps_algo_rectify" : 1,
+					"aps_algo_supernight" : 1,
+					"aps_algo_superphoto" : 1,
+					"aps_algo_watermark" : 1,
+					"aps_algo_face_beauty" : 1,
+					"aps_algo_rotate_mirror" : 1,
+					"aps_algo_filter" : 1,
+					"aps_algo_single_blur" : 0,
+					"aps_algo_upscale" : 1,
+					"aps_algo_video_blur" : 0,
+					"aps_algo_single_bokeh" : 0
+				},
+				{
+					"id" : 1,
+					"enable" : 1,
+					"aps_algo_blurless" : 1,
+					"aps_algo_bokeh" : 0,
+					"aps_algo_hdr" : 1,
+					"aps_algo_lowlight_hdr" : 1,
+					"aps_algo_raw_hdr" : 0,
+					"aps_algo_pf" : 1,
+					"aps_algo_fusion" : 1,
+					"aps_algo_ai_night" : 1,
+					"aps_algo_rectify" : 1,
+					"aps_algo_supernight" : 1,
+					"aps_algo_superphoto" : 1,
+					"aps_algo_watermark" : 1,
+					"aps_algo_face_beauty" : 1,
+					"aps_algo_rotate_mirror" : 1,
+					"aps_algo_filter" : 1,
+					"aps_algo_single_blur" : 0,
+					"aps_algo_upscale" : 1,
+					"aps_algo_video_blur" : 0,
+					"aps_algo_single_bokeh" : 0
+				}
+			]
+		},
+		{
+			"mode" : "highPictureSize",
+			"entity" : [
+				{
+					"id" : 0,
+					"enable" : 1,
+					"aps_algo_blurless" : 1,
+					"aps_algo_bokeh" : 0,
+					"aps_algo_hdr" : 0,
+					"aps_algo_lowlight_hdr" : 0,
+					"aps_algo_raw_hdr" : 0,
+					"aps_algo_pf" : 1,
+					"aps_algo_fusion" : 0,
+					"aps_algo_ai_night" : 0,
+					"aps_algo_rectify" : 0,
+					"aps_algo_supernight" : 0,
+					"aps_algo_superphoto" : 0,
+					"aps_algo_watermark" : 1,
+					"aps_algo_face_beauty" : 0,
+					"aps_algo_rotate_mirror" : 1,
+					"aps_algo_filter" : 0,
+					"aps_algo_single_blur" : 0,
+					"aps_algo_upscale" : 1,
+					"aps_algo_video_blur" : 0
+				},
+				{
+					"id" : 1,
+					"enable" : 0,
+					"aps_algo_none" : 1
+				}
+			]
+		},
+		{
+			"mode" : "macro",
+			"entity" : [
+				{
+					"id" : 0,
+					"enable" : 1,
+					"aps_algo_blurless" : 1,
+					"aps_algo_bokeh" : 0,
+					"aps_algo_hdr" : 0,
+					"aps_algo_lowlight_hdr" : 0,
+					"aps_algo_raw_hdr" : 0,
+					"aps_algo_pf" : 1,
+					"aps_algo_fusion" : 0,
+					"aps_algo_ai_night" : 0,
+					"aps_algo_rectify" : 0,
+					"aps_algo_supernight" : 0,
+					"aps_algo_superphoto" : 0,
+					"aps_algo_watermark" : 1,
+					"aps_algo_face_beauty" : 0,
+					"aps_algo_rotate_mirror" : 1,
+					"aps_algo_filter" : 1,
+					"aps_algo_single_blur" : 0,
+					"aps_algo_upscale" : 0,
+					"aps_algo_video_blur" : 0
+				},
+				{
+					"id" : 1,
+					"enable" : 0,
+					"aps_algo_none" : 1
+				}
+			]
+		},
+		{
+			"mode" : "commonVideo",
+			"entity" : [
+				{
+					"id" : 0,
+					"enable" : 1,
+					"aps_algo_blurless" : 0,
+					"aps_algo_bokeh" : 0,
+					"aps_algo_hdr" : 0,
+					"aps_algo_lowlight_hdr" : 0,
+					"aps_algo_raw_hdr" : 0,
+					"aps_algo_pf" : 0,
+					"aps_algo_fusion" : 0,
+					"aps_algo_ai_night" : 0,
+					"aps_algo_rectify" : 0,
+					"aps_algo_supernight" : 0,
+					"aps_algo_superphoto" : 0,
+					"aps_algo_watermark" : 1,
+					"aps_algo_face_beauty" : 1,
+					"aps_algo_rotate_mirror" : 1,
+					"aps_algo_filter" : 1,
+					"aps_algo_single_blur" : 0,
+					"aps_algo_upscale" : 1,
+					"aps_algo_video_blur" : 1,
+					"aps_algo_single_bokeh" : 0
+				},
+				{
+					"id" : 1,
+					"enable" : 1,
+					"aps_algo_blurless" : 0,
+					"aps_algo_bokeh" : 0,
+					"aps_algo_hdr" : 0,
+					"aps_algo_lowlight_hdr" : 0,
+					"aps_algo_raw_hdr" : 0,
+					"aps_algo_pf" : 0,
+					"aps_algo_fusion" : 0,
+					"aps_algo_ai_night" : 0,
+					"aps_algo_rectify" : 0,
+					"aps_algo_supernight" : 0,
+					"aps_algo_superphoto" : 0,
+					"aps_algo_watermark" : 1,
+					"aps_algo_face_beauty" : 1,
+					"aps_algo_rotate_mirror" : 1,
+					"aps_algo_filter" : 1,
+					"aps_algo_single_blur" : 0,
+					"aps_algo_upscale" : 1,
+					"aps_algo_video_blur" : 1,
+					"aps_algo_single_bokeh" : 0
+				}
+			]
+		},
+		{
+			"mode" : "fastVideo",
+			"entity" : [
+				{
+					"id" : 0,
+					"enable" : 1,
+					"aps_algo_none" : 1
+				},
+				{
+					"id" : 1,
+					"enable" : 0,
+                    "aps_algo_none" : 1
+				}
+			]
+		},
+		{
+			"mode" : "slowVideo",
+			"entity" : [
+				{
+					"id" : 0,
+					"enable" : 1,
+					"aps_algo_none" : 1
+				},
+				{
+					"id" : 1,
+					"enable" : 1,
+					"aps_algo_none" : 1
+				}
+			]
+		}
+	]
+}

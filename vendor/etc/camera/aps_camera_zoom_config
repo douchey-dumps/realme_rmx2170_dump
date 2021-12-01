@@ -1,0 +1,17 @@
+[
+
+{
+  "VendorTag": "com.oppo.sat.ainight.max.zoom.ratio",
+  "Type": "Float",
+  "Count": "1",
+  "Value": "4.99"
+},
+
+{
+  "VendorTag": "com.oppo.sat.supernight.frame.zoom.ratio",
+  "Type": "Float",
+  "Count": "1",
+  "Value": "5.41"
+}
+
+]

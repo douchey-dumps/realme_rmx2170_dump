@@ -1,0 +1,581 @@
+#line 1 "device/qcom/sepolicy/generic/vendor/common/property_contexts"
+# Copyright (c) 2018-2019, The Linux Foundation. All rights reserved.
+#
+# Redistribution and use in source and binary forms, with or without
+# modification, are permitted provided that the following conditions are
+# met:
+#     * Redistributions of source code must retain the above copyright
+#       notice, this list of conditions and the following disclaimer.
+#     * Redistributions in binary form must reproduce the above
+#       copyright notice, this list of conditions and the following
+#       disclaimer in the documentation and/or other materials provided
+#       with the distribution.
+#     * Neither the name of The Linux Foundation nor the names of its
+#       contributors may be used to endorse or promote products derived
+#       from this software without specific prior written permission.
+#
+# THIS SOFTWARE IS PROVIDED "AS IS" AND ANY EXPRESS OR IMPLIED
+# WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
+# MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT
+# ARE DISCLAIMED.  IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS
+# BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+# CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+# SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR
+# BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+# WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE
+# OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN
+# IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+persist.vendor.service.bdroid.       u:object_r:vendor_bluetooth_prop:s0
+persist.vendor.bluetooth.            u:object_r:vendor_bluetooth_prop:s0
+ro.vendor.bluetooth.                 u:object_r:vendor_bluetooth_prop:s0
+persist.vendor.bluetooth.a2dp.       u:object_r:vendor_bluetooth_prop:s0
+persist.vendor.qcom.bluetooth.       u:object_r:vendor_bluetooth_prop:s0
+vendor.qcom.bluetooth.               u:object_r:vendor_bluetooth_prop:s0
+vendor.wc_transport.       u:object_r:vendor_bluetooth_prop:s0
+ctl.vendor.msm_irqbalance  u:object_r:msm_irqbalance_prop:s0
+ctl.vendor.netmgrd         u:object_r:ctl_netmgrd_prop:s0
+ctl.vendor.port-bridge     u:object_r:ctl_port-bridge_prop:s0
+ctl.vendor.qcrild          u:object_r:ctl_qcrild_prop:s0
+ctl.vendor.ipacm           u:object_r:ipacm_prop:s0
+ctl.vendor.ipacm-diag      u:object_r:ipacm-diag_prop:s0
+ctl.vendor.dataqti         u:object_r:vendor_dataqti_prop:s0
+ctl.vendor.sensors         u:object_r:sensors_prop:s0
+persist.vendor.sensors.    u:object_r:sensors_prop:s0
+ro.vendor.sensors.         u:object_r:sensors_prop:s0
+vendor.audio.              u:object_r:vendor_audio_prop:s0
+vendor.voice.              u:object_r:vendor_audio_prop:s0
+persist.vendor.audio.      u:object_r:vendor_audio_prop:s0
+ro.vendor.audio.           u:object_r:vendor_audio_prop:s0
+ro.vendor.alarm_boot       u:object_r:vendor_alarm_boot_prop:s0
+ro.boot.alarmboot          u:object_r:vendor_alarm_boot_prop:s0
+vendor.debug.camera.       u:object_r:vendor_camera_prop:s0
+persist.vendor.camera.     u:object_r:vendor_camera_prop:s0
+persist.vendor.sys.crash_rcu      u:object_r:vendor_ramdump_prop:s0
+persist.vendor.sys.modem.diag.    u:object_r:vendor_modem_diag_prop:s0
+persist.vendor.sys.cnd     u:object_r:cnd_prop:s0
+persist.vendor.cne.feature u:object_r:cnd_prop:s0
+persist.vendor.cnd.wqe     u:object_r:cnd_prop:s0
+persist.vendor.cne.logging.qxdm u:object_r:cnd_prop:s0
+persist.vendor.crash.cnt   u:object_r:crash_cnt_prop:s0
+persist.vendor.crash.detect u:object_r:crash_detect_prop:s0
+persist.vendor.data.dont_use_epc u:object_r:vendor_dataqdp_prop:s0
+persist.vendor.data.dont_use_npflag u:object_r:vendor_dataqdp_prop:s0
+persist.vendor.data.profile_update u:object_r:vendor_dataqdp_prop:s0
+vendor.sys.listeners.registered   u:object_r:vendor_tee_listener_prop:s0
+vendor.sys.modem.diag.     u:object_r:vendor_modem_diag_prop:s0
+vendor.usb.                u:object_r:vendor_usb_prop:s0
+vendor.wlan.driver.version       u:object_r:vendor_wifi_version:s0
+vendor.wlan.firmware.version     u:object_r:vendor_wifi_version:s0
+persist.vendor.usb.        u:object_r:vendor_usb_prop:s0
+ro.vendor.usb.             u:object_r:vendor_usb_prop:s0
+vendor.display.               u:object_r:vendor_display_prop:s0
+ro.vendor.display.            u:object_r:vendor_display_prop:s0
+persist.vendor.display.       u:object_r:vendor_display_prop:s0
+vendor.gralloc.            u:object_r:vendor_gralloc_prop:s0
+vendor.peripheral.         u:object_r:vendor_per_mgr_state_prop:s0
+ro.vendor.peripheral.      u:object_r:vendor_per_mgr_prop:s0
+vendor.ims.                u:object_r:ims_prop:s0
+ro.vendor.build.software.version  u:object_r:ims_prop:s0
+persist.vendor.ims.        u:object_r:ims_prop:s0
+persist.vendor.qti.telephony.vt_cam_interface u:object_r:ims_prop:s0
+ctl.vendor.imsrcsservice   u:object_r:ctl_vendor_imsrcsservice_prop:s0
+
+# HBTP
+ctl.vendor.hbtp u:object_r:ctl_vendor_hbtp_prop:s0
+
+#time service
+persist.vendor.delta_time.enable    u:object_r:vendor_time_service_prop:s0
+vendor.debug.time_services.enable   u:object_r:vendor_time_service_prop:s0
+
+#Atel
+persist.vendor.radio       u:object_r:vendor_radio_prop:s0
+vendor.radio               u:object_r:vendor_radio_prop:s0
+ro.vendor.ril.             u:object_r:vendor_radio_prop:s0
+ro.vendor.radio            u:object_r:vendor_radio_prop:s0
+
+persist.vendor.sys.        u:object_r:vendor_system_prop:s0
+
+#ss-restart
+persist.vendor.ssr.    u:object_r:vendor_ssr_prop:s0
+
+#ss-services (PD)
+persist.vendor.pd_locater_debug    u:object_r:vendor_pd_locater_dbg_prop:s0
+
+#capabilityconfigstore (CCHAL)
+persist.vendor.cap_configstore_debug    u:object_r:vendor_cap_configstore_dbg_prop:s0
+
+#rmt_storage
+ctl.vendor.rmt_storage     u:object_r:ctl_vendor_rmt_storage_prop:s0
+
+#GPU Available frequencies
+vendor.gpu.available_frequencies u:object_r:vendor_gpu_prop:s0
+
+# public_vendor_default_prop
+ro.vendor.graphics.memory  u:object_r:public_vendor_default_prop:s0
+vendor.debug.egl.changepixelformat  u:object_r:public_vendor_default_prop:s0
+vendor.debug.prerotation.disable  u:object_r:public_vendor_default_prop:s0
+vendor.debug.egl.swapinterval  u:object_r:public_vendor_default_prop:s0
+vendor.debug.egl.profiler  u:object_r:public_vendor_default_prop:s0
+
+# netmgrd ko loading
+persist.vendor.data.shsusr_load u:object_r:vendor_data_shsusr_prop:s0
+persist.vendor.data.qmipriod_load u:object_r:vendor_data_qmipriod_prop:s0
+
+#vendor-wlan
+vendor.wlan.  u:object_r:vendor_wifi_prop:s0
+
+#debuglog prop
+vendor.zeroth.debuglog.logmask     u:object_r:vendor_debuglog_prop:s0
+
+#qdcm socket service
+vendor.display.qdcm_socket_service u:object_r:vendor_qdcmss_prop:s0
+
+#vendor-adsprpc
+vendor.fastrpc.                  u:object_r:vendor_adsprpc_prop:s0
+#line 1 "device/qcom/sepolicy/qva/vendor/common/property_contexts"
+# Copyright (c) 2018-2019, The Linux Foundation. All rights reserved.
+#
+# Redistribution and use in source and binary forms, with or without
+# modification, are permitted provided that the following conditions are
+# met:
+#     * Redistributions of source code must retain the above copyright
+#       notice, this list of conditions and the following disclaimer.
+#     * Redistributions in binary form must reproduce the above
+#       copyright notice, this list of conditions and the following
+#       disclaimer in the documentation and/or other materials provided
+#       with the distribution.
+#     * Neither the name of The Linux Foundation nor the names of its
+#       contributors may be used to endorse or promote products derived
+#       from this software without specific prior written permission.
+#
+# THIS SOFTWARE IS PROVIDED"AS IS" AND ANY EXPRESS OR IMPLIED
+# WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
+# MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT
+# ARE DISCLAIMED.  IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS
+# BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+# CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+# SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR
+# BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+# WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE
+# OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN
+# IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+persist.vendor.ims.disabled       u:object_r:qcom_ims_prop:s0
+vendor.service.qti.ims.enabled    u:object_r:qcom_ims_prop:s0
+ctl.vendor.cnd                    u:object_r:cnd_vendor_prop:s0
+persist.vendor.cne.               u:object_r:cnd_vendor_prop:s0
+persist.vendor.cnd.               u:object_r:cnd_vendor_prop:s0
+
+ctl.vendor.dataadpl                          u:object_r:vendor_dataadpl_prop:s0
+vendor.spcom.                                u:object_r:spcomlib_prop:s0
+persist.vendor.bt.soc.scram_freqs            u:object_r:vendor_bluetooth_prop:s0
+ctl.vendor.mdm_helper                        u:object_r:vendor_mdm_helper_prop:s0
+
+# qdma property
+vendor.qti.qdma.                             u:object_r:vendor_qdma_prop:s0
+
+#perf
+vendor.post_boot.parsed                u:object_r:vendor_mpctl_prop:s0
+vendor.perf.cores_online               u:object_r:vendor_mpctl_prop:s0
+persist.vendor.qti.                    u:object_r:vendor_mpctl_prop:s0
+ro.vendor.at_library                   u:object_r:vendor_mpctl_prop:s0
+vendor.debug.trace.perf                u:object_r:vendor_mpctl_prop:s0
+vendor.iop.enable_uxe                  u:object_r:vendor_iop_prop:s0
+vendor.perf.iop_v3.enable              u:object_r:vendor_iop_prop:s0
+vendor.perf.iop_v3.enable.debug        u:object_r:vendor_iop_prop:s0
+vendor.iop.enable_prefetch_ofr         u:object_r:vendor_iop_prop:s0
+# cgroup follow
+ro.vendor.qti.cgroup_follow.enable     u:object_r:vendor_cgroup_follow_prop:s0
+ro.vendor.qti.cgroup_follow.dex2oat_only   u:object_r:vendor_cgroup_follow_prop:s0
+#Bservice Property, Delayed Service Restart Property
+ro.vendor.qti.sys.fw.bservice_         u:object_r:bservice_prop:s0
+ro.vendor.qti.am.reschedule_service    u:object_r:reschedule_service_prop:s0
+#gesture-fling scroll
+vendor.perf.gestureflingboost.enable   u:object_r:vendor_scroll_prop:s0
+
+# NFC
+vendor.qti.nfc.                              u:object_r:vendor_nfc_nq_prop:s0
+
+#Disable SPU property
+vendor.gatekeeper.disable_spu                u:object_r:vendor_disable_spu_prop:s0
+
+#boot mode property
+vendor.sys.boot_mode                         u:object_r:vendor_boot_mode_prop:s0
+
+#mm-video
+vendor.media.target.version                  u:object_r:vendor_video_prop:s0
+vendor.video.disable.ubwc                    u:object_r:vendor_video_prop:s0
+
+# factory properties
+ctl.vendor.mmid                              u:object_r:ctl_vendor_mmid_prop:s0
+
+#seccam hal_service
+vendor.hyp_core_ctl                          u:object_r:vendor_core_ctl_prop:s0
+
+persist.vendor.mmi.                          u:object_r:vendor_mmi_prop:s0
+
+# izat location property
+vendor.qti.izat.                             u:object_r:location_prop:s0
+# WIGIG
+vendor.wigig.                                u:object_r:vendor_wigig_prop:s0
+ctl.vendor.wigig_supplicant                  u:object_r:ctl_vendor_wigigsvc_prop:s0
+ctl.vendor.wigig_hostapd                     u:object_r:ctl_vendor_wigigsvc_prop:s0
+ctl.vendor.sensingdaemon                     u:object_r:ctl_vendor_wigigsvc_prop:s0
+
+# netmgrd ko loading
+persist.vendor.data.shs_ko_load u:object_r:vendor_data_ko_prop:s0
+persist.vendor.data.perf_ko_load u:object_r:vendor_data_ko_prop:s0
+
+# hvdcp_opti properties
+persist.vendor.bms.                          u:object_r:vendor_hvdcp_opti_prop:s0
+persist.vendor.chg.                          u:object_r:vendor_hvdcp_opti_prop:s0
+persist.vendor.chg_plcy_mgr.                 u:object_r:vendor_hvdcp_opti_prop:s0
+persist.vendor.cp.                           u:object_r:vendor_hvdcp_opti_prop:s0
+persist.vendor.ctm.                          u:object_r:vendor_hvdcp_opti_prop:s0
+persist.vendor.hvdcp2.                       u:object_r:vendor_hvdcp_opti_prop:s0
+persist.vendor.hvdcp_opti.                   u:object_r:vendor_hvdcp_opti_prop:s0
+persist.vendor.hvdcp.                        u:object_r:vendor_hvdcp_opti_prop:s0
+persist.vendor.pps.                          u:object_r:vendor_hvdcp_opti_prop:s0
+persist.vendor.std-pd.                       u:object_r:vendor_hvdcp_opti_prop:s0
+persist.vendor.tb.                           u:object_r:vendor_hvdcp_opti_prop:s0
+persist.vendor.vin.                          u:object_r:vendor_hvdcp_opti_prop:s0
+persist.vendor.qg.                           u:object_r:vendor_hvdcp_opti_prop:s0
+persist.vendor.soh.                          u:object_r:vendor_hvdcp_opti_prop:s0
+
+# XLAT property
+persist.vendor.net.doxlat                    u:object_r:vendor_xlat_prop:s0
+
+ro.vendor.qspm.enable            u:object_r:vendor_qspm_prop:s0 exact bool
+
+#coresight property
+ro.vendor.dbg.coresight.                     u:object_r:vendor_coresight_prop:s0
+
+#qvr properties
+vendor.qvr                       u:object_r:vendor_qvr_prop:s0
+
+#qmuxd property
+ctl.start$vendor.qmuxd                       u:object_r:ctl_qmuxd_prop:s0
+
+#bluetooth property
+ro.vendor.bt.enablelazyhal                   u:object_r:bluetooth_prop:s0 exact bool
+
+#SLM
+persist.vendor.slm.                          u:object_r:slm_prop:s0
+#line 1 "system/sepolicy/reqd_mask/property_contexts"
+# empty property_contexts file - this file is used to generate an empty
+# non-platform property context for devices without any property_contexts
+# customizations.
+#line 1 "vendor/oppo_sepolicy/vendor/property_contexts"
+#ifdef ODM_LQ_EDIT
+#caoyang@ODM_LQ.AD.VTS.VtsTrebleSysProp, 2019/12/19, modify for vts testVendorPropertyNamespace: move property with wrong namespace to private/property_contexts
+# vendor-init-settable|public-readable
+#ro.separate.soft u:object_r:exported_default_prop:s0
+#ro.rom.featrue u:object_r:exported_default_prop:s0
+#ro.product.authentication u:object_r:exported_default_prop:s0
+#ro.oppo.market.name u:object_r:exported_default_prop:s0
+#ro.product.hw u:object_r:exported_default_prop:s0
+#ro.product.sar u:object_r:exported_default_prop:s0
+#ro.oppo.mtk_gps_mpe u:object_r:exported_default_prop:s0
+#ro.build.date.Ymd u:object_r:exported_default_prop:s0
+#ro.build.date.ymd u:object_r:exported_default_prop:s0
+#ro.build.date.YmdHM u:object_r:exported_default_prop:s0
+#ro.build.date.utc u:object_r:exported_default_prop:s0
+#ro.build.version.incremental u:object_r:exported_default_prop:s0
+#ro.build.date u:object_r:exported_default_prop:s0
+#ro.xxversion u:object_r:exported_default_prop:s0
+#ro.product.brand u:object_r:exported_default_prop:s0
+#ro.product.model u:object_r:exported_default_prop:s0
+#ro.build.product u:object_r:exported_default_prop:s0
+#ro.product.device u:object_r:exported_default_prop:s0
+#ro.product.name u:object_r:exported_default_prop:s0
+#ro.bootimage.build.fingerprint u:object_r:exported_default_prop:s0
+#ro.build.version.base_os u:object_r:exported_default_prop:s0
+#ro.build.version.ota u:object_r:exported_default_prop:s0
+#ro.build.display.id u:object_r:exported_default_prop:s0
+#ro.build.kernel.id u:object_r:exported_default_prop:s0
+#ro.mediatek.version.release u:object_r:exported_default_prop:s0
+#ro.build.version.opporom u:object_r:exported_default_prop:s0
+#ro.oppo.version u:object_r:exported_default_prop:s0
+#ro.build.master.date u:object_r:exported_default_prop:s0
+#ro.aee.enforcing u:object_r:exported_default_prop:s0
+#ro.build.release_type u:object_r:exported_default_prop:s0
+#gr.use.leader u:object_r:exported_default_prop:s0
+#gr.apk.number u:object_r:exported_default_prop:s0
+#gr.download.url u:object_r:exported_default_prop:s0
+#ro.reserve1.get u:object_r:exported_default_prop:s0
+#ro.script.version u:object_r:exported_default_prop:s0
+#ro.trackingId.com.lzd.appid u:object_r:exported_default_prop:s0
+#ro.lcd.backlight.config_boe u:object_r:exported_default_prop:s0
+#ro.lcd.backlight.config_truly u:object_r:exported_default_prop:s0
+#ro.lcd.backlight.config_tianma u:object_r:exported_default_prop:s0
+#ro.lcd.backlight.config_dsjm u:object_r:exported_default_prop:s0
+#ro.lcd.backlight.config_jdi u:object_r:exported_default_prop:s0
+#ro.lcd.backlight.samsung_tenbit u:object_r:exported_default_prop:s0
+#ro.display.rc.size u:object_r:exported_default_prop:s0
+#ro.camera.hfr.enable u:object_r:exported_default_prop:s0
+#ro.camera.videoeis.enable u:object_r:exported_default_prop:s0
+#ro.camera.temperature.limit u:object_r:exported_default_prop:s0
+#ro.mount.fs u:object_r:exported_default_prop:s0
+#persist.bluetooth.disableabsvol u:object_r:exported_bluetooth_prop:s0
+#persist.bluetooth.avrcpversion u:object_r:exported_bluetooth_prop:s0
+#persist.bluetooth.fwloglevel u:object_r:exported_bluetooth_prop:s0
+#persist.bluetooth.hostloglevel u:object_r:exported_bluetooth_prop:s0
+#persist.bluetooth.iot.on u:object_r:exported_bluetooth_prop:s0
+#ifdef VENDOR_EDIT
+#Liangwen.Ke@PSW.CN.BT.Basic.Customize.2120948, 2019/06/26,
+#Add for supporting QC firmware update by sau_res
+#persist.bluetooth.soc.alwayson u:object_r:exported_bluetooth_prop:s0
+#persist.bluetooth.firmware.update u:object_r:exported_bluetooth_prop:s0
+#persist.bluetooth.vendor.      u:object_r:oppo_vendor_prop:s0
+# endif /* VENDOR_EDIT */
+
+#persist.version.confidential u:object_r:exported_system_prop:s0
+#persist.sys.oppo.region u:object_r:exported_system_prop:s0
+#persist.power.useautobrightadj u:object_r:exported_system_prop:s0
+#persist.sys.oppodebug.tpcatcher  u:object_r:exported_system_prop:s0
+#persist.sys.oppo.log.config u:object_r:exported_system_prop:s0
+#persist.anr.dumpthr u:object_r:exported_system_prop:s0
+#persist.sys.assert.enable u:object_r:exported_system_prop:s0
+#persist.sys.assert.panic u:object_r:exported_system_prop:s0
+#persist.sys.assert.state u:object_r:exported_system_prop:s0
+#persist.sys.assert.enabletip u:object_r:exported_system_prop:s0
+#persist.sys.mtk.pwkdump u:object_r:exported_system_prop:s0
+#persist.anr.enhancement u:object_r:exported_system_prop:s0
+#persist.sys.oppo.junklog u:object_r:exported_system_prop:s0
+#persist.sys.oppo.junkmonitor  u:object_r:exported_system_prop:s0
+#persist.sys.disable_rescue u:object_r:exported_system_prop:s0
+#persist.bluetooth.enableinbandringing u:object_r:exported_system_prop:s0
+#sys.oppo.gift u:object_r:exported_system_prop:s0
+#persist.sys.oem_smooth u:object_r:exported_system_prop:s0
+#persist.sys.nw_lab_test u:object_r:exported_system_prop:s0
+#persist.sys.cfu_auto u:object_r:exported_system_prop:s0
+#persist.sys.nw_mbn_icon u:object_r:exported_system_prop:s0
+#sys.oppo.nw.hongbao u:object_r:exported_system_prop:s0
+#persist.service.acm.enable u:object_r:exported_system_prop:s0
+#persist.sys.enable.kneuron u:object_r:exported_system_prop:s0
+#persist.sys.enable.neo u:object_r:exported_system_prop:s0
+#persist.sys.elsa.enable u:object_r:exported_system_prop:s0
+#persist.sys.elsa.kernel_enable u:object_r:exported_system_prop:s0
+
+#ifdef VENDOR_EDIT
+#Pingping.Yang@swdp, 20181204. Add for omedia
+#persist.sys.omedia.enable u:object_r:exported_system_prop:s0
+#endif /* VENDOR_EDIT */
+
+#Multi-Media property
+#sys.oppo.mm.            u:object_r:exported_system_prop:s0
+#persist.oppo.mm.        u:object_r:exported_system_prop:s0
+#ifdef VENDOR_EDIT
+#Ming.Liu@PSW.MM.AudioDriver, 2017/10/26, Add for audio hal set property
+#Multi-Media property
+#persist.dirac.          u:object_r:exported_system_prop:s0
+#persist.dirac.vendor    u:object_r:oppo_vendor_prop:s0
+#dirac.qem.              u:object_r:exported_system_prop:s0
+#persist.sys.record.     u:object_r:exported_system_prop:s0
+#endif /* VENDOR_EDIT */
+#Xianfeng.Fu@PSW.MM.AudioServer, 2017/12/26, Add for AP dirac property
+#dirac.                  u:object_r:exported_system_prop:s0
+#ro.dirac.               u:object_r:exported_system_prop:s0
+
+#ifdef VENDOR_EDIT
+#Xiao.Liang@PSW.CN.WiFi.Basic.Log.1072015, 2018/10/22, Modify for collecting wifi driver log
+#persist.sys.com.oppo.debug.time  u:object_r:exported_system_prop:s0
+#oppo.wifi.ftm                    u:object_r:exported_system_prop:s0
+#persist.sys.wifipacketlog.state  u:object_r:exported_system_prop:s0
+#persist.sys.wifipktlog.buffsize  u:object_r:exported_system_prop:s0
+#endif /* VENDOR_EDIT */
+
+#ifdef VENDOR_EDIT
+#Xiao.Liang@PSW.CN.WiFi.Basic.SoftAP.1610391, 2018/10/30, Modify for reading client devices name from /data/misc/dhcp/dnsmasq.leases
+#oppo.wifi.softap.readleases             u:object_r:exported_system_prop:s0
+#endif /* VENDOR_EDIT */
+#ifdef VENDOR_EDIT
+#Natao.Lin@Camera, 2018/11/01, Add for camera hal set property
+#persist.camera.                           u:object_r:exported_system_prop:s0
+#persist.oppo.memleak.enable               u:object_r:exported_system_prop:s0
+#persist.sys.oppo.displaymetrics           u:object_r:exported_system_prop:s0
+#persist.aec.manual.mode                   u:object_r:exported_system_prop:s0
+#persist.iris.skip.frame                   u:object_r:exported_system_prop:s0
+#persist.iris.lunch.frame                  u:object_r:exported_system_prop:s0
+#persist.skip.frame.app                    u:object_r:exported_system_prop:s0
+#persist.watermark.dumpimg                 u:object_r:exported_system_prop:s0
+#persist.ipe.debug                         u:object_r:exported_system_prop:s0
+#persist.debug.camera.overrideLogLevels    u:object_r:exported_system_prop:s0
+#persist.ois.servoOn.enable                u:object_r:exported_system_prop:s0
+#persist.qcom.camera.log_level             u:object_r:exported_system_prop:s0
+#persist.sys.log.ae                        u:object_r:exported_system_prop:s0
+#persist.sys.log.af                        u:object_r:exported_system_prop:s0
+#persist.sys.log.awb                       u:object_r:exported_system_prop:s0
+#persist.front.skipdisplay.enable          u:object_r:exported_system_prop:s0
+
+#oppo.debug.night.ev.offset                u:object_r:exported_system_prop:s0
+#oppo.camera.slogan.yuvpath                u:object_r:exported_system_prop:s0
+#oppo.camera.packname                      u:object_r:exported_system_prop:s0
+#oppo.camera.pid                           u:object_r:exported_system_prop:s0
+#oppo.tof.                                 u:object_r:exported_system_prop:s0
+#oppo.front.switch.res                     u:object_r:exported_system_prop:s0
+#oppo.open.camera.name                     u:object_r:exported_system_prop:s0
+#ro.build.flavor                           u:object_r:exported_system_prop:s0
+#ro.camera.attr.detect.enable              u:object_r:exported_system_prop:s0
+
+#camera.disable_zsl_mode                   u:object_r:exported_system_prop:s0
+#cause phone crash
+#gsm.operator.numeric                     u:object_r:exported_system_prop:s0
+#adrc.gain                                 u:object_r:exported_system_prop:s0
+#darkboost.gain                            u:object_r:exported_system_prop:s0
+
+vendor.oppo.camera.                       u:object_r:oppo_vendor_prop:s0
+#endif /* VENDOR_EDIT */
+#ifdef VENDOR_EDIT
+#Guotian.Wu@PSW.CN.WiFi.Basic.Custom.1068489 , 2018/11/06, Add for use qmi interface to get WLAN MAC ADDR
+#ro.vold.serialno                 u:object_r:exported_system_prop:s0
+#endif /* VENDOR_EDIT */
+
+#ifdef VENDOR_EDIT
+#Zhengpeng.Tan@PSW.NW.NV.1142070,2017/11/14, Add for serialno
+#sys.build.display.full_id u:object_r:exported_system_prop:s0
+#endif /* VENDOR_EDIT */
+
+#ifdef VENDOR_EDIT
+#Weican.Zhao@PSW.NW.EM, 2018/11/20, add for minidump selinux policy
+#persist.sys.enable_modem_dump u:object_r:exported_system_prop:s0
+#persist.sys.modem.path        u:object_r:exported_system_prop:s0
+#endif
+
+#ifdef VENDOR_EDIT
+#weiwei.Deng@CN.NFC.Basic.Hardware.1182186 ,2018/11/11
+#Add for : NFC properties
+#persist.nfc.            u:object_r:nfc_prop:s0
+
+#ifdef VENDOR_EDIT
+#Guotian.Wu@PSW.CN.WiFi.Basic.Log.1162003, 2018/12/13, Add for dynamic collect wifi mini dump
+vendor.oppo.wifi.minidump        u:object_r:oppo_vendor_prop:s0
+#persist.sys.wifi.minidump.failureDesc  u:object_r:oppo_vendor_prop:s0
+#persist.oppo.wlan.macaddress     u:object_r:oppo_vendor_prop:s0
+vendor.oppo.wifi.cnss_diag_pid   u:object_r:oppo_vendor_prop:s0
+#endif /* VENDOR_EDIT */
+#Haiping.Zhong@PSW.AD.CTS.1626045, 2018/12/28, Add for Android_P_VTS_GSI_fingerprint
+ro.vendor.oppo.fingerprint  u:object_r:oppo_vendor_prop:s0
+ro.vendor.oppo.product.manufacturer  u:object_r:oppo_vendor_prop:s0
+ro.vendor.oppo.product.model  u:object_r:oppo_vendor_prop:s0
+ro.vendor.oppo.product.brand  u:object_r:oppo_vendor_prop:s0
+ro.vendor.oppo.product.name  u:object_r:oppo_vendor_prop:s0
+ro.vendor.oppo.product.device  u:object_r:oppo_vendor_prop:s0
+ro.vendor.oppo.regionmark  u:object_r:oppo_vendor_prop:s0
+ro.vendor.oppo.operator  u:object_r:oppo_vendor_prop:s0
+ro.vendor.oppo.euex.country  u:object_r:oppo_vendor_prop:s0
+ro.vendor.oppo.product.incremental  u:object_r:oppo_vendor_prop:s0
+ro.vendor.oppo.non.eea  u:object_r:oppo_vendor_prop:s0
+#ro.oppo.regionmark  u:object_r:oppo_vendor_prop:s0
+#ro.oppo.operator  u:object_r:oppo_vendor_prop:s0
+#ro.oppo.euex.country  u:object_r:oppo_vendor_prop:s0
+ro.vendor.gsi.build.flavor  u:object_r:exported_system_prop:s0
+ro.vendor.gsi.version_variant u:object_r:oppo_vendor_prop:s0
+ro.vendor.oppo.rsa.3.0  u:object_r:oppo_vendor_prop:s0
+#endif
+
+#ifdef VENDOR_EDIT
+#Lei.Zhang@PSW.CN.WiFi.Basic.Hardware.1687242, 2018/12/04, Add for wifi roaming test in engineer mode
+#oppo.wifi.roaming.  u:object_r:exported_system_prop:s0
+#endif /* VENDOR_EDIT */
+
+#ifdef COLOR_EDIT
+#Xiaokang.Feng@OS.SDK ,2018/12/6
+#Add for : ringone properties
+#ro.config.notification_sms u:object_r:exported_default_prop:s0
+#ro.config.ringtone_sim2 u:object_r:exported_default_prop:s0
+#ro.config.notification_sim2 u:object_r:exported_default_prop:s0
+#ro.config.calendar_sound u:object_r:exported_default_prop:s0
+#endif /* COLOR_EDIT */
+
+#ifdef VENDOR_EDIT
+#Xiao.Liang@CN.WiFi.Basic.1568258, 2018/11/30, Add for wifi sniffer service on Android P
+#oppo.wifi.sniffer.copysnifferlog  u:object_r:exported_system_prop:s0
+#endif /* VENDOR_EDIT */
+
+#ifdef VENDOR_EDIT
+#zhangliqun@PSW.CN.WiFi.Production.NA, 2018/11/14,
+#add for factory set property
+vendor.wifi.hwtest      u:object_r:exported_system_prop:s0
+vendor.wifi.ftm         u:object_r:exported_system_prop:s0
+vendor.wifirftest.enable u:object_r:exported_system_prop:s0
+vendor.wifi.ftmtest     u:object_r:exported_system_prop:s0
+vendor.wifi.ftmstoptest    u:object_r:exported_system_prop:s0
+#oppo.wifi.bdfver    u:object_r:exported_system_prop:s0
+#endif /* VENDOR_EDIT */
+
+
+#ifdef VENDOR_EDIT
+#Haoran.Zhang@Tech.CTS.1626045, 2018/12/28, Add for Android_Q_VTS_GSI_fingerprint
+ro.vendor.build.fingerprint.oppo    u:object_r:oppo_vendor_prop:s0
+#ro.product.vendor.manufacturer.oppo    u:object_r:oppo_vendor_prop:s0
+#ro.product.vendor.model.oppo    u:object_r:oppo_vendor_prop:s0
+#ro.product.vendor.brand.oppo    u:object_r:oppo_vendor_prop:s0
+#ro.product.vendor.name.oppo    u:object_r:oppo_vendor_prop:s0
+#ro.product.vendor.device.oppo    u:object_r:oppo_vendor_prop:s0
+ro.vendor.version_variant u:object_r:oppo_vendor_prop:s0
+#endif
+
+
+#ifdef VENDOR_EDIT
+#Lei.Zhang@CN.WiFi.Basic., 2018/12/24, Add for wifi sar setting on Android P
+#oppo.wifi.sar.  u:object_r:exported_system_prop:s0
+#endif /* VENDOR_EDIT */
+
+#qemu.hw.mainkeys u:object_r:oppo_qemu_prop:s0
+
+#ifdef VENDOR_EDIT
+#Zuofa.Liu@CN.WiFi.Basic., 2018/12/24, Add for wifi sar setting on Android P
+vendor.wifi.sar.  u:object_r:exported_system_prop:s0
+#endif /* VENDOR_EDIT */
+
+#ifdef VENDOR_EDIT
+# YunMang.Xiao@PSW.MM.AudioServer.FrameWork, 2019/06/18, add for dolby security check
+#ro.dolby.model    u:object_r:oppo_vendor_prop:s0
+#ro.dolby.device   u:object_r:oppo_vendor_prop:s0
+#ro.dolby.manufacturer   u:object_r:oppo_vendor_prop:s0
+#ro.dolby.brand    u:object_r:oppo_vendor_prop:s0
+#endif /* VENDOR_EDIT */
+
+#ifdef COLOROS_EDIT
+#Mengya.Zhao@ROM.com, 2019/11/11, add for hans freeze manager
+persist.vendor.enable.hans u:object_r:exported_system_prop:s0
+#endif
+#endif /* ODM_LQ_EDIT */
+
+#line 1 "vendor/oppo_app/OppoEngineerMode/sepolicy/qcom/vendor/property_contexts"
+
+vendor.oppo.diag.socket.ip         u:object_r:engineer_vendor_prop:s0
+vendor.oppo.diag.socket.port         u:object_r:engineer_vendor_prop:s0
+vendor.oppo.diag.socket.pid         u:object_r:engineer_vendor_prop:s0
+vendor.oppo.diag.socket.retry         u:object_r:engineer_vendor_prop:s0
+vendor.oppo.diag.socket.channel         u:object_r:engineer_vendor_prop:s0
+vendor.oppo.engineer.adb.flag        u:object_r:engineer_vendor_prop:s0
+vendor.oppo.engineer.adb.address     u:object_r:engineer_vendor_prop:s0
+vendor.oppo.engineer.adb.state        u:object_r:engineer_adb_state_vendor_prop:s0
+
+#ifdef ODM_LQ_EDIT
+#caoyang@ODM_LQ.AD.VTS.VtsTrebleSysProp, 2019/12/21, modify for vts testVendorPropertyNamespace: move property with wrong namespace to private/property_contexts 
+#persist.engineer.hide.      u:object_r:engineer_hide_prop:s0
+#endif /* ODM_LQ_EDIT */
+persist.vendor.engineer.hide.      u:object_r:engineer_hide_prop:s0
+#add for engineermode bluetooth prop
+vendor.bluetooth.soc u:object_r:engineer_bluetooth_prop:s0
+#line 1 "vendor/oppo_app/securebsp/FaceRecognition/sepolicy/qcom/common/property_contexts"
+###############################################################################
+## Copyright 2017 OPPO Mobile Comm Corp., Ltd.
+## VENDOR_EDIT
+## File: file_contexts
+## Description : add for file contexts
+## Version: 1.0
+## Date : 2017/11/19
+## Author: Ziqing.Guo@BSP.Fingerprint.Basic
+## ----------------- Revision History: ----------------------
+## <author>      <data>        <desc>
+## Long.Liu      2019/02/12  add config version info
+################################################################################
+
+persist.vendor.oppo.face.sdk.version u:object_r:oppo_bsp_face_version:s0
+persist.vendor.oppo.face.model.version u:object_r:oppo_bsp_face_version:s0
+persist.vendor.face.updateflag u:object_r:oppo_bsp_face_version:s0
+

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+/* *****************************************************************************
+** File: manifest_secure_element_uicc_single_sim.xml
+** VENDOR_EDIT
+** Copyright (C), 2019, Oppo Mobile Comm Corp., Ltd
+**
+** Description:
+**       secure_element UICC hal interface for NON-NFC single sim device
+**
+** Version: 1.0
+** Date created: 14:30:00, 2019/2/25
+** Author: pw@oppo.com
+** TAG: NW.SIM.1704058
+** ******************************* Revision History: ***************************
+**         <author>                <date>            <desc>
+**         Wei Peng               2019/2/25          create
+** *****************************************************************************
+*/
+-->
+<manifest version="1.0" type="device">
+    <!--UICC secure element -->
+   <hal format="hidl">
+       <name>android.hardware.secure_element</name>
+       <transport>hwbinder</transport>
+       <version>1.0</version>
+       <interface>
+           <name>ISecureElement</name>
+           <instance>SIM1</instance>
+       </interface>
+        <fqname>@1.0::ISecureElement/SIM1</fqname>
+    </hal>
+</manifest>

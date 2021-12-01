@@ -1,0 +1,580 @@
+#!/vendor/bin/sh
+
+SAR_EXEC_FILE="/vendor/bin/vendor_cmd_tool"
+SAR_CFG_FILE="/vendor/etc/wifi/sar-vendor-cmd.xml"
+
+
+WIFI_SAR_DISABLE_CMD_BODY="--ENABLE 5 --NUM_SPECS 0 --END_CMD"
+
+# Note element rule:
+# 1. --NUM_SPECS should equal exactly item number;
+# 2. Please not modify exist rules, just add new rule for specific country/reg,
+#    for add new rules, you should be carefuly about below:
+# 	1) Notice BAND\CHAIN\MOD info;
+# 	2) Notice POW, the unit is 0.5dBm;
+# 	3) Notice always check NUM_SPECS value, it MUST equal item numbers.
+# 3. Rule 0 is an example, you should NEVER modify it;
+# 4. sarIdx should match enum "SwitchWifiSar" index defined in OemProximitySensorManager.java.
+WIFI_SAR_SETTING_18397=(
+## get detail information from 80-ya512-12_yd_wcn39xx_wlan_coexistence_software_user_guide.pdf
+## sarIdx:0 -- 2.4G/5G both (example, should NEVER use/modify it)
+"--ENABLE 6 --NUM_SPECS 4 \
+--SAR_SPEC \
+--NESTED_AUTO --BAND 0 --CHAIN 0 --POW 28 --END_ATTR \
+--NESTED_AUTO --BAND 0 --CHAIN 1 --POW 28 --END_ATTR \
+--NESTED_AUTO --BAND 1 --CHAIN 0 --POW 28 --END_ATTR \
+--NESTED_AUTO --BAND 1 --CHAIN 1 --POW 28 --END_ATTR \
+--END_ATTR --END_CMD"
+
+###################### India ######################
+#
+## sarIdx:1 -- For head sar, 2.4G
+"--ENABLE 6 --NUM_SPECS 1 \
+--SAR_SPEC \
+--NESTED_AUTO --BAND 0 --POW 31 --END_ATTR \
+--END_ATTR --END_CMD"
+
+## sarIdx:2 -- For head sar, 5G
+"--ENABLE 6 --NUM_SPECS 1 \
+--SAR_SPEC \
+--NESTED_AUTO --BAND 1 --POW 27 --END_ATTR \
+--END_ATTR --END_CMD"
+
+###################### Europe ######################
+
+## sarIdx:3 -- For CE head sar, 5G only(exclude band1/2)
+"--ENABLE 6 --NUM_SPECS 1 \
+--SAR_SPEC \
+--NESTED_AUTO --BAND 1 --POW 34 --END_ATTR \
+--END_ATTR --END_CMD"
+
+## sarIdx:4 -- For CE head sar, 2.4G/5G Band1/2 or 2.4G/GSM/5G Band1/2
+"--ENABLE 6 --NUM_SPECS 2 \
+--SAR_SPEC \
+--NESTED_AUTO --BAND 0 --POW 30 --END_ATTR \
+--NESTED_AUTO --BAND 1 --POW 32 --END_ATTR \
+--END_ATTR --END_CMD"
+
+## sarIdx:5 -- For CE head sar, 2.4G/5G Band3
+"--ENABLE 6 --NUM_SPECS 2 \
+--SAR_SPEC \
+--NESTED_AUTO --BAND 0 --POW 30 --END_ATTR \
+--NESTED_AUTO --BAND 1 --POW 30 --END_ATTR \
+--END_ATTR --END_CMD"
+
+## sarIdx:6 -- For CE head sar, 2.4G/5G Band4 or 2.4G/GSM/5G Band4
+"--ENABLE 6 --NUM_SPECS 2 \
+--SAR_SPEC \
+--NESTED_AUTO --BAND 0 --POW 30 --END_ATTR \
+--NESTED_AUTO --BAND 1 --POW 34 --END_ATTR \
+--END_ATTR --END_CMD"
+
+## sarIdx:7 -- For CE body sar, 2.4G/5G Band1/2
+"--ENABLE 6 --NUM_SPECS 1 \
+--SAR_SPEC \
+--NESTED_AUTO --BAND 1 --POW 32 --END_ATTR \
+--END_ATTR --END_CMD"
+
+## sarIdx:8 -- For CE body sar, 2.4G/5G Band3
+"--ENABLE 6 --NUM_SPECS 1 \
+--SAR_SPEC \
+--NESTED_AUTO --BAND 1 --POW 34 --END_ATTR \
+--END_ATTR --END_CMD"
+
+## sarIdx:9 -- For CE head sar, 2.4G/GSM/5G Band3
+"--ENABLE 6 --NUM_SPECS 2 \
+--SAR_SPEC \
+--NESTED_AUTO --BAND 0 --POW 30 --END_ATTR \
+--NESTED_AUTO --BAND 1 --POW 28 --END_ATTR \
+--END_ATTR --END_CMD"
+
+## sarIdx:10 -- For CE body sar, 2.4G/GSM/5G Band1/2
+"--ENABLE 6 --NUM_SPECS 2 \
+--SAR_SPEC \
+--NESTED_AUTO --BAND 0 --POW 32 --END_ATTR \
+--NESTED_AUTO --BAND 1 --POW 32 --END_ATTR \
+--END_ATTR --END_CMD"
+
+## sarIdx:11 -- For CE body sar, 2.4G/GSM/5G Band3
+"--ENABLE 6 --NUM_SPECS 2 \
+--SAR_SPEC \
+--NESTED_AUTO --BAND 0 --POW 32 --END_ATTR \
+--NESTED_AUTO --BAND 1 --POW 28 --END_ATTR \
+--END_ATTR --END_CMD"
+
+## sarIdx:12 -- For CE body sar, GSM/5G Band3
+"--ENABLE 6 --NUM_SPECS 1 \
+--SAR_SPEC \
+--NESTED_AUTO --BAND 1 --POW 28 --END_ATTR \
+--END_ATTR --END_CMD"
+
+###################### Asia Pacific ######################
+## sarIdx:13 -- For CE head sar, 2.4G/5G(exclude Band4) or 2.4G/GSM/5G(exclude Band4)
+"--ENABLE 6 --NUM_SPECS 2 \
+--SAR_SPEC \
+--NESTED_AUTO --BAND 0 --POW 33 --END_ATTR \
+--NESTED_AUTO --BAND 1 --POW 32 --END_ATTR \
+--END_ATTR --END_CMD"
+
+## sarIdx:14 -- For CE body sar, 2.4G/GSM/5G Band3 or GSM/5G Band3
+"--ENABLE 6 --NUM_SPECS 1 \
+--SAR_SPEC \
+--NESTED_AUTO --BAND 1 --POW 32 --END_ATTR \
+--END_ATTR --END_CMD"
+)
+
+WIFI_SAR_SETTING_19331=(
+## sar off
+"--ENABLE 6 --NUM_SPECS 4 \
+--SAR_SPEC \
+--NESTED_AUTO --BAND 0 --CHAIN 0 --POW 36 --END_ATTR \
+--NESTED_AUTO --BAND 0 --CHAIN 1 --POW 36 --END_ATTR \
+--NESTED_AUTO --BAND 1 --CHAIN 0 --POW 36 --END_ATTR \
+--NESTED_AUTO --BAND 1 --CHAIN 1 --POW 36 --END_ATTR \
+--END_ATTR --END_CMD"
+
+###################### Aisa Pacific ######################
+## sarIdx:1  for body sar, 2.4g/gsm
+"--ENABLE 6 --NUM_SPECS 1 \
+--SAR_SPEC \
+--NESTED_AUTO --BAND 0 --POW 32 --END_ATTR \
+--END_ATTR --END_CMD"
+
+## sarIdx:2 for body sar 2.4g/gsm/5g band 1,2
+"--ENABLE 6 --NUM_SPECS 2 \
+--SAR_SPEC \
+--NESTED_AUTO --BAND 0 --POW 32 --END_ATTR \
+--NESTED_AUTO --BAND 1 --POW 18 --END_ATTR \
+--END_ATTR --END_CMD"
+
+## sarIdx:3 for body sar 2.4g/gsm/5g band 3
+"--ENABLE 6 --NUM_SPECS 2 \
+--SAR_SPEC \
+--NESTED_AUTO --BAND 0 --POW 32 --END_ATTR \
+--NESTED_AUTO --BAND 1 --POW 18 --END_ATTR \
+--END_ATTR --END_CMD"
+
+## sarIdx:4 for body sar 2.4g/gsm/5g band 4
+"--ENABLE 6 --NUM_SPECS 2 \
+--SAR_SPEC \
+--NESTED_AUTO --BAND 0 --POW 32 --END_ATTR \
+--NESTED_AUTO --BAND 1 --POW 12 --END_ATTR \
+--END_ATTR --END_CMD"
+
+## sarIdx:5 for body sar 5g band 3
+"--ENABLE 6 --NUM_SPECS 1 \
+--SAR_SPEC \
+--NESTED_AUTO --BAND 1 --POW 26 --END_ATTR \
+--END_ATTR --END_CMD"
+
+## sarIdx:6 for body sar gsm/5g band 1,2
+"--ENABLE 6 --NUM_SPECS 1 \
+--SAR_SPEC \
+--NESTED_AUTO --BAND 1 --POW 18 --END_ATTR \
+--END_ATTR --END_CMD"
+
+## sarIdx:7 for body sar gsm/5g band 3
+"--ENABLE 6 --NUM_SPECS 1 \
+--SAR_SPEC \
+--NESTED_AUTO --BAND 1 --POW 18 --END_ATTR \
+--END_ATTR --END_CMD"
+
+## sarIdx:8 for body sar gsm/5g band 4
+"--ENABLE 6 --NUM_SPECS 1 \
+--SAR_SPEC \
+--NESTED_AUTO --BAND 1 --POW 12 --END_ATTR \
+--END_ATTR --END_CMD"
+
+## sarIdx:9 for head sar 2.4g/gsm
+"--ENABLE 6 --NUM_SPECS 1 \
+--SAR_SPEC \
+--NESTED_AUTO --BAND 0 --POW 30 --END_ATTR \
+--END_ATTR --END_CMD"
+
+## sarIdx:10 for head sar 2.4g/gsm/5g band 1,2
+"--ENABLE 6 --NUM_SPECS 2 \
+--SAR_SPEC \
+--NESTED_AUTO --BAND 0 --POW 30 --END_ATTR \
+--NESTED_AUTO --BAND 1 --POW 24 --END_ATTR \
+--END_ATTR --END_CMD"
+
+## sarIdx:11 for head sar 2.4g/gsm/5g band 4
+"--ENABLE 6 --NUM_SPECS 2 \
+--SAR_SPEC \
+--NESTED_AUTO --BAND 0 --POW 30 --END_ATTR \
+--NESTED_AUTO --BAND 1 --POW 18 --END_ATTR \
+--END_ATTR --END_CMD"
+
+## sarIdx:12 for head sar 2.4g/gsm/5g band 3
+"--ENABLE 6 --NUM_SPECS 2 \
+--SAR_SPEC \
+--NESTED_AUTO --BAND 0 --POW 30 --END_ATTR \
+--NESTED_AUTO --BAND 1 --POW 24 --END_ATTR \
+--END_ATTR --END_CMD"
+
+## sarIdx:13 for head sar gsm/5g band 1,2
+"--ENABLE 6 --NUM_SPECS 1 \
+--SAR_SPEC \
+--NESTED_AUTO --BAND 1 --POW 24 --END_ATTR \
+--END_ATTR --END_CMD"
+
+## sarIdx:14 for head sar gsm/5g band 4
+"--ENABLE 6 --NUM_SPECS 1 \
+--SAR_SPEC \
+--NESTED_AUTO --BAND 1 --POW 18 --END_ATTR \
+--END_ATTR --END_CMD"
+
+## sarIdx:15 for head sar gsm/5g band 3
+"--ENABLE 6 --NUM_SPECS 1 \
+--SAR_SPEC \
+--NESTED_AUTO --BAND 1 --POW 24 --END_ATTR \
+--END_ATTR --END_CMD"
+
+## sarIdx:16 for head sar 5g band 1,2
+"--ENABLE 6 --NUM_SPECS 1 \
+--SAR_SPEC \
+--NESTED_AUTO --BAND 1 --POW 28 --END_ATTR \
+--END_ATTR --END_CMD"
+
+## sarIdx:17 for 5g band 1,2,3 with or without 2.4g
+"--ENABLE 6 --NUM_SPECS 1 \
+--SAR_SPEC \
+--NESTED_AUTO --BAND 1 --POW 26 --END_ATTR \
+--END_ATTR --END_CMD"
+
+## sarIdx:18 for 5g band 4 with or without 2.4g
+"--ENABLE 6 --NUM_SPECS 1 \
+--SAR_SPEC \
+--NESTED_AUTO --BAND 1 --POW 20 --END_ATTR \
+--END_ATTR --END_CMD"
+
+###################### India ######################
+## sarIdx:19 for body sar 5g band 1,2,3
+"--ENABLE 6 --NUM_SPECS 1 \
+--SAR_SPEC \
+--NESTED_AUTO --BAND 1 --POW 25 --END_ATTR \
+--END_ATTR --END_CMD"
+
+## sarIdx:20 for body sar 2g/5g band 1,2,3
+"--ENABLE 6 --NUM_SPECS 1 \
+--SAR_SPEC \
+--NESTED_AUTO --BAND 1 --POW 22 --END_ATTR \
+--END_ATTR --END_CMD"
+
+## sarIdx:21 for body sar gsm/5g band 1,2,3
+"--ENABLE 6 --NUM_SPECS 1 \
+--SAR_SPEC \
+--NESTED_AUTO --BAND 1 --POW 22 --END_ATTR \
+--END_ATTR --END_CMD"
+
+## sarIdx:22 for head sar 2g
+"--ENABLE 6 --NUM_SPECS 1 \
+--SAR_SPEC \
+--NESTED_AUTO --BAND 0 --POW 32 --END_ATTR \
+--END_ATTR --END_CMD"
+
+## sarIdx:23 for head sar 5g band 1,2
+"--ENABLE 6 --NUM_SPECS 1 \
+--SAR_SPEC \
+--NESTED_AUTO --BAND 1 --POW 22 --END_ATTR \
+--END_ATTR --END_CMD"
+
+## sarIdx:24 for head sar 5g band 3
+"--ENABLE 6 --NUM_SPECS 1 \
+--SAR_SPEC \
+--NESTED_AUTO --BAND 1 --POW 22 --END_ATTR \
+--END_ATTR --END_CMD"
+
+## sarIdx:25 for head sar 2g/5g band 1,2
+"--ENABLE 6 --NUM_SPECS 2 \
+--SAR_SPEC \
+--NESTED_AUTO --BAND 0 --POW 28 --END_ATTR \
+--NESTED_AUTO --BAND 1 --POW 20 --END_ATTR \
+--END_ATTR --END_CMD"
+
+## sarIdx:26 for head sar 2g/5g band 3
+"--ENABLE 6 --NUM_SPECS 2 \
+--SAR_SPEC \
+--NESTED_AUTO --BAND 0 --POW 28 --END_ATTR \
+--NESTED_AUTO --BAND 1 --POW 20 --END_ATTR \
+--END_ATTR --END_CMD"
+
+## sarIdx:27 for head sar 2g/5g band 4
+"--ENABLE 6 --NUM_SPECS 2 \
+--SAR_SPEC \
+--NESTED_AUTO --BAND 0 --POW 28 --END_ATTR \
+--NESTED_AUTO --BAND 1 --POW 14 --END_ATTR \
+--END_ATTR --END_CMD"
+
+## sarIdx:28 for head sar 2g/gsm/5g band 1,2
+"--ENABLE 6 --NUM_SPECS 2 \
+--SAR_SPEC \
+--NESTED_AUTO --BAND 0 --POW 26 --END_ATTR \
+--NESTED_AUTO --BAND 1 --POW 16 --END_ATTR \
+--END_ATTR --END_CMD"
+
+## sarIdx:29 for head sar 2g/gsm/5g band 3
+"--ENABLE 6 --NUM_SPECS 2 \
+--SAR_SPEC \
+--NESTED_AUTO --BAND 0 --POW 26 --END_ATTR \
+--NESTED_AUTO --BAND 1 --POW 16 --END_ATTR \
+--END_ATTR --END_CMD"
+
+## sarIdx:30 for head sar 2g/gsm/5g band 4
+"--ENABLE 6 --NUM_SPECS 2 \
+--SAR_SPEC \
+--NESTED_AUTO --BAND 0 --POW 26 --END_ATTR \
+--NESTED_AUTO --BAND 1 --POW 16 --END_ATTR \
+--END_ATTR --END_CMD"
+
+## sarIdx:31 for head sar 2g/gsm
+"--ENABLE 6 --NUM_SPECS 1 \
+--SAR_SPEC \
+--NESTED_AUTO --BAND 0 --POW 26 --END_ATTR \
+--END_ATTR --END_CMD"
+
+## sarIdx:32 for head sar gsm/5g band 1,2
+"--ENABLE 6 --NUM_SPECS 1 \
+--SAR_SPEC \
+--NESTED_AUTO --BAND 1 --POW 16 --END_ATTR \
+--END_ATTR --END_CMD"
+
+## sarIdx:33 for head sar gsm/5g band 3
+"--ENABLE 6 --NUM_SPECS 1 \
+--SAR_SPEC \
+--NESTED_AUTO --BAND 1 --POW 16 --END_ATTR \
+--END_ATTR --END_CMD"
+
+## sarIdx:34 for head sar gsm/5g band 4
+"--ENABLE 6 --NUM_SPECS 1 \
+--SAR_SPEC \
+--NESTED_AUTO --BAND 1 --POW 10 --END_ATTR \
+--END_ATTR --END_CMD"
+
+## sarIdx:35 for head sar 5g band 4
+"--ENABLE 6 --NUM_SPECS 1 \
+--SAR_SPEC \
+--NESTED_AUTO --BAND 1 --POW 16 --END_ATTR \
+--END_ATTR --END_CMD"
+
+## sarIdx:36 for body sar 5g band 4
+"--ENABLE 6 --NUM_SPECS 1 \
+--SAR_SPEC \
+--NESTED_AUTO --BAND 1 --POW 19 --END_ATTR \
+--END_ATTR --END_CMD"
+
+## sarIdx:37 for body sar 2g/5g band 4
+"--ENABLE 6 --NUM_SPECS 1 \
+--SAR_SPEC \
+--NESTED_AUTO --BAND 1 --POW 24 --END_ATTR \
+--END_ATTR --END_CMD"
+
+## sarIdx:38 for body sar gsm/5g band 4
+"--ENABLE 6 --NUM_SPECS 1 \
+--SAR_SPEC \
+--NESTED_AUTO --BAND 1 --POW 22 --END_ATTR \
+--END_ATTR --END_CMD"
+
+###################### EU ######################
+## sarIdx:  for head sar, 2.4g
+"--ENABLE 6 --NUM_SPECS 1 \
+--SAR_SPEC \
+--NESTED_AUTO --BAND 0 --POW 34 --END_ATTR \
+--END_ATTR --END_CMD"
+
+## sarIdx: for head sar 5g band 1,2/3
+"--ENABLE 6 --NUM_SPECS 1 \
+--SAR_SPEC \
+--NESTED_AUTO --BAND 1 --POW 26 --END_ATTR \
+--END_ATTR --END_CMD"
+
+## sarIdx: for head sar 5g band 4
+"--ENABLE 6 --NUM_SPECS 1 \
+--SAR_SPEC \
+--NESTED_AUTO --BAND 1 --POW 20 --END_ATTR \
+--END_ATTR --END_CMD"
+
+## sarIdx: for head sar 2g/5g band 1,2/3
+"--ENABLE 6 --NUM_SPECS 2 \
+--SAR_SPEC \
+--NESTED_AUTO --BAND 0 --POW 32 --END_ATTR \
+--NESTED_AUTO --BAND 1 --POW 26 --END_ATTR \
+--END_ATTR --END_CMD"
+
+## sarIdx: for head sar 2g/5g band 4
+"--ENABLE 6 --NUM_SPECS 2 \
+--SAR_SPEC \
+--NESTED_AUTO --BAND 0 --POW 32 --END_ATTR \
+--NESTED_AUTO --BAND 1 --POW 20 --END_ATTR \
+--END_ATTR --END_CMD"
+
+## sarIdx: for head sar 2g/gsm/5g band 1,2/3
+"--ENABLE 6 --NUM_SPECS 2 \
+--SAR_SPEC \
+--NESTED_AUTO --BAND 0 --POW 32 --END_ATTR \
+--NESTED_AUTO --BAND 1 --POW 26 --END_ATTR \
+--END_ATTR --END_CMD"
+
+## sarIdx: for head sar 2g/gsm/5g band 4
+"--ENABLE 6 --NUM_SPECS 2 \
+--SAR_SPEC \
+--NESTED_AUTO --BAND 0 --POW 32 --END_ATTR \
+--NESTED_AUTO --BAND 1 --POW 20 --END_ATTR \
+--END_ATTR --END_CMD"
+
+## sarIdx:  for head sar, 2.4g/gsm
+"--ENABLE 6 --NUM_SPECS 1 \
+--SAR_SPEC \
+--NESTED_AUTO --BAND 0 --POW 32 --END_ATTR \
+--END_ATTR --END_CMD"
+
+## sarIdx:  for head sar, gsm/5g band 1,2/3
+"--ENABLE 6 --NUM_SPECS 1 \
+--SAR_SPEC \
+--NESTED_AUTO --BAND 1 --POW 26 --END_ATTR \
+--END_ATTR --END_CMD"
+
+## sarIdx:  for head sar, gsm/5g band 4
+"--ENABLE 6 --NUM_SPECS 1 \
+--SAR_SPEC \
+--NESTED_AUTO --BAND 1 --POW 20 --END_ATTR \
+--END_ATTR --END_CMD"
+
+## sarIdx:  for body sar, 5g band 1,2/3
+"--ENABLE 6 --NUM_SPECS 1 \
+--SAR_SPEC \
+--NESTED_AUTO --BAND 1 --POW 24 --END_ATTR \
+--END_ATTR --END_CMD"
+
+## sarIdx:  for body sar, 5g band 4
+"--ENABLE 6 --NUM_SPECS 1 \
+--SAR_SPEC \
+--NESTED_AUTO --BAND 1 --POW 18 --END_ATTR \
+--END_ATTR --END_CMD"
+
+## sarIdx:  for body sar, 2g/5g band 1,2/3
+"--ENABLE 6 --NUM_SPECS 2 \
+--SAR_SPEC \
+--NESTED_AUTO --BAND 0 --POW 26 --END_ATTR \
+--NESTED_AUTO --BAND 1 --POW 23 --END_ATTR \
+--END_ATTR --END_CMD"
+
+## sarIdx:  for body sar, 2g/5g band 4
+"--ENABLE 6 --NUM_SPECS 2 \
+--SAR_SPEC \
+--NESTED_AUTO --BAND 0 --POW 26 --END_ATTR \
+--NESTED_AUTO --BAND 1 --POW 17 --END_ATTR \
+--END_ATTR --END_CMD"
+
+## sarIdx:  for body sar, 2g/gsm/5g band 1,2
+"--ENABLE 6 --NUM_SPECS 2 \
+--SAR_SPEC \
+--NESTED_AUTO --BAND 0 --POW 26 --END_ATTR \
+--NESTED_AUTO --BAND 1 --POW 14 --END_ATTR \
+--END_ATTR --END_CMD"
+
+## sarIdx:  for body sar, 2g/gsm/5g band 3
+"--ENABLE 6 --NUM_SPECS 2 \
+--SAR_SPEC \
+--NESTED_AUTO --BAND 0 --POW 26 --END_ATTR \
+--NESTED_AUTO --BAND 1 --POW 14 --END_ATTR \
+--END_ATTR --END_CMD"
+
+## sarIdx:  for body sar, 2g/gsm/5g band 4
+"--ENABLE 6 --NUM_SPECS 2 \
+--SAR_SPEC \
+--NESTED_AUTO --BAND 0 --POW 26 --END_ATTR \
+--NESTED_AUTO --BAND 1 --POW 8 --END_ATTR \
+--END_ATTR --END_CMD"
+
+## sarIdx:  for body sar, 2g/gsm
+"--ENABLE 6 --NUM_SPECS 1 \
+--SAR_SPEC \
+--NESTED_AUTO --BAND 0 --POW 26 --END_ATTR \
+--END_ATTR --END_CMD"
+
+## sarIdx:  for body sar, gsm/5g 1,2
+"--ENABLE 6 --NUM_SPECS 1 \
+--SAR_SPEC \
+--NESTED_AUTO --BAND 1 --POW 14 --END_ATTR \
+--END_ATTR --END_CMD"
+
+## sarIdx:  for body sar, gsm/5g 3
+"--ENABLE 6 --NUM_SPECS 1 \
+--SAR_SPEC \
+--NESTED_AUTO --BAND 1 --POW 14 --END_ATTR \
+--END_ATTR --END_CMD"
+
+## sarIdx:  for body sar, gsm/5g 4
+"--ENABLE 6 --NUM_SPECS 1 \
+--SAR_SPEC \
+--NESTED_AUTO --BAND 1 --POW 8 --END_ATTR \
+--END_ATTR --END_CMD"
+
+)
+
+# temp static value, should get from sysfs based on STA/SAP on/off status
+# for android O, interface of SAP is softap0
+get_wifi_iface() {
+	echo "wlan0"
+}
+
+build_cmd_header() {
+	iface="$(get_wifi_iface)"
+	echo "-f $SAR_CFG_FILE -i $iface --START_CMD --SAR_SET"
+}
+
+build_cmd_body() {
+	sarIdx="$1"
+	prjVer="$2"
+
+	# disable sar cmd body
+	[ "0" -eq "$sarIdx" ] && echo "$WIFI_SAR_DISABLE_CMD_BODY" && return
+
+	case "$prjVer" in
+		"18397")
+			arraySize=${#WIFI_SAR_SETTING_18397[@]}
+			if [ "$sarIdx" -lt "$arraySize" ]; then
+				echo "${WIFI_SAR_SETTING_18397[$sarIdx]}"
+				return
+			fi
+			;;
+		"19331")
+			arraySize_19331=${#WIFI_SAR_SETTING_19331[@]}
+			if [ "$sarIdx" -lt "$arraySize_19331" ]; then
+				echo "${WIFI_SAR_SETTING_19331[$sarIdx]}"
+				return
+			fi
+			;;
+		*)
+			echo "Project $prjVer not support now!!" > /dev/null
+			;;
+	esac
+
+	# Normally we will never goto here, if process goes wrong, always disable sar.
+	echo "$WIFI_SAR_DISABLE_CMD_BODY"
+}
+
+build_cmd() {
+	cHdr="$(build_cmd_header)"
+	cBody="$(build_cmd_body $1 $2)"
+
+	echo "$cHdr $cBody"
+}
+
+apply_sar() {
+	cmd="$(build_cmd $1 $2)"
+	echo "cmd=$cmd"
+
+	$SAR_EXEC_FILE $cmd
+}
+
+project_version=$(getprop "ro.separate.soft")
+[ -z "$project_version" ] && return
+
+# Note:
+# 1. index of 1-n(n=arraySize-1) is for specific sar setting;
+# 2. index of 0 is for disabling sar.
+sarIdx=$(getprop "oppo.wifi.sar.idx" "0")
+
+apply_sar "$sarIdx" "$project_version"
